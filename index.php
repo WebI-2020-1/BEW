@@ -1,6 +1,5 @@
 <?php
-    require_once('routes/app.php');
-    $routes = new Routes($_GET['url']);
+    require_once('routes/routes.php');
 
     // Função usada para debug
     function debug($param){

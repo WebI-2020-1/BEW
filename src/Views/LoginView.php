@@ -1,6 +1,8 @@
 <?php
     class LoginView{
-        //
+        public function __construct($params){
+        //    debug($params);
+        }
     }
 ?>
 <html>
@@ -13,6 +15,7 @@
 <label>Senha:</label><input type="password" name="senha" id="senha"><br>
 <button type="submit">Entrar</button>
 <a href="/register">Cadastre-se</a>
+<h1><?php print_r($params) ?></h1>
 </form>
 </body>
 </html>
