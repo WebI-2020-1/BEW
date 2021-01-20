@@ -10,6 +10,7 @@ CREATE TABLE Produto (
     unidade VARCHAR(10) NOT NULL,
     quantidade INT DEFAULT 0,
     valorVenda FLOAT(2) DEFAULT 0,
+    desconto FLOAT(2) DEFAULT 0,
     valorCompra FLOAT(2) DEFAULT 0,
     codigoBarras VARCHAR(50),
     idCategoria INT REFERENCES Categoria(id),
@@ -100,7 +101,6 @@ CREATE TABLE ProdutoCompra (
 CREATE TABLE Promocao (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(50) NOT NULL,
-    valorDesconto FLOAT(2) NOT NULL,
     dataInicio DATE NOT NULL,
     dataFim DATE,
     created DATETIME DEFAULT CURRENT_TIMESTAMP(),
@@ -108,6 +108,7 @@ CREATE TABLE Promocao (
 );
 CREATE TABLE ProdutoPromocao (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    valorDesconto FLOAT(2) NOT NULL,
     idProduto INT REFERENCES Produto(id),
     idPromocao INT REFERENCES Promocao(id),
     created DATETIME DEFAULT CURRENT_TIMESTAMP(),
