@@ -26,7 +26,7 @@ CREATE TABLE Funcionario (
     telefone VARCHAR(15),
     dataNascimento DATE,
     usuario VARCHAR(20),
-    senha VARCHAR(20),
+    senha TEXT,
     email VARCHAR(50),
     created DATETIME DEFAULT CURRENT_TIMESTAMP(),
     edited DATETIME
