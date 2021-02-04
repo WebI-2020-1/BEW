@@ -7,6 +7,8 @@
                 require "src/Models/".$class.".php";
             }elseif(file_exists("src/Views/".$class.".php")){
                 require "src/Views/".$class.".php";
+            }elseif(file_exists("src/database/".$class.".php")){
+                require "src/database/".$class.".php";
             }
         }
     );
