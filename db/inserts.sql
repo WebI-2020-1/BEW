@@ -8,8 +8,8 @@ INSERT INTO Produto (nome, unidade, valorVenda, codigoBarras, idCategoria) VALUE
     ('Abelha Orgânica', '10un', 50.00, 'bee50u', 2);
 
 INSERT INTO funcionario (nome, nivelAcesso, cpf, endereco, telefone, dataNascimento, usuario, senha, email) VALUES
-    ('Natasha', 0, '123.456.789-00', 'Rua A', '(12) 34567-8900', '2000-02-18', 'Nat', '123', 'natasha@buonasera.com'),
-    ('Katuxa', 1, '012.345.678-90', 'Rua B', '(01) 23456-7890', '1998-08-02', 'Kat', '456', 'katuxa@buonasera.com');
+    ('Natasha', 0, '123.456.789-00', 'Rua A', '(12) 34567-8900', '2000-02-18', 'Nat', '202cb962ac59075b964b07152d234b70', 'natasha@buonasera.com'),
+    ('Katuxa', 1, '012.345.678-90', 'Rua B', '(01) 23456-7890', '1998-08-02', 'Kat', '250cf8b51c773f3f8dc8b4be867a9a02', 'katuxa@buonasera.com');
 
 INSERT INTO Cliente (nome, cpf, endereco, telefone, dataNascimento) VALUES
     ('Tiago', '555.111.777-22', 'Rua Bonacera', '(77) 4002-8922', '1995-07-24'),
