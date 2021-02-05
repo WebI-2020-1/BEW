@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+:root{
+  --preto: #0D1117;
+  --verde: #19BF72;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: var(--preto);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.blocologin{
+  width: 501px;
+  height: 76px;
+  background: #202327;
+  border-radius: 14px;
+}
+
+.btnEnter{
+  background-color: var(--verde);
+}
+
