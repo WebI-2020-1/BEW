@@ -12,11 +12,31 @@
 }
 
 body{
-  background-color: var(--preto);
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: var(--preto);
+}
+
+.container{
   font-family: 'Roboto', sans-serif;
+  background-color: var(--preto);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#logo{
+  width: 20%;
+  background-color: #0D1117;
+}
+
+#titulo{
+  background-color: var(--preto);
+  color: var(--verde);
+  font-weight: 500;
+  font-size: 100px;
 }
 
 .blocologin{
@@ -28,5 +48,7 @@ body{
 
 .btnEnter{
   background-color: var(--verde);
+  outline: 0;
+  border: 0;
 }
 
