@@ -15,15 +15,18 @@
 
 <body>
   <div class="container">
-    <img src="../../public/img/logoAbelha.png" alt="logo da Abelha" id="logo">
-    <h1 id="titulo">BEW</h1>
-    <form method="POST" action="login/log-into">
-      <i data-feather="user"></i><label>Login:</label>
-      <input type="text" name="login" id="login" class="blocologin"><br>
-      <i data-feather="lock"></i><label>Senha:</label>
-      <input type="password" name="password" id="password" class="blocologin"><br>
-      <button type="submit" class="blocologin btnEnter">Entrar</button><br>
-      <a href="/register">Esqueci minha senha</a> <i data-feather="arrow-right"></i>
+    <!-- <img src="../../public/img/logo2.png" alt="logo da Abelha" id="logo"> -->
+    <form method="POST" action="login/log-into" class="formularioLogin">
+      <div class="inputContainer">
+        <i data-feather="user" class="inputIcon"></i>
+        <input type="text" name="login" id="login" placeholder="Usuário" class="input">
+      </div>
+      <div class="inputContainer">
+        <i data-feather="lock" class="inputIcon"></i>
+        <input type="password" name="password" id="password" placeholder="Senha" class="input">
+      </div>
+      <button type="submit" class="input btnEnter">Entrar</button>
+      <a href="/register" class="esqueciSenha">Esqueci minha senha <i data-feather="arrow-right" id="iconSenha"></i></a>
       <h1>
           <?php
               echo $_SESSION['message'];
