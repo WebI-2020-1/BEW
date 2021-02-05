@@ -13,4 +13,7 @@
         }
         header('Location: '.$location);
     }
+
 ?>
+
+<link rel="stylesheet" href="public/css/global.css">
