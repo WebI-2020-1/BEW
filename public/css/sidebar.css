@@ -1,0 +1,84 @@
+@import "./global.css";
+
+.sidebar-menu {
+  width: 25%;
+  background-color: var(--verde);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar-menu a {
+  display: flex;
+  align-items: center;
+  color: var(--preto);
+  text-decoration: none;
+}
+
+.logo-container {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: right;
+}
+
+.logo-container .menu-toggle {
+  border-bottom: 2px solid transparent;
+  align-self: flex-start;
+}
+
+.logo-container svg:hover {
+  border-bottom: 2px solid var(--preto);
+}
+
+.logo {
+  max-height: 75%;
+  width: 50%;
+  cursor: pointer;
+}
+
+.menu-list {
+  height: 65%;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  list-style: none;
+  font-size: 25px;
+}
+
+.menu-option {
+  border-left: 2px solid transparent;
+}
+
+.menu-option:hover {
+  border-left: 2px solid var(--preto);
+}
+
+.logout {
+  display: flex;
+  align-items: center;
+  height: 10%;
+  font-size: 25px;
+}
+
+.logout a {
+  padding-left: 10px;
+  border-bottom: 2px solid transparent;
+}
+
+.logout a:hover {
+  border-bottom: 2px solid var(--preto);
+}
+
+a svg {
+  margin: 0 10px;
+}
+
+.sidebar-menu.disabled {
+  display: none;
+}
