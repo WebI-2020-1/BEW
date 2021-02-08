@@ -1,3 +1,30 @@
-*{
-    background: #f2f2f2;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+
+:root {
+  --preto: #0d1117;
+  --verde: #19bf72;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--preto);
+  width: 100vw;
+  height: 100vh;
+  font-family: "Roboto", sans-serif;
+}
+
+.menu-toggle {
+  width: 15%;
+  height: 25%;
+  cursor: pointer;
+  margin: 5%;
 }

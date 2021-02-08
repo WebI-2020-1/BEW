@@ -1,0 +1,66 @@
+@import './global.css';
+
+.container{
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  height: 50vh;
+}
+
+#logo{
+  position: absolute;
+  background-color: #0D1117;
+  width: 10%;
+}
+
+.formularioLogin{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 60%;
+  height: 100%;
+}
+
+.inputContainer{
+  width: 100%;
+  position: relative;
+}
+
+.inputIcon{
+  position: absolute;
+  top: 25%;
+  left: 4%;
+  color: #c4c4c4;
+}
+
+.input{
+  width: 100%;
+  height: 60px;
+  margin-bottom: 15px;
+  padding-left: 3rem;
+  background: #202327;
+  border-radius: 10px;
+  border: 0;
+  color: #c4c4c4;
+  font-size: 1.3rem;
+}
+
+.btnEnter{
+  padding: 0;
+  background-color: var(--verde);
+  color: var(--preto);
+}
+
+.esqueciSenha{
+  text-decoration: none;
+  color: var(--verde);
+}
+
+#iconSenha{
+  display: inline-flex;
+  vertical-align:middle;
+}

@@ -1,4 +1,4 @@
-<p align="center" id="sobre"><img src="./logo.png" width="100px"></p>
+<p align="center" id="sobre"><img src="./public/img/logo.png" width="100px"></p>
 
 <h1 align="center">Business Enterprise Webshop</h1>
 
