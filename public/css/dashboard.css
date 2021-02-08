@@ -1,0 +1,66 @@
+@import "./global.css";
+
+main {
+  width: 75%;
+  height: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main.wide {
+  width: 95%;
+}
+
+main .menu-toggle {
+  color: var(--verde);
+  height: 5%;
+  width: auto;
+  align-self: flex-start;
+  justify-self: right;
+  margin: 0;
+}
+
+main .content {
+  height: 87.5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+main .content .logo {
+  height: auto;
+  width: 35%;
+  max-height: 40%;
+}
+
+main .content h1 {
+  color: #fff;
+  font-weight: 400;
+  font-size: 42px;
+}
+
+main .shortcuts {
+  width: 90%;
+  max-width: 70vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10%;
+}
+
+main .shortcuts button {
+  height: 75%;
+  width: 47.5%;
+  color: var(--verde);
+  border: 2px solid var(--verde);
+  background-color: transparent;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1.5vw;
+}
+
+.menu-toggle.disabled {
+  visibility: hidden;
+}
