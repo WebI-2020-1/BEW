@@ -43,12 +43,12 @@
 
 .menu-list {
   height: 65%;
-  width: 70%;
+  width: 75%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   list-style: none;
-  font-size: 25px;
+  font-size: 2vw;
 }
 
 .menu-option {
@@ -63,11 +63,11 @@
   display: flex;
   align-items: center;
   height: 10%;
-  font-size: 25px;
+  font-size: 2vw;
 }
 
 .logout a {
-  padding-left: 10px;
+  padding-left: 0.5vw;
   border-bottom: 2px solid transparent;
 }
 
@@ -76,7 +76,8 @@
 }
 
 a svg {
-  margin: 0 10px;
+  height: 2vw;
+  margin: 0 0.5vw;
 }
 
 .sidebar-menu.disabled {
