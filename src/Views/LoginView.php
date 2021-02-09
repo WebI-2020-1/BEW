@@ -15,8 +15,7 @@
 
 <body>
   <div class="container">
-    <span class="logo"></span>
-    <!--<img src="../../public/img/logo2.svg" alt="logo da Abelha" class="logo">-->
+    <img src="../../public/img/logo.svg" alt="logo da Abelha" class="logo">
     <form method="POST" action="login/log-into" class="formularioLogin">
       <div class="inputContainer">
         <i data-feather="user" class="inputIcon"></i>

@@ -7,20 +7,19 @@
   align-items: center;
   width: 40vw;
   height: 60vh;
-  background: url('../img/logo2.svg') no-repeat;
 }
 
 .logo{
-
+  width: 30%;
 }
 
 .formularioLogin{
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: end;
   flex-direction: column;
   width: 100%;
-  height: 70%;
+  height: 60%;
 }
 
 .inputContainer{
@@ -61,4 +60,16 @@ button.input{
   color: var(--verde);
   display: flex;
   align-items: center;
+}
+
+@media screen and (max-width: 900px){
+  .container{
+    width: 60vw;
+  }
+}
+
+@media screen and (max-width: 600px){
+  .container{
+    width: 100vw;
+  }
 }
