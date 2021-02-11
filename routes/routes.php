@@ -17,11 +17,23 @@
     
     // Rotas de produto
     Route::get('/add/product', 'ProductController@index'); 
+    Route::post('/adding/product', 'ProductController@store'); 
 
     // Rotas de categoria
     Route::get('/add/category', 'CategoryController@index');
     Route::post('/adding/category', 'CategoryController@store'); 
 
+    // Rotas de venda
+    Route::get('/add/client','ClientController@index');
+    Route::post('/adding/client', 'ClientController@store');
 
+    // Rotas de cliente
+    Route::get('/add/sale','SaleController@index');
+    Route::post('/adding/sale', 'SaleController@store');
+
+    //Rotas de funcionário
+    Route::get('/add/employee','EmployeeController@index');
+    Route::post('/adding/employee', 'EmployeeController@store');
+    
     Route::run();
 ?>
