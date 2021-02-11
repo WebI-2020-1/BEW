@@ -9,5 +9,16 @@
 
             $product = new AddProductView($params);
         }
+
+        public function store($params){
+            $product = new ProductModel();
+            $result = $product->create($params);
+
+            if($result){
+                return redirect('/add/product','Produto inserido com sucesso.');
+            }else{
+                return redirect('/add/product','Algo deu errado, tente novamente.');
+            }
+        }
     }
 ?>
