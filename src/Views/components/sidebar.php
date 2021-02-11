@@ -13,7 +13,7 @@
       <a href="#"><i data-feather="shopping-cart"></i> COMPRAS</a>
     </li>
     <li class="menu-option">
-      <a href="#"><i data-feather="package"></i> PRODUTOS</a>
+      <a href="/add/product"><i data-feather="package"></i> PRODUTOS</a>
     </li>
     <li class="menu-option">
       <a href="#"><i data-feather="archive"></i> ESTOQUE</a>
@@ -28,7 +28,7 @@
       <a href="#"><i data-feather="dollar-sign"></i> PROMOÇÕES</a>
     </li>
     <li class="menu-option">
-      <a href="#"><i data-feather="folder"></i> CATEGORIAS</a>
+      <a href="/add/category"><i data-feather="folder"></i> CATEGORIAS</a>
     </li>
     <li class="menu-option">
       <a href="#"><i data-feather="file-text"></i> NOTAS FISCAIS</a>
