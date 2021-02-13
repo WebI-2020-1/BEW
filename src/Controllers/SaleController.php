@@ -4,11 +4,31 @@
     
     class SaleController{
         public function index(){
-            $sale = new AddSaleView();
+            $paymentMethod = new PaymentMethodModel();
+            $params['paymentMethods'] = $paymentMethod->getPaymentMethods();
+            $sale = new AddSaleView($params);
         }
 
-        public function store(){
-            debug('show');
+        public function store($params){
+            $sale = new SaleModel();
+            $params['funcionario'] = $_SESSION['dados_usuario']['id'];
+            $saleResult = $sale->create($params);
+            $productSale = new ProductSaleModel();
+            $resultProductSale = true;
+            foreach($params['produtos'] as $key => $produto){
+                $params['idProduto'] = $produto;
+                $params['idVenda'] = $saleResult['lastInsertedId'];
+                $params['quantidade'] = $params['quantidadeVenda'][$key];
+                if(!$productSale->create($params)){
+                    $resultProductSale = false;
+                }
+            }
+            if($saleResult['success'] && $resultProductSale){
+                return redirect('/add/sale','Venda efetuada com sucesso.');
+            }else{
+                return redirect('/add/sale','Algo deu errado, tente novamente.');
+            }
+
         }
     }
 ?>
