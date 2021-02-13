@@ -12,5 +12,10 @@
 
             return DB::execute($sql);
         }
+        public function getAllClients(){
+            $sql = "SELECT * FROM Cliente;";
+
+            return DB::getAll($sql);
+        }
     }
 ?>

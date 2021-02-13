@@ -24,6 +24,25 @@
             }
 
         }
-        // EMAIL-> /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        public function addSaleClient($params){
+            $client = new ClientModel();
+
+            $cpf_valid = preg_match('/([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})/',$params['cpf']);
+            $param['dataNascimento'] = str_replace('/','-',$params['dataNascimento']);
+
+            if($cpf_valid){
+                $result = $client->create($params);
+
+                if($result){
+                    echo json_encode('Cliente cadastrado com sucesso.');
+                }else{
+                    echo json_encode('Algo deu errado, tente novamente.');
+                }
+            }
+        }
+        public function getAllClients(){
+            $client = new ClientModel();
+            echo json_encode($client->getAllClients());
+        }
     }
 ?>
