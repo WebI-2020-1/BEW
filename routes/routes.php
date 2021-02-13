@@ -5,10 +5,6 @@
     Route::get('/login', 'LoginController@index');
     Route::post('/login/log-into', 'LoginController@store');
 
-    // Rotas de registro
-    Route::get('/register', 'RegisterController@index');
-    Route::post('/register/into', 'RegisterController@store');
-
     // Rotas de dasboard
     Route::get('/dashboard', 'DashboardController@index');
 
@@ -18,6 +14,7 @@
     // Rotas de produto
     Route::get('/add/product', 'ProductController@index'); 
     Route::post('/adding/product', 'ProductController@store'); 
+    Route::post('/getProducts','ProductController@getProducts');
 
     // Rotas de categoria
     Route::get('/add/category', 'CategoryController@index');
@@ -26,6 +23,8 @@
     // Rotas de venda
     Route::get('/add/client','ClientController@index');
     Route::post('/adding/client', 'ClientController@store');
+    Route::post('/adding/sale-client', 'ClientController@addSaleClient');
+    Route::get('/getAllClients', 'ClientController@getAllClients');
 
     // Rotas de cliente
     Route::get('/add/sale','SaleController@index');

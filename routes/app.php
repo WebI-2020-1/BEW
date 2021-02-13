@@ -46,6 +46,9 @@
                 }
 
             }
+            if($url == '/'){
+                return redirect('/login');
+            }
             if($notfound){
                 header("HTTP/1.0 404 Not Found");
                 require_once(__DIR__.'/../src/Views/404.php');
