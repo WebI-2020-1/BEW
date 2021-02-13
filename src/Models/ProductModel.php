@@ -12,5 +12,11 @@
             
             return DB::execute($sql);
         }
+        public function getProducts($params){
+            $itemSearch = addslashes($params['itemSearch']);
+            $sql = "SELECT * FROM Produto WHERE nome like '%{$itemSearch}%'";
+            
+            return DB::getAll($sql);
+        }
     }
 ?>

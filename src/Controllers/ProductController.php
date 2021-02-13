@@ -20,5 +20,9 @@
                 return redirect('/add/product','Algo deu errado, tente novamente.');
             }
         }
+        public function getProducts($params){
+            $products = new ProductModel();
+            echo json_encode($products->getProducts($params));
+        }
     }
 ?>
