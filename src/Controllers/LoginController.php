@@ -6,8 +6,8 @@
             $login = new LoginView($params);
         }
         public function store($params){
-            $login_model = new FuncionarioModel();
-            $result = $login_model->login($params);
+            $employee = new EmployeeModel();
+            $result = $employee->login($params);
 
             if(!empty($result)){
                 $_SESSION['dados_usuario'] = $result;
