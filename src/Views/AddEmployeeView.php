@@ -20,19 +20,19 @@
             <option value="1">1</option>
             <option value="2">2</option>
         </select><br>
-        <label name="cpf">CPF</label>
+        <label for="cpf">CPF</label>
         <input type="text" name="cpf" id="cpf"><br>
-        <label name="">Endereço</label>
+        <label for="endereco">Endereço</label>
         <input type="text" name="endereco" id="endereco"><br>
-        <label name="telefone">Telefone</label>
+        <label for="telefone">Telefone</label>
         <input type="text" name="telefone" id="telefone"><br>
-        <label name="dataNascimento">Data de Nascimento</label>
+        <label for="dataNascimento">Data de Nascimento</label>
         <input type="date" name="dataNascimento" id="dataNascimento"><br>
-        <label name="email">Email</label>
+        <label for="email">Email</label>
         <input type="text" name="email" id="email"><br>
-        <label name="usuario">Usuário</label>
+        <label for="usuario">Usuário</label>
         <input type="text" name="usuario" id="usuario"><br>
-        <label name="senha">Senha</label>
+        <label for="senha">Senha</label>
         <input type="text" name="senha" id="senha"><br>
 
         <button type="submit">Cadastrar</button>
