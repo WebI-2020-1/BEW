@@ -1,6 +1,6 @@
-<link class="menu-option" nk rel="stylesheet" href="/public/css/sidebar.css">
+<link rel="stylesheet" href="/public/css/sidebar.css">
 
-<nav class="sidebar-menu">
+<nav class="sidebar-menu disabled">
   <div class="logo-container">
     <i class="menu-toggle" data-feather="arrow-left"></i>
     <img class="logo" src="/public/img/logo-preto.svg" alt="logo do BEW">
