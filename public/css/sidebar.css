@@ -83,3 +83,33 @@ a svg {
 .sidebar-menu.disabled {
   display: none;
 }
+
+@media screen and (max-width: 900px) {
+  .sidebar-menu {
+    width: 40%;
+  }
+  .menu-list {
+    font-size: 3vw;
+  }
+  .logout {
+    font-size: 3vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .sidebar-menu {
+    width: 75%;
+    position: fixed;
+    left: 0;
+  }
+  .menu-list {
+    font-size: 5vw;
+  }
+  .logout {
+    font-size: 5vw;
+  }
+  a svg {
+  height: 5vw;
+  margin: 0 2.5vw;
+  }
+}
