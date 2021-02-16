@@ -1,48 +1,26 @@
 <?php
-    class AddSaleView{
-        public function __construct($params){
-            echo '<!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Document</title>
-                <style>
-                    .modal {
-                        position: fixed;
-                        top: 0;
-                        right: 0;
-                        bottom: 0;
-                        left: 0;
-                        font-family: Arial, Helvetica, sans-serif;
-                        background: rgba(0,0,0,0.8);
-                        z-index: 99999;
-                        opacity:0;
-                        -webkit-transition: opacity 400ms ease-in;
-                        -moz-transition: opacity 400ms ease-in;
-                        transition: opacity 400ms ease-in;
-                        pointer-events: none;
-                    }
-                    .modal:target {
-                        opacity: 1;
-                        pointer-events: auto;
-                    }
-                    .modal > div {
-                        width: 400px;
-                        position: relative;
-                        margin: 10% auto;
-                        padding: 15px 20px;
-                        background: #fff;
-                        }
-                    *{
-                        color:var(--verde);
-                    }
-                    body form{
-                        display:block !important;
-                    }
-                </style>
-            </head>
-            <body>
+class AddSaleView
+{
+  public function __construct($params)
+  {
+?>
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/sales.css">
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <title>Vendas</title>
+</head>
+
+<body>
+    <?php include "components/Sidebar.php" ?>
+    <main class="wide">
+        <i class="menu-toggle" data-feather="menu"></i>
+        <div class="content">
             <form action="/adding/sale" method="POST">
                 <table>
                     <thead>
@@ -62,7 +40,8 @@
                     <option selected disabled>Selecione uma opção</option>;
                 </select>
                 <a href="#addClient">Adicionar cliente</a>
-                <div>Valor total:<h1 id="valueTotal">0</h1></div>
+                <div>Valor total:<h1 id="valueTotal">0</h1>
+                </div>
                 <div id="addProduct" class="modal">
                     <div>
                         <a href="#close" title="close" class="close">x</a>
@@ -88,16 +67,30 @@
                 </div>
                 <label for="formaPagamento">Forma de pagamento</label>
                 <select name="formaPagamento" id="formaPagamento">
-                    <option selected disabled>Selecione uma opção</option>';
-                    foreach($params['paymentMethods'] as $paymentMethod){
-                        echo "<option value='{$paymentMethod['id']}'>{$paymentMethod['descricao']}</option>";
-                    }
-            echo '</select></br>
-            <button type="submit">Finalizar venda</button><h1>';
-                        echo $_SESSION['message'];
-                        unset($_SESSION['message']);
-            echo '</h1>
-            <script src="../../public/js/addSaleFunctions.js"></script></form></body></html>';
-        }
-    }
-?>
+                    <option selected disabled>Selecione uma opção</option>
+
+                    <?php
+              foreach ($params['paymentMethods'] as $paymentMethod) {
+                echo "<option value='{$paymentMethod[' id']}'>{$paymentMethod['descricao']}</option>";
+              }
+              ?>
+                </select></br>
+                <button type="submit">Finalizar venda</button>
+                <h1>
+                    <?php
+              echo $_SESSION['message'];
+              unset($_SESSION['message']);
+              ?>
+                </h1>
+            </form>
+        </div>
+    </main>
+
+    <script src="/public/js/global.js"></script>
+    <script src="/public/js/addSaleFunctions.js"></script>
+</body>
+
+</html>
+<?php
+  }
+}
