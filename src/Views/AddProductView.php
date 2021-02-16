@@ -4,7 +4,7 @@
         public function __construct($params){
             $categories = $params['categories'];
 
-            echo '
+            ?>
             <!DOCTYPE html>
             <html lang="pt-BR">
             <head>
@@ -24,18 +24,22 @@
                     <input type="text" name="codigoBarras" id="codigo_barras"></br>
                     <label for="categoria">Categoria</label>
                     <select name="categoria" id="categoria">
-                        <option selected disabled>Selecione uma opção</option>';
+                        <option selected disabled>Selecione uma opção</option>'
+                        <?php
                         foreach($categories as $category){
                             echo "<option value='{$category['id']}'>{$category['nome']}</option>";
-                        }
-                    echo '</select></br>
+                        }?>
+                    </select></br>
                     <button type="submit">Cadastrar</button>
                 </form>
-                <h1>';
+                <h1>
+                  <?php
                         echo $_SESSION['message'];
                         unset($_SESSION['message']);
-            echo '</h1>
+                        ?>
+            </h1>
             </body>
             </html>';
+            <?php
         }
     }
