@@ -25,6 +25,11 @@
         public static function execute($sql){
             return self::$db->exec($sql);
         }
+        public static function executeGetLastId($sql){
+            $result['success'] = self::$db->exec($sql);
+            $result['lastInsertedId'] = self::$db->lastInsertId();
+            return $result;
+        }
 
     }
 ?>

@@ -1,19 +1,19 @@
-<link class="menu-option" nk rel="stylesheet" href="/public/css/sidebar.css">
+<link rel="stylesheet" href="/public/css/sidebar.css">
 
-<nav class="sidebar-menu">
+<nav class="sidebar-menu disabled">
   <div class="logo-container">
     <i class="menu-toggle" data-feather="arrow-left"></i>
     <img class="logo" src="/public/img/logo-preto.svg" alt="logo do BEW">
   </div>
   <ul class="menu-list">
     <li class="menu-option">
-      <a href="#"><i data-feather="shopping-bag"></i> VENDAS</a>
+      <a href="/add/sale"><i data-feather="shopping-bag"></i> VENDAS</a>
     </li>
     <li class="menu-option">
       <a href="#"><i data-feather="shopping-cart"></i> COMPRAS</a>
     </li>
     <li class="menu-option">
-      <a href="#"><i data-feather="package"></i> PRODUTOS</a>
+      <a href="/add/product"><i data-feather="package"></i> PRODUTOS</a>
     </li>
     <li class="menu-option">
       <a href="#"><i data-feather="archive"></i> ESTOQUE</a>
@@ -28,7 +28,7 @@
       <a href="#"><i data-feather="dollar-sign"></i> PROMOÇÕES</a>
     </li>
     <li class="menu-option">
-      <a href="#"><i data-feather="folder"></i> CATEGORIAS</a>
+      <a href="/add/category"><i data-feather="folder"></i> CATEGORIAS</a>
     </li>
     <li class="menu-option">
       <a href="#"><i data-feather="file-text"></i> NOTAS FISCAIS</a>

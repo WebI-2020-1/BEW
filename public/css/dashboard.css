@@ -38,7 +38,7 @@ main .content .logo {
 main .content h1 {
   color: #fff;
   font-weight: 400;
-  font-size: 42px;
+  font-size: 4vw;
 }
 
 main .shortcuts {
@@ -63,4 +63,37 @@ main .shortcuts button {
 
 .menu-toggle.disabled {
   visibility: hidden;
+}
+
+@media screen and (max-width: 900px) {
+  main {
+    width: 60%;
+  }
+  main .content h1 {
+    font-size: 5vw;
+    text-align: center;
+  }
+  main .shortcuts {
+    flex-direction: column;
+    height: 25%;
+  }
+  main .shortcuts button {
+    width: 90%;
+    margin-bottom: 5%;
+    font-size: 2.5vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  main {
+    width: 95%;
+  }
+
+  main .content h1 {
+    font-size: 8vw;
+  }
+
+  main .shortcuts button {
+    font-size: 4vw;
+  }
 }
