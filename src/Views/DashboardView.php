@@ -1,10 +1,9 @@
 <?php
 class DashboardView
 {
-  //
-}
+  public function __construct($params)
+  {
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -18,8 +17,7 @@ class DashboardView
 </head>
 
 <body>
-  <?php include "components/sidebar.php" ?>
-
+    <?php include "components/Sidebar.php" ?>
   <main>
     <i class="menu-toggle disabled" data-feather="menu"></i>
     <div class="content">
@@ -37,3 +35,6 @@ class DashboardView
 <script src="/public/js/global.js"></script>
 
 </html>
+<?php
+  }
+}
