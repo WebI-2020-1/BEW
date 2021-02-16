@@ -48,3 +48,19 @@ main .menu-toggle {
   cursor: pointer;
   margin: 5%;
 }
+
+.menu-toggle.disabled {
+  visibility: hidden;
+}
+
+@media screen and (max-width: 900px) {
+  main {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  main {
+    width: 95%;
+  }
+}
