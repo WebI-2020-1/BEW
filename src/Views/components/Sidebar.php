@@ -22,7 +22,7 @@
             <a href="#"><i data-feather="truck"></i> FORNECEDORES</a>
         </li>
         <li class="menu-option">
-            <a href="#"><i data-feather="user"></i> FUNCIONÁRIOS</a>
+            <a href="/add/employee"><i data-feather="user"></i> FUNCIONÁRIOS</a>
         </li>
         <li class="menu-option">
             <a href="#"><i data-feather="dollar-sign"></i> PROMOÇÕES</a>
