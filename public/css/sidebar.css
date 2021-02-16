@@ -47,31 +47,33 @@
 
 .menu-list {
   height: 65%;
-  width: 75%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   list-style: none;
-  font-size: 2vw;
+  font-size: 1.5vw;
 }
 
 .menu-option {
-  border-left: 2px solid transparent;
+  height: 10%;
+  border-left: 0.5vw solid transparent;
+  display: flex;
+  padding-left: 10%;
 }
 
 .menu-option:hover {
-  border-left: 2px solid var(--preto);
+  background-color: rgba(8, 102, 59, 0.47);
 }
 
 .logout {
   display: flex;
   align-items: center;
   height: 10%;
-  font-size: 2vw;
+  font-size: 1.5vw;
 }
 
 .logout a {
-  padding-left: 0.5vw;
+  padding-left: 1vw;
   border-bottom: 2px solid transparent;
 }
 
@@ -80,8 +82,8 @@
 }
 
 a svg {
-  height: 2vw;
-  margin: 0 0.5vw;
+  height: 1.5vw;
+  margin: 0 1vw;
 }
 
 .sidebar-menu.disabled {
