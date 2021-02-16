@@ -13,7 +13,6 @@ class DashboardView
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/public/css/dashboard.css">
-  <script src="/public/js/global.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
   <title>Dashboard</title>
 </head>
@@ -33,10 +32,8 @@ class DashboardView
       </div>
     </div>
   </main>
-
-  <script>
-    feather.replace();
-  </script>
 </body>
+
+<script src="/public/js/global.js"></script>
 
 </html>

@@ -1,3 +1,6 @@
+// método para os ícones
+feather.replace()
+
 // Mostrar/Esconder menu lareral
 document.querySelectorAll('.menu-toggle').forEach(menu => {
   menu.addEventListener('click', () => {
