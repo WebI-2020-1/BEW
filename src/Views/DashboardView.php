@@ -18,7 +18,7 @@ class DashboardView
 </head>
 
 <body>
-  <?php include "components/sidebar.php" ?>
+  <?php include "components/Sidebar.php" ?>
 
   <main class="wide">
     <i class="menu-toggle" data-feather="menu"></i>
