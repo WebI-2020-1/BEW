@@ -13,7 +13,6 @@ class DashboardView
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/public/css/dashboard.css">
-  <script src="/public/js/global.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
   <title>Dashboard</title>
 </head>
@@ -21,8 +20,8 @@ class DashboardView
 <body>
   <?php include "components/sidebar.php" ?>
 
-  <main>
-    <i class="menu-toggle disabled" data-feather="menu"></i>
+  <main class="wide">
+    <i class="menu-toggle" data-feather="menu"></i>
     <div class="content">
       <img class="logo" src="/public/img/logo-branco.svg" alt="logo do BEW">
       <h1>Business Enterprise Webshop</h1>
@@ -33,10 +32,7 @@ class DashboardView
       </div>
     </div>
   </main>
-
-  <script>
-    feather.replace();
-  </script>
+  <script src="/public/js/global.js"></script>
 </body>
 
 </html>

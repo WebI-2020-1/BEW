@@ -22,6 +22,27 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+main {
+  width: 75%;
+  height: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main.wide {
+  width: 95%;
+}
+
+main .menu-toggle {
+  color: var(--verde);
+  height: 5%;
+  width: auto;
+  align-self: flex-start;
+  justify-self: right;
+  margin: 0;
+}
+
 .menu-toggle {
   width: 15%;
   height: 25%;
