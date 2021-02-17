@@ -9,5 +9,19 @@
             
             return DB::execute($sql);
         }        
+        public function getProductsByVendaId($params){
+            $idVenda = addslashes($params['idVenda']);
+            $sql = "SELECT 
+                        pv.*,
+                        p.nome,
+                        pv.valorUnitario
+                    FROM 
+                        ProdutoVenda AS pv
+                    INNER JOIN
+                        Produto AS p on p.id = pv.idProduto
+                    WHERE pv.idVenda = '{$idVenda}'";
+
+            return DB::getAll($sql);
+        }
     }
 ?>

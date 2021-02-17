@@ -30,5 +30,15 @@
             }
 
         }
+        public function show(){
+            $sales = new SaleModel();
+            $params['sales'] = $sales->getAllSales();
+            $sale = new SaleView($params);
+        }
+        public function getProducts($params){
+            $productSale = new ProductSaleModel();
+            
+            echo json_encode($productSale->getProductsByVendaId($params));
+        }
     }
 ?>
