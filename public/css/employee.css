@@ -1,14 +1,53 @@
 @import "./global.css";
 
+#funcionarios{
+  background-color: rgba( 8, 102, 59, 0.47);
+  border-left-color: black;
+}
+
+#funcionarios a{
+  color: #fff;
+}
+
+main header {
+  grid-template-columns: 10% 1fr;
+}
+
+main header h1 {
+  justify-self: center;
+  padding-right: 10vw;
+}
 
 .content{
-  margin: 0;
+  background-color: #494949;
+  border-radius: 10px;
+  width: 70vw;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.3rem;
+  color: #f2f2f2;
 }
 
-h1{
-  color: var(--verde);
-  font-weight: 300;
+.formulario{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 20px;
+  width: 80%;
+}
+
+label{
+  display: flex;
+}
+
+.input{
+  background: #333;
+  border-radius: 7px;
+  border: 0;
+  color: #c4c4c4;
+  font-size: 1.3rem;
+  padding: 0.7rem;
+  margin-bottom: 2%;
+  margin-top: 1%;
 }

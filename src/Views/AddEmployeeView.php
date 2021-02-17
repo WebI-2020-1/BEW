@@ -16,34 +16,52 @@
 <body>
     <?php include "components/Sidebar.php" ?>
     <main class="wide">
-      <head>
+      <header>
           <i class="menu-toggle" data-feather="menu"></i>
           <h1>CADASTRAR FUNCIONÁRIO</h1>
-      </head>
+      </header>
       <div class="content">
-        <form action="/adding/employee" method="POST">
-            <label name="nome">Nome</label>
-            <input type="text" name="nome" id="nome"><br>
-            <label name="nivelAcesso">Nível de Acesso</label>
-            <select name="nivelAcesso" id="nivelAcesso"><br>
+        <form action="/adding/employee" method="POST" class="formulario">
+            <label name="nome">
+              <i data-feather="user"></i>Nome
+            </label>
+            <input type="text" name="nome" class="input">
+            <label name="nivelAcesso">
+              <i data-feather="key"></i>Nível de Acesso
+            </label>
+            <select name="nivelAcesso" class="input">
                 <option value="1">1</option>
                 <option value="2">2</option>
-            </select><br>
-            <label for="cpf">CPF</label>
-            <input type="text" name="cpf" id="cpf"><br>
-            <label for="endereco">Endereço</label>
-            <input type="text" name="endereco" id="endereco"><br>
-            <label for="telefone">Telefone</label>
-            <input type="text" name="telefone" id="telefone"><br>
-            <label for="dataNascimento">Data de Nascimento</label>
-            <input type="date" name="dataNascimento" id="dataNascimento"><br>
-            <label for="email">Email</label>
-            <input type="text" name="email" id="email"><br>
-            <label for="usuario">Usuário</label>
-            <input type="text" name="usuario" id="usuario"><br>
-            <label for="senha">Senha</label>
-            <input type="text" name="senha" id="senha"><br>
-
+            </select>
+            <label for="cpf">
+              <i data-feather="file"></i>CPF
+            </label>
+            <input type="text" name="cpf" class="input">
+            <label for="endereco">
+              <i data-feather="map-pin"></i>Endereço
+            </label>
+            <input type="text" name="endereco" class="input">
+            <label for="telefone">
+            <i data-feather="phone"></i>Telefone
+            </label>
+            <input type="text" name="telefone" class="input">
+            <label for="dataNascimento">
+            <i data-feather="calendar"></i>Data de Nascimento
+            </label>
+            <input type="date" name="dataNascimento" class="input">
+            <label for="email">
+            <i data-feather="mail"></i>Email
+            </label>
+            <input type="text" name="email" class="input">
+            <label for="usuario">
+            <i data-feather="user-plus"></i>Usuário
+            </label>
+            <input type="text" name="usuario" class="input">
+            <label for="senha">
+            <i data-feather="lock"></i>Senha
+            </label>
+            <input type="text" name="senha" class="input"><br>
+            <button>Cancelar</button>
             <button type="submit">Cadastrar</button>
         </form>
         <h1>
