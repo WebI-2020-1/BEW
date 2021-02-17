@@ -21,7 +21,7 @@
         <li class="menu-option">
             <a href="#"><i data-feather="truck"></i> FORNECEDORES</a>
         </li>
-        <li class="menu-option">
+        <li class="menu-option" id="funcionarios">
             <a href="/add/employee"><i data-feather="user"></i> FUNCIONÁRIOS</a>
         </li>
         <li class="menu-option">
