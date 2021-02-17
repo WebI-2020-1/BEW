@@ -15,7 +15,7 @@ main .content .logo {
 }
 
 main .content h1 {
-  color: #fff;
+  color: var(--branco);
   font-weight: 400;
   font-size: 4vw;
 }
@@ -29,7 +29,7 @@ main .shortcuts {
   height: 10%;
 }
 
-main .shortcuts button {
+main .shortcuts a {
   height: 75%;
   width: 47.5%;
   color: var(--verde);
@@ -38,6 +38,9 @@ main .shortcuts button {
   border-radius: 25px;
   cursor: pointer;
   font-size: 1.5vw;
+  text-align: center;
+  text-decoration: none;
+  line-height: 5vh;
 }
 
 @media screen and (max-width: 900px) {
@@ -49,10 +52,11 @@ main .shortcuts button {
     flex-direction: column;
     height: 25%;
   }
-  main .shortcuts button {
+  main .shortcuts a {
     width: 90%;
     margin-bottom: 5%;
-    font-size: 2.5vw;
+    font-size: 3vw;
+    line-height: 7vh;
   }
 }
 
@@ -61,7 +65,7 @@ main .shortcuts button {
     font-size: 8vw;
   }
 
-  main .shortcuts button {
+  main .shortcuts a {
     font-size: 4vw;
   }
 }
