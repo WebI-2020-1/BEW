@@ -1,8 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
 
 :root {
-  --preto: #0d1117;
+  --preto: #0a0e11;
   --verde: #19bf72;
+  --branco: #e4f1eb;
+  --cinza-escuro: #1d2831;
+  --cinza-claro: #304251;
+  --laranja: #f95738;
 }
 
 * {
@@ -23,18 +27,18 @@ body {
 }
 
 main {
-  width: 75%;
-  height: 95%;
+  width: 75vw;
+  height: 95vh;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 main.wide {
-  width: 95%;
+  width: 95vw;
 }
 
-main header{
+main header {
   display: grid;
   height: 5vh;
   width: 100%;
@@ -43,7 +47,7 @@ main header{
 }
 
 main header .menu-toggle {
-  color: var(--verde);
+  color: #fff;
   height: 5vh;
   width: 10vw;
   margin: 0;
@@ -64,14 +68,18 @@ main header h1 {
   visibility: hidden;
 }
 
+main .content {
+  width: 95%;
+}
+
 @media screen and (max-width: 900px) {
   main {
-    width: 60%;
+    width: 60vw;
   }
 }
 
 @media screen and (max-width: 600px) {
   main {
-    width: 95%;
+    width: 95vw;
   }
 }
