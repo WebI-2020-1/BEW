@@ -1,8 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
 
 :root {
   --preto: #0d1117;
   --verde: #19bf72;
+  --branco: #e4f1eb;
+  --cinza-escuro: #262b2d;
+  --cinza-claro: #414748;
+  --laranja: #f95738;
 }
 
 * {
@@ -34,19 +38,30 @@ main.wide {
   width: 95%;
 }
 
-main .menu-toggle {
-  color: var(--verde);
-  height: 5%;
-  width: auto;
-  align-self: flex-start;
-  justify-self: right;
+main header{
+  display: grid;
+  height: 5vh;
+  width: 100%;
+  padding: 0;
   margin: 0;
 }
 
+main header .menu-toggle {
+  color: var(--verde);
+  height: 5vh;
+  width: 10vw;
+  margin: 0;
+  justify-self: flex-start;
+}
+
+main header h1 {
+  color: var(--verde);
+  font-size: 4vh;
+  font-weight: 400;
+}
+
 .menu-toggle {
-  width: 15%;
   cursor: pointer;
-  margin: 5%;
 }
 
 .menu-toggle.disabled {
