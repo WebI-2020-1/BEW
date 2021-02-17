@@ -22,47 +22,71 @@
       </header>
       <div class="content">
         <form action="/adding/employee" method="POST" class="formulario">
-            <label name="nome">
-              <i data-feather="user"></i>Nome
-            </label>
-            <input type="text" name="nome" class="input">
-            <label name="nivelAcesso">
-              <i data-feather="key"></i>Nível de Acesso
-            </label>
-            <select name="nivelAcesso" class="input">
-                <option value="1">1</option>
-                <option value="2">2</option>
-            </select>
-            <label for="cpf">
-              <i data-feather="file"></i>CPF
-            </label>
-            <input type="text" name="cpf" class="input">
-            <label for="endereco">
-              <i data-feather="map-pin"></i>Endereço
-            </label>
-            <input type="text" name="endereco" class="input">
-            <label for="telefone">
-            <i data-feather="phone"></i>Telefone
-            </label>
-            <input type="text" name="telefone" class="input">
-            <label for="dataNascimento">
-            <i data-feather="calendar"></i>Data de Nascimento
-            </label>
-            <input type="date" name="dataNascimento" class="input">
-            <label for="email">
-            <i data-feather="mail"></i>Email
-            </label>
-            <input type="text" name="email" class="input">
-            <label for="usuario">
-            <i data-feather="user-plus"></i>Usuário
-            </label>
-            <input type="text" name="usuario" class="input">
-            <label for="senha">
-            <i data-feather="lock"></i>Senha
-            </label>
-            <input type="text" name="senha" class="input"><br>
-            <button>Cancelar</button>
-            <button type="submit">Cadastrar</button>
+            <div class="itemTodo">
+              <label name="nome">
+                <i data-feather="user" class="icone"></i>Nome
+              </label>
+              <input type="text" name="nome" class="input">
+            </div>
+            <div class="item">
+              <label name="nivelAcesso">
+                <i data-feather="key" class="icone"></i>Nível de Acesso
+              </label>
+              <select name="nivelAcesso" class="input">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+              </select>
+            </div>
+            <div class="item">
+              <label for="cpf">
+                <i data-feather="file" class="icone"></i>CPF
+              </label>
+              <input type="text" name="cpf" class="input">
+            </div>
+            <div class="itemTodo">
+              <label for="endereco">
+                <i data-feather="map-pin" class="icone"></i>Endereço
+              </label>
+              <input type="text" name="endereco" class="input">
+            </div>
+            <div class="item">
+              <label for="telefone">
+              <i data-feather="phone" class="icone"></i>Telefone
+              </label>
+              <input type="text" name="telefone" class="input">
+            </div>
+            <div class="item">
+              <label for="dataNascimento">
+              <i data-feather="calendar" class="icone"></i>Data de Nascimento
+              </label>
+              <input type="date" name="dataNascimento" class="input">
+            </div>
+            <div class="itemTodo">
+              <label for="email">
+              <i data-feather="mail" class="icone"></i>Email
+              </label>
+              <input type="text" name="email" class="input">
+            </div>
+            <div class="item">
+              <label for="usuario">
+              <i data-feather="user-plus" class="icone"></i>Usuário
+              </label>
+              <input type="text" name="usuario" class="input">
+            </div>
+            <div class="item">
+              <label for="senha">
+              <i data-feather="lock" class="icone"></i>Senha
+              </label>
+              <input type="text" name="senha" class="input"><br>
+            </div>
+
+            <button class="botao btnCancelar">
+              CANCELAR <i data-feather="x" class="btnIcone"></i>
+              </button>
+            <button type="submit" class="botao btnCadastrar">
+              CADASTRAR <i data-feather="check" class="btnIcone"></i>
+            </button>
+
         </form>
         <h1>
             <?php
