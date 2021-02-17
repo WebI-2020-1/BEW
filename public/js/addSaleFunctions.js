@@ -11,7 +11,7 @@ function getProducs() {
       }
     }
   };
-  xhttp.open("POST", "http://bew.com/getProducts", true);
+  xhttp.open("POST", host+"/getProducts", true);
   xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   xhttp.send('itemSearch=' + itemSearch);
 }
@@ -58,7 +58,7 @@ function addClient() {
       document.getElementById('resultClient').innerHTML = result;
     }
   };
-  xhttp.open("POST", "http://bew.com/adding/sale-client", true);
+  xhttp.open("POST", host+"/adding/sale-client", true);
   xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   xhttp.send('nome=' + nomeClient + '&cpf=' + cpfClient + '&endereco=' + enderecoClient + '&telefone=' + telefoneClient + '&dataNascimento=' + dataNascimentoClient);
   mountClients();
@@ -84,7 +84,7 @@ function mountClients() {
       }
     }
   };
-  xhttp.open("GET", "http://bew.com/getAllClients", true);
+  xhttp.open("GET", host+"/getAllClients", true);
   xhttp.send();
 }
 mountClients();

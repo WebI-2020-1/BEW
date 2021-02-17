@@ -3,6 +3,7 @@ class AddSaleView
 {
     public function __construct($params)
     {
+        $env = parse_ini_file('env.ini')['HOST'];
 ?>
         <!DOCTYPE html>
         <html lang="pt-br">
@@ -14,6 +15,9 @@ class AddSaleView
             <link rel="stylesheet" href="/public/css/sales.css">
             <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
             <title>Vendas</title>
+            <script>
+                const host = '<?php echo $env; ?>';
+            </script>
         </head>
 
         <body>

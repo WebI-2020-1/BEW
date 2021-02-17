@@ -10,5 +10,19 @@
 
             return DB::executeGetLastId($sql);
         }
+        public function getAllSales(){
+            $sql = "SELECT 
+                        v.id AS idVenda,
+                        v.quantidade AS quantidade,
+                        v.valorTotal AS valor,
+                        c.nome AS nomeCliente,
+                        fp.descricao AS formaPagamento,
+                        v.created AS dataVenda
+                    FROM Venda AS v 
+                    INNER JOIN Cliente AS c ON c.id = v.idCliente
+                    INNER JOIN FormaPagamento AS fp ON fp.id = v.idFormaPagamento;";
+
+            return DB::getAll($sql);   
+        }
     }
 ?>
