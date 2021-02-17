@@ -80,10 +80,10 @@
               <input type="text" name="senha" class="input"><br>
             </div>
 
-            <button class="botao btnCancelar">
+            <button class="botao btnCancelar item">
               CANCELAR <i data-feather="x" class="btnIcone"></i>
               </button>
-            <button type="submit" class="botao btnCadastrar">
+            <button type="submit" class="botao btnCadastrar item">
               CADASTRAR <i data-feather="check" class="btnIcone"></i>
             </button>
 

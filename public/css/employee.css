@@ -87,3 +87,17 @@ label{
 .btnIcone{
   margin-left: 5px;
 }
+
+@media screen and (max-width: 900px){
+  .item{
+    grid-column: 1 / span 2;
+  }
+
+  .btnCadastrar{
+    margin-top: 4%;
+  }
+
+  .content{
+    margin-top: 60px;
+  }
+}
