@@ -4,13 +4,17 @@
 
 <p align="justify">Business Enterprise Webshop (BEW) é um sistema de gerenciamento de vendas desenvolvido para a matéria de Laboratório de Programação Web I.</p>
 
-![LICENSE](https://img.shields.io/badge/MIT-19BF72?style=flat-square&label=License&Color=white&labelColor=0D1117)
- 
+![LICENSE](https://img.shields.io/badge/MIT-19BF72?style=flat-square&label=License&Color=white&labelColor=0D1117) 
+![REPO SIZE](https://img.shields.io/github/repo-size/projetoscms/bew?color=19BF72&label=Repo%20Size&style=flat-square&labelColor=0D1117) 
+![LAST COMMIT](https://img.shields.io/github/last-commit/projetoscms/bew?color=19BF72&label=Last%20Commit&style=flat-square&labelColor=0D1117) 
+![STATUS](https://img.shields.io/badge/Development-19BF72?style=flat-square&label=Status&Color=white&labelColor=0D1117)
 
 <p align="center">
   <a href="#sobre">Sobre</a> •
   <a href="#tecnologias">Tecnologias</a> • 
   <a href="#licenca">Licença</a> • 
+  <a href="#layout">Layout</a> •
+  <a href="#funcionalidades">Funcionalidades</a> •
   <a href="#autores">Autores</a>
 </p>
 
@@ -30,6 +34,38 @@ As seguintes ferramentas estão sendo utilizadas na construção do projeto:
 <p  align="justify">
 Este projeto está sob licença do MIT que permite a qualquer pessoa que obtém uma cópia do software e seus arquivos de documentação associados poder lidar com eles sem restrição ou limitação aos direitos de uso. As condições impostas são de apenas manter o aviso de copyright e uma cópia da <a href="https://github.com/ProjetosCMS/BEW/blob/main/LICENSE">licença</a> em todas as reproduções do software.
 </p>
+
+<h2 id="layout">Layout</h2>
+
+- Login
+
+![Login](./layouts/Login%20-%20Bew%20-%20Desktop.png)
+
+- Dashboard
+
+![Dashboard](./layouts/Dashboard%20Menu%20open-%20Bew%20-%20Desktop.png)
+
+Acesse o layout completo no [Figma](https://www.figma.com/file/VLJiXLRJlLLLioYwbZtI95/BEW?node-id=0%3A1) (ainda em construção).
+
+<h2 id="funcionalidades">Funcionalidades</h2>
+
+- [X] Login
+- [X] Dashboard
+- [ ] Gerenciamento de clientes
+- [ ] Gerenciamento de vendas
+- [ ] Gerenciamento de compras
+- [ ] Gerenciamento de produtos
+- [ ] Gerenciamento de estoque
+- [ ] Gerenciamento de fornecedores
+- [X] Cadastro de funcionários
+- [ ] Consulta edição e remoção de funcionários
+- [ ] Gerenciamento de promoções
+- [ ] Gerenciamento de categorias dos produtos
+- [ ] Gerenciamento de relatórios
+
+<h3>Visualizar versão de produção</h3>
+
+Em breve... 
 
 <h2 id="autores">Autores</h2>
 
