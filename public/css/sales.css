@@ -21,26 +21,66 @@ main .content form {
   flex-direction: column;
 }
 
-form .botao-adicionar-produto {
-  align-self: flex-end;
+form .buttons-modal {
   display: flex;
-  width: 12vw;
-  text-decoration: none;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-start;
+  height: 3vw;
+}
+
+.abrir-modal {
+  display: flex;
   color: var(--branco);
   background-color: var(--cinza-claro);
   font-size: 1vw;
-  border-radius: 5px;
+  border-radius: 6px;
+  border: none;
   height: 2vw;
   align-items: center;
   justify-content: center;
+  margin: 0 5px;
 }
 
-form .botao-adicionar-produto svg {
-  margin: unset;
+form .abrir-modal svg {
   height: 1vw;
 }
 
-div.tabela-vendas {
+.abrir-modal.produtos,
+.abrir-modal.clientes {
+  width: 15%;
+}
+
+.abrir-modal.pagamentos {
+  width: 20%;
+}
+
+.abrir-modal .modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 1;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.modal.disabled {
+  display: none;
+  opacity: 0;
+}
+
+.modal > div {
+  width: 400px;
+  position: relative;
+  margin: 10% auto;
+  padding: 15px 20px;
+  background: var(--branco);
+}
+
+div.tabela-produtos {
   width: 100%;
   height: 60vh;
   background-color: var(--cinza-claro);
@@ -49,7 +89,7 @@ div.tabela-vendas {
   border-radius: 6px;
 }
 
-form table {
+.tabela-produtos > table {
   width: 100%;
   max-height: 100%;
   color: var(--branco);
@@ -57,47 +97,47 @@ form table {
   border-spacing: 1;
 }
 
-thead th {
+.tabela-produtos thead th {
   background-color: var(--cinza-escuro);
   font-weight: 400;
   height: 5vh;
   width: 12%;
 }
 
-thead th:nth-child(2) {
+.tabela-produtos thead th:nth-child(2) {
   text-align: left;
   width: 30%;
   padding-left: 5px;
 }
 
-.cabecalho-tabela th {
+.topo-tabela th {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
 
-tbody {
+.tabela-produtos tbody {
   overflow-y: scroll;
 }
 
-tbody tr {
+.tabela-produtos tbody tr {
   border-bottom-color: var(--branco);
   border-bottom-style: groove;
   border-bottom-width: 1px;
 }
 
-tbody td {
+.tabela-produtos tbody td {
   font-weight: 400;
   height: 6vh;
   text-align: center;
 }
 
-tbody td:nth-child(2) {
+.tabela-produtos tbody td:nth-child(2) {
   text-align: left;
   width: 30%;
   padding-left: 5px;
 }
 
-tbody td input {
+.tabela-produtos tbody td input {
   width: 70%;
   border-radius: 5px;
   border: none;
@@ -108,7 +148,7 @@ tbody td input {
   padding-right: 5px;
 }
 
-tbody td button {
+.tabela-produtos tbody td button {
   height: auto;
   width: auto;
   background-color: var(--cinza-escuro);
@@ -116,9 +156,10 @@ tbody td button {
   border-radius: 5px;
 }
 
-tbody td button img {
+.tabela-produtos tbody td button svg {
   height: 20px;
   padding: 2px;
+  color: var(--branco);
 }
 
 input::-webkit-outer-spin-button,
@@ -132,61 +173,82 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-.bottom-container {
-  display: flex;
-  justify-content: space-between;
+.info {
+  display: grid;
+  grid-template-columns: 1fr 20% 30%;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "cliente total botoes"
+    "pagamento total botoes";
+  column-gap: 25px;
+  row-gap: 5px;
   width: 100%;
   height: 12vh;
-  background-color: rebeccapurple;
+  margin: 1vh 0;
 }
 
-.select {
+.info h2 {
+  background-color: var(--cinza-escuro);
+  padding: 5px 20px;
+  border-radius: 6px;
+  font-size: 3vh;
+  font-weight: 400;
+  min-width: 25%;
 }
 
+.info span {
+  font-size: 3vh;
+  font-weight: 300;
+  padding: 5px 20px;
+}
+
+.cliente,
+.pagamento,
 .total {
-}
-
-.buttons {
   display: flex;
-  height: 6vh;
-  background-color: royalblue;
-  margin-top: 5vh;
-}
-
-#vendas {
-  background-color: #08663b80;
-  border-left-color: var(--preto);
-}
-
-#vendas a {
   color: var(--branco);
+  background-color: var(--cinza-claro);
+  border-radius: 6px;
 }
 
-.modal {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: rgba(0, 0, 0, 0.8);
-  z-index: 99999;
-  opacity: 0;
-  -webkit-transition: opacity 400ms ease-in;
-  -moz-transition: opacity 400ms ease-in;
-  transition: opacity 400ms ease-in;
-  pointer-events: none;
+.cliente {
+  grid-area: cliente;
+}
+.pagamento {
+  grid-area: pagamento;
+}
+.total {
+  grid-area: total;
+  flex-direction: column;
+  text-align: center;
+}
+.botoes {
+  grid-area: botoes;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.modal:target {
-  opacity: 1;
-  pointer-events: auto;
+.botoes button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3vh;
+  border: none;
+  border-radius: 6px;
+  height: 45%;
 }
 
-.modal > div {
-  width: 400px;
-  position: relative;
-  margin: 10% auto;
-  padding: 15px 20px;
-  background: var(--branco);
+.botoes button:nth-child(1) {
+  color: var(--branco);
+  background-color: var(--cinza-escuro);
+}
+
+.botoes button:nth-child(2) {
+  color: var(--preto);
+  background-color: var(--verde);
+}
+
+.botoes svg {
+  margin-left: 10px;
 }
