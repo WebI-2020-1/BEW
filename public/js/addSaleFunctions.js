@@ -21,10 +21,10 @@ function addProduct(product) {
     products.insertAdjacentHTML('beforeend', `<tr id="product_` + product.id + `">
             <td>`+ product.id + `<input type="hidden" name="produtos[]" value=` + product.id + `></td>
             <td>`+ product.nome + `</td>
-            <td><input type="number" name="quantidadeVenda[]" id="quantidadeVenda_`+ product.id + `" onkeyup="calcTotal(` + product.id + `,` + product.valorVenda + `)"></td>
-            <td>`+ product.valorVenda + `</td>
+            <td><input type="number" name="quantidadeVenda[]" id="quantidadeVenda_`+ product.id + `" onkeyup="calcTotal(` + product.id + `,` + product.valorVenda + `)" placeholder="0"></td>
+            <td>`+ parseFloat(product.valorVenda).toFixed(2) + `</td>
             <td class="total" id="total_`+ product.id + `">0</td>
-            <td><button type="button" onclick="removeProduct(`+ product.id + `)">Remover</button></td>
+            <td><button type="button" onclick="removeProduct(`+ product.id + `)"><img src="../img/trash.svg"></button></td>
             </tr>`);
   } else {
     alert('Item ja adicionado.');
@@ -40,7 +40,7 @@ function removeProduct(productId) {
 function calcTotal(productId, productValue) {
   var quantidade = document.getElementById("quantidadeVenda_" + productId).value;
   var total = quantidade * productValue;
-  document.getElementById('total_' + productId).innerHTML = total;
+  document.getElementById('total_' + productId).innerHTML = parseFloat(total).toFixed(2);
   mountTotal();
 }
 function addClient() {
@@ -69,7 +69,7 @@ function mountTotal() {
   total.forEach((e) => {
     valueTotal += parseFloat(document.getElementById(e.id).textContent);
   });
-  document.getElementById('valueTotal').innerHTML = valueTotal;
+  document.getElementById('valueTotal').innerHTML = parseFloat(valueTotal).toFixed(2);
 }
 function mountClients() {
   document.getElementById("cliente").innerHTML = '<option selected disabled>Selecione uma opção</option>;';
