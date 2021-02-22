@@ -27,6 +27,7 @@ class AddSaleView
                     <i class="menu-toggle" data-feather="menu"></i>
                     <h1>CADASTRAR VENDA</h1>
                 </header>
+
                 <div class="content">
                     <form action="/adding/sale" method="POST">
                         <a href="#addProduct" class="botao-adicionar-produto">ADICIONAR ITEM<i data-feather="plus"></i></a>
@@ -38,58 +39,64 @@ class AddSaleView
                                 <table id="list"></table>
                             </div>
                         </div>
-                        <table>
-                            <thead>
-                                <tr class="cabecalho-tabela">
-                                    <th colspan="6">LISTA DE PRODUTOS</th>
-                                </tr>
-                                <tr class="cabecalho-tabela">
-                                    <th>N° item</th>
-                                    <th>Nome</th>
-                                    <th>Quantidade</th>
-                                    <th>Valor Unitario</th>
-                                    <th>Total</th>
-                                    <th>Remover</th>
-                                </tr>
-                            </thead>
-                            <tbody id="products">
-                            </tbody>
-                        </table>
-                        <div class="select">
-                            <select name="formaPagamento" id="formaPagamento">
-                                <option selected disabled>Selecione a forma de pagamento</option>
+                        <div class="tabela-vendas">
+                            <table>
+                                <thead>
+                                    <tr class="cabecalho-tabela">
+                                        <th colspan="6">LISTA DE PRODUTOS</th>
+                                    </tr>
+                                    <tr>
+                                        <th>N° item</th>
+                                        <th>Nome</th>
+                                        <th>Quantidade</th>
+                                        <th>Valor Unitario</th>
+                                        <th>Total</th>
+                                        <th>Remover</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="products">
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="bottom-container">
+                            <div class="select">
+                                <select name="formaPagamento" id="formaPagamento">
+                                    <option selected disabled>Selecione a forma de pagamento</option>
 
-                                <?php
-                                foreach ($params['paymentMethods'] as $paymentMethod) {
-                                    echo "<option value='{$paymentMethod[' id']}'>{$paymentMethod['descricao']}</option>";
-                                }
-                                ?>
-                            </select>
-                            <select name="cliente" id="cliente">
-                                <option selected disabled>Selecione um cliente</option>;
-                            </select>
-                            <a href="#addClient">Adicionar cliente</a>
-                            <div id="addClient" class="modal">
-                                <a href="#close" title="close" class="close">x</a>
-                                <label for="nome">Nome</label>
-                                <input type="text" id="nomeClient"><br>
-                                <label for="cpf">CPF</label>
-                                <input type="text" id="cpfClient"><br>
-                                <label for="endereco">Endereço</label>
-                                <input type="text" id="enderecoClient"><br>
-                                <label for="telefone">Telefone</label>
-                                <input type="text" id="telefoneClient"><br>
-                                <label for="dataNascimento">Data de nascimento</label>
-                                <input type="date" id="dataNascimentoClient"><br>
-                                <button onclick="addClient()">Cadastrar</button>
-                                <h1 id="resultClient"></h1>
+                                    <?php
+                                    foreach ($params['paymentMethods'] as $paymentMethod) {
+                                        echo "<option value='{$paymentMethod[' id']}'>{$paymentMethod['descricao']}</option>";
+                                    }
+                                    ?>
+                                </select>
+                                <select name="cliente" id="cliente">
+                                    <option selected disabled>Selecione um cliente</option>;
+                                </select>
+                                <a href="#addClient">Adicionar cliente</a>
+                                <div id="addClient" class="modal">
+                                    <a href="#close" title="close" class="close">x</a>
+                                    <label for="nome">Nome</label>
+                                    <input type="text" id="nomeClient"><br>
+                                    <label for="cpf">CPF</label>
+                                    <input type="text" id="cpfClient"><br>
+                                    <label for="endereco">Endereço</label>
+                                    <input type="text" id="enderecoClient"><br>
+                                    <label for="telefone">Telefone</label>
+                                    <input type="text" id="telefoneClient"><br>
+                                    <label for="dataNascimento">Data de nascimento</label>
+                                    <input type="date" id="dataNascimentoClient"><br>
+                                    <button onclick="addClient()">Cadastrar</button>
+                                    <h1 id="resultClient"></h1>
+                                </div>
+                            </div>
+
+                            <div class="total">Valor total:<h1 id="valueTotal">0</h1>
                             </div>
                         </div>
-
-                        <div>Valor total:<h1 id="valueTotal">0</h1>
+                        <div class="buttons">
+                            <button type="button">CANCELAR VENDA</button>
+                            <button type="submit">FINALIZAR VENDA</button>
                         </div>
-                        <button type="button">CANCELAR VENDA</button>
-                        <button type="submit">FINALIZAR VENDA</button>
                         <h1>
                             <?php
                             echo $_SESSION['message'];

@@ -40,23 +40,117 @@ form .botao-adicionar-produto svg {
   height: 1vw;
 }
 
-form table {
+div.tabela-vendas {
   width: 100%;
   height: 60vh;
-  margin-top: 1vh;
-  color: var(--branco);
-  border-collapse: collapse;
+  background-color: var(--cinza-claro);
+  margin: 1vh 0;
+  border: none;
+  border-radius: 6px;
 }
 
-form table th {
+form table {
+  width: 100%;
+  max-height: 100%;
+  color: var(--branco);
+  border-collapse: collapse;
+  border-spacing: 1;
+}
+
+thead th {
   background-color: var(--cinza-escuro);
   font-weight: 400;
   height: 5vh;
+  width: 12%;
 }
 
-form table tbody {
-  background-color: var(--cinza-claro);
-  height: 50vh;
+thead th:nth-child(2) {
+  text-align: left;
+  width: 30%;
+  padding-left: 5px;
+}
+
+.cabecalho-tabela th {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+tbody {
+  overflow-y: scroll;
+}
+
+tbody tr {
+  border-bottom-color: var(--branco);
+  border-bottom-style: groove;
+  border-bottom-width: 1px;
+}
+
+tbody td {
+  font-weight: 400;
+  height: 6vh;
+  text-align: center;
+}
+
+tbody td:nth-child(2) {
+  text-align: left;
+  width: 30%;
+  padding-left: 5px;
+}
+
+tbody td input {
+  width: 70%;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--cinza-escuro);
+  height: 55%;
+  color: var(--branco);
+  text-align: right;
+  padding-right: 5px;
+}
+
+tbody td button {
+  height: auto;
+  width: auto;
+  background-color: var(--cinza-escuro);
+  border: none;
+  border-radius: 5px;
+}
+
+tbody td button img {
+  height: 20px;
+  padding: 2px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.bottom-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 12vh;
+  background-color: rebeccapurple;
+}
+
+.select {
+}
+
+.total {
+}
+
+.buttons {
+  display: flex;
+  height: 6vh;
+  background-color: royalblue;
+  margin-top: 5vh;
 }
 
 #vendas {
