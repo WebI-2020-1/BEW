@@ -1,5 +1,14 @@
 @import "./global.css";
 
+#vendas {
+  background-color: rgba(8, 102, 59, 0.47);
+  border-left-color: black;
+}
+
+#vendas a {
+  color: #fff;
+}
+
 main header {
   grid-template-columns: 10% 1fr;
 }
@@ -40,31 +49,30 @@ form .buttons-modal {
   align-items: center;
   justify-content: center;
   margin: 0 5px;
+  width: 15%;
 }
 
 form .abrir-modal svg {
   height: 1vw;
 }
 
-.abrir-modal.produtos,
-.abrir-modal.clientes {
-  width: 15%;
-}
-
-.abrir-modal.pagamentos {
-  width: 20%;
-}
-
-.abrir-modal .modal {
+.modal {
   position: fixed;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: rgba(0, 0, 0, 0.8);
+  z-index: 1;
+  background: #0006;
   opacity: 1;
-  transition: opacity 0.4s ease-in-out;
+  transition: all 2s ease-in;
+}
+
+.modal div {
+  background-color: var(--cinza-claro);
+  width: 50%;
+  height: 50%;
+  margin: 12.5% 25%;
 }
 
 .modal.disabled {
@@ -72,15 +80,7 @@ form .abrir-modal svg {
   opacity: 0;
 }
 
-.modal > div {
-  width: 400px;
-  position: relative;
-  margin: 10% auto;
-  padding: 15px 20px;
-  background: var(--branco);
-}
-
-div.tabela-produtos {
+.tabela-produtos {
   width: 100%;
   height: 60vh;
   background-color: var(--cinza-claro);
@@ -89,7 +89,7 @@ div.tabela-produtos {
   border-radius: 6px;
 }
 
-.tabela-produtos > table {
+.tabela-produtos table {
   width: 100%;
   max-height: 100%;
   color: var(--branco);

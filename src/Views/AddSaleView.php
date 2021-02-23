@@ -14,6 +14,7 @@ class AddSaleView
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="/public/css/sales.css">
             <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+            <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
             <title>Vendas</title>
             <script>
                 const host = '<?php echo $env; ?>';
@@ -25,24 +26,106 @@ class AddSaleView
             <main class="wide">
                 <header>
                     <i class="menu-toggle" data-feather="menu"></i>
-                    <h1>CADASTRAR VENDA</h1>
+                    <h1>EFETUAR VENDA</h1>
                 </header>
 
+                <!-- novo conteúdo -->
                 <div class="content">
                     <form action="/adding/sale" method="POST">
-                        <a href="#addProduct" class="botao-adicionar-produto">ADICIONAR ITEM<i data-feather="plus"></i></a>
-                        <div id="addProduct" class="modal">
+
+                        <div class="buttons-modal">
+                            <button type="button" class="abrir-modal">PRODUTOS<i data-feather="plus"></i></button>
+                            <button type="button" class="abrir-modal">PAGAMENTO<i data-feather="dollar-sign"></i></button>
+                            <button type="button" class="abrir-modal">CLIENTE<i data-feather="user"></i></button>
+                        </div>
+
+
+                        <div class="modal produtos disabled">
                             <div>
-                                <a href="#close" title="close" class="close">x</a>
-                                <h2>ADICIONAR ITEM</h2>
-                                <input type="text" id="getProducts" onkeyup="getProducs()">
-                                <table id="list"></table>
+                                <button type="button" class="fechar-modal">
+                                    <i data-feather="x"></i>
+                                </button>
+                                <label for="product-search">Buscar Produto</label>
+                                <input type="text" name="product-search" placeholder="Digite o nome do produto">
+                                <table class="lista produtos">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="5">PRODUTOS</th>
+                                        </tr>
+                                        <tr>
+                                            <th>Código</th>
+                                            <th>Nome</th>
+                                            <th>Quantidade</th>
+                                            <th>Valor Unitario</th>
+                                            <th>Selecionar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
                             </div>
                         </div>
-                        <div class="tabela-vendas">
+
+                        <div class="modal pagamentos disabled">
+                            <div>
+                                <button type="button" class="fechar-modal">
+                                    <i data-feather="x"></i>
+                                </button>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th colspan="3">FORMAS DE PAGAMENTO</th>
+                                        </tr>
+                                        <tr>
+                                            <th>Código</th>
+                                            <th>Tipo</th>
+                                            <th>Selecionar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        foreach ($params['paymentMethods'] as $paymentMethod) {
+                                            echo "
+                                            <tr>
+                                                <td>{$paymentMethod['id']}</td>
+                                                <td>{$paymentMethod['descricao']}</td>
+                                                <td><button type='button' onclick='selecionarPagamento({$paymentMethod['id']}, \"{$paymentMethod['descricao']}\")'>SELECIONAR</button></td>
+                                            </tr>
+                                            ";
+                                        }
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="modal clientes disabled">
+                            <div>
+                                <button type="button" class="fechar-modal">
+                                    <i data-feather="x"></i>
+                                </button>
+
+                                <label for="product-search">Buscar Cliente</label>
+                                <input type="text" name="customer-search" placeholder="Digite o nome do cliente">
+                                <table class="lista clientes">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="3">CLIENTES</th>
+                                        </tr>
+                                        <tr>
+                                            <th>Código</th>
+                                            <th>Nome</th>
+                                            <th>Selecionar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="tabela-produtos">
                             <table>
                                 <thead>
-                                    <tr class="cabecalho-tabela">
+                                    <tr class="topo-tabela">
                                         <th colspan="6">LISTA DE PRODUTOS</th>
                                     </tr>
                                     <tr>
@@ -54,49 +137,38 @@ class AddSaleView
                                         <th>Remover</th>
                                     </tr>
                                 </thead>
-                                <tbody id="products">
-                                </tbody>
+                                <tbody></tbody>
                             </table>
                         </div>
-                        <div class="bottom-container">
-                            <div class="select">
-                                <select name="formaPagamento" id="formaPagamento">
-                                    <option selected disabled>Selecione a forma de pagamento</option>
 
-                                    <?php
-                                    foreach ($params['paymentMethods'] as $paymentMethod) {
-                                        echo "<option value='{$paymentMethod[' id']}'>{$paymentMethod['descricao']}</option>";
-                                    }
-                                    ?>
-                                </select>
-                                <select name="cliente" id="cliente">
-                                    <option selected disabled>Selecione um cliente</option>;
-                                </select>
-                                <a href="#addClient">Adicionar cliente</a>
-                                <div id="addClient" class="modal">
-                                    <a href="#close" title="close" class="close">x</a>
-                                    <label for="nome">Nome</label>
-                                    <input type="text" id="nomeClient"><br>
-                                    <label for="cpf">CPF</label>
-                                    <input type="text" id="cpfClient"><br>
-                                    <label for="endereco">Endereço</label>
-                                    <input type="text" id="enderecoClient"><br>
-                                    <label for="telefone">Telefone</label>
-                                    <input type="text" id="telefoneClient"><br>
-                                    <label for="dataNascimento">Data de nascimento</label>
-                                    <input type="date" id="dataNascimentoClient"><br>
-                                    <button onclick="addClient()">Cadastrar</button>
-                                    <h1 id="resultClient"></h1>
-                                </div>
+                        <div class="info">
+                            <div class="cliente">
+                                <h2>Cliente</h2>
+                                <span>
+                                    Mateus Gomes
+                                </span>
                             </div>
 
-                            <div class="total">Valor total:<h1 id="valueTotal">0</h1>
+                            <div class="pagamento">
+                                <h2>Pagamento</h2>
+                                <span>
+                                    Dinheiro
+                                </span>
+                            </div>
+
+                            <div class="total">
+                                <h2>Total</h2>
+                                <span>R$ 0.00</span>
+                            </div>
+
+                            <div class="botoes">
+                                <button type="button">CANCELAR <i data-feather="x"></i></button>
+                                <button type="submit">FINALIZAR <i data-feather="check"></i></button>
                             </div>
                         </div>
-                        <div class="buttons">
-                            <button type="button">CANCELAR VENDA</button>
-                            <button type="submit">FINALIZAR VENDA</button>
-                        </div>
+
+
+
                         <h1>
                             <?php
                             echo $_SESSION['message'];
