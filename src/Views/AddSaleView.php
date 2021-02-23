@@ -12,7 +12,7 @@ class AddSaleView
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="/public/css/sales.css">
+            <link rel="stylesheet" href="/public/css/addSales.css">
             <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
             <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
             <title>Vendas</title>
@@ -34,9 +34,9 @@ class AddSaleView
                     <form action="/adding/sale" method="POST">
 
                         <div class="buttons-modal">
-                            <button type="button" class="abrir-modal">PRODUTOS<i data-feather="plus"></i></button>
-                            <button type="button" class="abrir-modal">PAGAMENTO<i data-feather="dollar-sign"></i></button>
-                            <button type="button" class="abrir-modal">CLIENTE<i data-feather="user"></i></button>
+                            <button type="button" class="abrir-modal">Adicionar Produto<i data-feather="plus"></i></button>
+                            <button type="button" class="abrir-modal">Forma de Pagamento<i data-feather="dollar-sign"></i></button>
+                            <button type="button" class="abrir-modal">Selecionar Cliente<i data-feather="user"></i></button>
                         </div>
 
 
@@ -46,7 +46,7 @@ class AddSaleView
                                     <i data-feather="x"></i>
                                 </button>
                                 <label for="product-search">Buscar Produto</label>
-                                <input type="text" name="product-search" placeholder="Digite o nome do produto">
+                                <input type="text" name="product-search" placeholder="Digite o nome do produto" onkeyup="filtrarProduto(this.value)">
                                 <table class="lista produtos">
                                     <thead>
                                         <tr>
@@ -145,15 +145,13 @@ class AddSaleView
                             <div class="cliente">
                                 <h2>Cliente</h2>
                                 <span>
-                                    Mateus Gomes
+                                    <input name="cliente" required style="opacity: 0; width: 0; pointer-events: none;">
                                 </span>
                             </div>
 
                             <div class="pagamento">
                                 <h2>Pagamento</h2>
-                                <span>
-                                    Dinheiro
-                                </span>
+                                <span><input name="pagamento" required style="opacity: 0; width: 0; pointer-events: none;"></span>
                             </div>
 
                             <div class="total">

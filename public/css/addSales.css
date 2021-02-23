@@ -49,7 +49,7 @@ form .buttons-modal {
   align-items: center;
   justify-content: center;
   margin: 0 5px;
-  width: 15%;
+  width: 20%;
 }
 
 form .abrir-modal svg {
@@ -63,16 +63,15 @@ form .abrir-modal svg {
   right: 0;
   bottom: 0;
   z-index: 1;
-  background: #0006;
-  opacity: 1;
-  transition: all 2s ease-in;
+  background: #0008;
 }
 
 .modal div {
-  background-color: var(--cinza-claro);
+  background-color: var(--preto);
   width: 50%;
   height: 50%;
   margin: 12.5% 25%;
+  border-radius: 6px;
 }
 
 .modal.disabled {
@@ -82,11 +81,12 @@ form .abrir-modal svg {
 
 .tabela-produtos {
   width: 100%;
-  height: 60vh;
+  height: 65vh;
   background-color: var(--cinza-claro);
   margin: 1vh 0;
   border: none;
   border-radius: 6px;
+  text-align: center;
 }
 
 .tabela-produtos table {
@@ -156,10 +156,14 @@ form .abrir-modal svg {
   border-radius: 5px;
 }
 
+button:active {
+  opacity: 0.8;
+}
+
 .tabela-produtos tbody td button svg {
   height: 20px;
   padding: 2px;
-  color: var(--branco);
+  color: var(--laranja);
 }
 
 input::-webkit-outer-spin-button,
