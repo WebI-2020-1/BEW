@@ -11,23 +11,23 @@ const toggleModalPagamentos = () =>
 const toggleModalClientes = () =>
   document.querySelector(".modal.clientes").classList.toggle("disabled");
 
-// aducionando evento de abrir modal
+// adicionando evento de abrir modal + listar
 abrirModalElements[0].addEventListener("click", () => { toggleModalProdutos(); listarProdutos(); });
 abrirModalElements[1].addEventListener("click", toggleModalPagamentos);
 abrirModalElements[2].addEventListener("click", () => { toggleModalClientes(); listarClientes(); });
 
-// adicionando evento de fechar modal
+// adicionando evento de fechar modal + limpar
 fecharModalElements[0].addEventListener("click", () => { toggleModalProdutos(); limparProdutos(); });
 fecharModalElements[1].addEventListener("click", toggleModalPagamentos);
 fecharModalElements[2].addEventListener("click", () => { toggleModalClientes(); limparClientes(); });
 
 /* --------------- CLIENTES -------------- */
-const modalClientesInput = document.querySelector(".modal.clientes input");
 const modalClientesLista = document.querySelector(".lista.clientes tbody");
+
 
 const listarClientes = () => {
   axios
-      .get(host + "/getAllClients")
+      .get(`${host}/getAllClients`)
       .then((response) => {
         const clientes = response.data;
         clientes.forEach((cliente) => {
@@ -56,6 +56,7 @@ const selecionarCliente = (id, nome) => {
   clienteSpan.innerHTML = `${nome} <input type="hidden" name="cliente" value="${id}">`;
   toggleModalClientes();
 };
+
 /*
 modalClientesInput.addEventListener('keyup', () => {
   const itemSearch = modalClientesInput.value;
@@ -113,10 +114,8 @@ const modalProdutosLista = document.querySelector(".lista.produtos tbody");
 const listarProdutos = () => {
   axios
     .post(
-      host + "/getProducts",
-      {
-        itemSearch: "",
-      },
+      `${host}/getProducts`,
+      ("itemSearch="),
       {
         headers: {
           "Content-type": "application/x-www-form-urlencoded",
@@ -156,7 +155,7 @@ const selecionarProduto = (id, nome, quantidade, valorVenda) => {
       `<tr id="product_${id}">
         <td>${id} <input type="hidden" name="produtos[]" value="${id}"></td>
         <td>${nome}</td>
-        <td><input type="number" name="quantidadeVenda[]" min="1" max="${quantidade}" placeholder="0" onkeyup="calcularTotalProduto(${valorVenda}, this.value, ${id})"></td>
+        <td><input type="number" name="quantidadeVenda[]" min="1" max="${quantidade}" placeholder="0" onkeyup="calcularTotalProduto(${valorVenda}, this.value, ${id})" required></td>
         <td>${valorVenda.toFixed(2)}</td>
         <td class="total-produto">0</td>
         <td><button type="button" onclick="removerProduto(${id})">${feather.icons.trash.toSvg()}</button></td>
@@ -187,6 +186,37 @@ const removerProduto = (id) => {
   const produto = document.getElementById('product_' + id);
   produtosTabela.removeChild(produto);
   calcularTotalVenda();
+}
+
+const filtrarProduto = (value) => {
+  axios
+    .post(
+      `${host}/getProducts`,
+      (`itemSearch=${value}`),
+      {
+        headers: {
+          "Content-type": "application/x-www-form-urlencoded",
+        },
+      }
+    )
+    .then((response) => {
+      limparProdutos();
+      const produtos = response.data;
+      produtos.forEach((produto) => {
+        const { id, nome, quantidade, valorVenda } = produto;
+        modalProdutosLista.insertAdjacentHTML(
+          "beforeend",
+          `<tr>
+          <td>${id}</td>
+          <td>${nome}</td>
+          <td>${quantidade}</td>
+          <td>${valorVenda}</td>
+          <td><button type="button" onclick="selecionarProduto(${id}, '${nome}', ${quantidade}, ${valorVenda})">Selecionar</button></td>
+        </tr>`
+        );
+      });
+    })
+    .catch((err) => console.log(err));
 }
 
 /*
