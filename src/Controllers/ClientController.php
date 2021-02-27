@@ -44,5 +44,11 @@
             $client = new ClientModel();
             echo json_encode($client->getAllClients());
         }
+
+        public function show(){
+            $client = new ClientModel();
+            $params['clients'] = $client->getAllClients();
+            $client = new ClientView($params);
+        }
     }
 ?>
