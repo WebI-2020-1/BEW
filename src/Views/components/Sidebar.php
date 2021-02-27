@@ -7,7 +7,7 @@
     </div>
     <ul class="menu-list">
         <li class="menu-option" id="vendas">
-            <a href="/add/sale"><i data-feather="shopping-bag"></i> VENDAS</a>
+            <a href="/sale"><i data-feather="shopping-bag"></i> VENDAS</a>
         </li>
         <li class="menu-option">
             <a href="#"><i data-feather="shopping-cart"></i> COMPRAS</a>
