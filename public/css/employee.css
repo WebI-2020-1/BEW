@@ -29,9 +29,8 @@ main header h1 {
   color: var(--branco);
 }
 
-.formulario{
+main .content form {
   display: grid;
-  /*justify-content: center; */
   grid-column-gap: 3%;
   grid-template-columns: auto auto;
   margin: 20px;
