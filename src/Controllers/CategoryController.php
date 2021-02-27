@@ -16,5 +16,11 @@
                 return redirect('/add/category','Aconteceu um erro, tente novamente mais tarde.');
             }
         }
+        
+        public function show(){
+            $category = new CategoryModel();
+            $params['categories'] = $category->getAllCategories();
+            $category = new CategoryView($params);
+        }
     }
 ?>
