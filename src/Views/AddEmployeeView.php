@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de funcionários</title>
-    <link rel="stylesheet" href="../../public/css/employee.css">
+    <link rel="stylesheet" href="/public/css/employee.css">
 </head>
   <script src="https://unpkg.com/feather-icons"></script>
 <body>
@@ -21,7 +21,7 @@
           <h1>CADASTRAR FUNCIONÁRIO</h1>
       </header>
       <div class="content">
-        <form action="/adding/employee" method="POST" class="formulario">
+        <form action="/adding/employee" method="POST">
             <div class="itemTodo">
               <label name="nome">
                 <i data-feather="user" class="icone"></i>Nome
