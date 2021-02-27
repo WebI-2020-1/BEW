@@ -20,6 +20,13 @@
                 return redirect('/add/product','Algo deu errado, tente novamente.');
             }
         }
+        
+        public function show(){
+            $product = new ProductModel();
+            $params['products'] = $product->getAllProducts();
+            $product = new ProductView($params);
+        }
+
         public function getProducts($params){
             $products = new ProductModel();
             echo json_encode($products->getProducts($params));

@@ -18,5 +18,10 @@
             
             return DB::getAll($sql);
         }
+        public function getAllProducts(){
+            $sql = "SELECT * FROM  Produto;";
+
+            return DB::getAll($sql);
+        }
     }
 ?>
