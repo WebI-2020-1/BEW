@@ -26,5 +26,11 @@
 
             return DB::execute($sql);
         }
+
+        public function getAllEmployees(){
+            $sql = "SELECT * FROM Funcionario;";
+
+            return DB::getAll($sql);
+        }
     }
 ?>

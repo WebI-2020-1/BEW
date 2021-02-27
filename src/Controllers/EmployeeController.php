@@ -16,6 +16,12 @@
                 return redirect('/add/employee', 'Algo deu errado, tente novamente');
             }
         }
+
+        public function show(){
+            $employee = new EmployeeModel();
+            $params['employees'] = $employee->getAllEmployees();
+            $employee = new EmployeeView($params);
+        }
     }
 
 ?>
