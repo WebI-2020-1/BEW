@@ -7,34 +7,34 @@
     </div>
     <ul class="menu-list">
         <li class="menu-option" id="vendas">
-            <a href="/add/sale"><i data-feather="shopping-bag"></i> VENDAS</a>
+            <a href="/sale"><i data-feather="shopping-bag"></i> VENDAS</a>
         </li>
         <li class="menu-option">
-            <a href="#"><i data-feather="shopping-cart"></i> COMPRAS</a>
+            <a href="/purchase"><i data-feather="shopping-cart"></i> COMPRAS</a>
         </li>
         <li class="menu-option" id="produtos">
-            <a href="/add/product"><i data-feather="package"></i> PRODUTOS</a>
+            <a href="/product"><i data-feather="package"></i> PRODUTOS</a>
         </li>
         <li class="menu-option">
-            <a href="#"><i data-feather="archive"></i> ESTOQUE</a>
+            <a href="/inventory"><i data-feather="archive"></i> ESTOQUE</a>
         </li>
         <li class="menu-option">
-            <a href="#"><i data-feather="truck"></i> FORNECEDORES</a>
+            <a href="/provider"><i data-feather="truck"></i> FORNECEDORES</a>
         </li>
         <li class="menu-option" id="funcionarios">
-            <a href="/add/employee"><i data-feather="user"></i> FUNCIONÁRIOS</a>
+            <a href="/employee"><i data-feather="user"></i> FUNCIONÁRIOS</a>
+        </li>
+        <li class="menu-option" id="clientes">
+            <a href="/client"><i data-feather="users"></i> CLIENTES</a>
         </li>
         <li class="menu-option">
-            <a href="#"><i data-feather="dollar-sign"></i> PROMOÇÕES</a>
+            <a href="/promotion"><i data-feather="dollar-sign"></i> PROMOÇÕES</a>
         </li>
         <li class="menu-option" id="categorias">
-            <a href="/add/category"><i data-feather="folder"></i> CATEGORIAS</a>
+            <a href="/category"><i data-feather="folder"></i> CATEGORIAS</a>
         </li>
         <li class="menu-option">
-            <a href="#"><i data-feather="file-text"></i> NOTAS FISCAIS</a>
-        </li>
-        <li class="menu-option">
-            <a href="#"><i data-feather="layers"></i> RELATÓRIOS</a>
+            <a href="/reports"><i data-feather="layers"></i> RELATÓRIOS</a>
         </li>
     </ul>
 

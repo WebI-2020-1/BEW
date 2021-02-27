@@ -28,7 +28,7 @@ class DashboardView
                     <br>
                     <div class="shortcuts">
                         <a href="/add/sale">Efetuar venda</a>
-                        <a>Efetuar compra</a>
+                        <a href="/add/purchase">Efetuar compra</a>
                     </div>
                 </div>
             </main>
