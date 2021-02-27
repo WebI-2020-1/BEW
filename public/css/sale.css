@@ -28,10 +28,70 @@ main header .header-conteudo {
   border-radius: 5px;
   height: 80%;
   padding-left: 1%;
+  margin-right: 1.5%;
 }
 
-body{
-  color: #fff;
+.pesquisar{
+  display: flex;
+  justify-content: center;
+  height: 80%;
+  border-radius: 5px;
+  background-color: var(--cinza-escuro);
+}
+
+.pesquisar input{
+  background-color: var(--cinza-escuro);
+  border: 0;
+  color: var(--branco);
+  font-size: 1rem;
+  padding-left: 2%;
+  border-radius: 5px;
+}
+
+.pesquisar button{
+  background-color: var(--cinza-escuro);
+  border: 0;
+  color: var(--branco);
+  padding: 0 5px;
+  border-radius: 5px;
+}
+
+.botoesDireito{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 50%;
+}
+
+.tabela-vendas{
+  width: 100%;
+  max-width: 100%;
+  color: var(--branco);
+  margin-top: 2%;
+  border-collapse: collapse;
+  border-spacing: 1;
+  text-align: center;
+}
+
+.tabela-vendas thead tr{
+  font-weight: 400;
+  height: 5vh;
+  width: 12%;
+}
+
+.tabela-vendas tbody{
+  overflow-y: scroll;
+}
+
+.tabela-vendas tbody tr{
+  border-radius: 5px;
+}
+
+.tabela-vendas tbody td{
+  font-weight: 400;
+  height: 6vh;
+  text-align: center;
+  background-color: var(--cinza-escuro);
 }
 
 .modal {

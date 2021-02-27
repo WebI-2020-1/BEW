@@ -22,9 +22,9 @@
                     <i class="menu-toggle" data-feather="menu"></i>
                     <div class="header-conteudo">
                         <h1>CONSULTAR VENDA</h1>
-                        <div>
-                            <a href="/add/sale" class="btnAddVenda">Adicionar venda <i data-feather="plus"></i></a>
-                            <form action="">
+                        <div class="botoesDireito">
+                            <a href="/add/sale" class="btnAddVenda">Adicionar venda<i data-feather="plus"></i></a>
+                            <form action="" class="pesquisar">
                                 <input type="search" name="pesquisar" id="" placeholder="Pesquisar na tabela">
                                 <button type="submit"><i data-feather="search"></i></button>
                             </form>
@@ -32,7 +32,7 @@
                     </div>
                 </header>
                 <div class="content">
-                    <table>
+                    <table class="tabela-vendas">
                         <thead>
                             <tr>
                                 <td>ID</td>
@@ -53,7 +53,7 @@
                                     <td><?php echo $sale['nomeCliente']; ?></td>
                                     <td><?php echo $sale['formaPagamento']; ?></td>
                                     <td><?php echo $sale['dataVenda']; ?></td>
-                                    <td><a href="#modal_<?php echo $sale['idVenda']; ?>">Visualizar</a></td>
+                                    <td><a href="#modal_<?php echo $sale['idVenda']; ?>"><i data-feather="search"></i></a></td>
                                 </tr>
                                 <div id="modal_<?php echo $sale['idVenda']; ?>" class="modal">
                                     <div>
