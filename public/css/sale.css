@@ -1,0 +1,64 @@
+@import './global.css';
+
+#vendas{
+  background-color: rgba( 8, 102, 59, 0.47);
+  border-left-color: black;
+}
+
+#vendas a{
+  color: #fff;
+}
+
+main header {
+  grid-template-columns: 10% 1fr;
+}
+
+main header .header-conteudo {
+  display: flex;
+  padding-right: 5vw;
+  justify-content: space-between;
+}
+
+.btnAddVenda{
+  background-color: var(--verde);
+  text-decoration: none;
+  color: var(--preto);
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  height: 80%;
+  padding-left: 1%;
+}
+
+body{
+  color: #fff;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 99999;
+  opacity: 0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  pointer-events: none;
+}
+
+.modal:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal>div {
+  width: 400px;
+  position: relative;
+  margin: 10% auto;
+  padding: 15px 20px;
+  background: #fff;
+}
