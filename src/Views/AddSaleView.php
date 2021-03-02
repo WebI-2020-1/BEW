@@ -31,7 +31,7 @@ class AddSaleView
 
                 <!-- novo conteúdo -->
                 <div class="content">
-                    <form action="/adding/sale" method="POST">
+                    <form action="/adding/sale" method="POST" id="formSale">
 
                         <div class="buttons-modal">
                             <button type="button" class="abrir-modal">Adicionar Produto<i data-feather="plus"></i></button>
@@ -105,7 +105,7 @@ class AddSaleView
                                 </button>
 
                                 <label for="product-search">Buscar Cliente</label>
-                                <input type="text" name="customer-search" placeholder="Digite o nome do cliente">
+                                <input type="text" name="customer-search" placeholder="Digite o nome do cliente" onkeyup="filtrarCliente(this.value)">
                                 <table class="lista clientes">
                                     <thead>
                                         <tr>
@@ -161,7 +161,7 @@ class AddSaleView
 
                             <div class="botoes">
                                 <button type="button">CANCELAR <i data-feather="x"></i></button>
-                                <button type="submit">FINALIZAR <i data-feather="check"></i></button>
+                                <button type="submit" class="submit">FINALIZAR <i data-feather="check"></i></button>
                             </div>
                         </div>
 

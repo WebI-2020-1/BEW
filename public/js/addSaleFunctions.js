@@ -57,6 +57,34 @@ const selecionarCliente = (id, nome) => {
   toggleModalClientes();
 };
 
+const filtrarCliente = (value) => {
+  axios
+    .post(
+      `${host}/getClient`,
+      (`itemSearch=${value}`),
+      {
+        headers: {
+          "Content-type": "application/x-www-form-urlencoded",
+        },
+      }
+    )
+    .then((response) => {
+      limparClientes();
+      const cliente = response.data;
+      cliente.forEach((cliente) => {
+        modalClientesLista.insertAdjacentHTML(
+          "beforeend",
+          `<tr>
+          <td>${cliente.id}</td>
+          <td>${cliente.nome}</td>
+          <td><button type="button" onclick="selecionarCliente(${cliente.id}, '${cliente.nome}')">Selecionar</button></td>
+        </tr>`
+        );
+      });
+    })
+    .catch((err) => console.log(err));
+}
+
 /*
 modalClientesInput.addEventListener('keyup', () => {
   const itemSearch = modalClientesInput.value;
@@ -103,7 +131,7 @@ function addClient() {
 /* --------------- PAGAMENTO --------------- */
 const selecionarPagamento = (id, descricao) => {
   const pagamentoSpan = document.querySelector(".info .pagamento span");
-  pagamentoSpan.innerHTML = `${descricao} <input type="hidden" name="pagamento" value="${id}">`;
+  pagamentoSpan.innerHTML = `${descricao} <input type="hidden" name="formaPagamento" value="${id}">`;
   toggleModalPagamentos();
 };
 
@@ -255,3 +283,7 @@ function addProduct(product) {
   mountTotal();
 }
 */
+
+document.querySelector('.submit').addEventListener('click', () => {
+  document.getElementById('formSale').submit();
+})
