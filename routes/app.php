@@ -9,7 +9,7 @@
                 'controller' => explode('@',$controller)[0],
                 'function' => explode('@',$controller)[1],
                 'method' => $method,
-                'params' => $_GET
+                'params' => $_REQUEST
             ));
         }
         public static function post($route, $controller, $method = 'POST'){
