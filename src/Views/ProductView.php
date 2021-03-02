@@ -38,11 +38,20 @@
                                 <td><?php echo $product['valorCompra']; ?></td>
                                 <td><?php echo $product['valorVenda']; ?></td>
                                 <td><?php echo $product['codigoBarras']; ?></td>
-                                <td>Deletar/Editar</td>
+                                <td>
+                                    <a href="/edit/product&id=<?php echo $product['id']; ?>">Editar</a>
+                                    <a href="/delete/product&id=<?php echo $product['id']; ?>">Deletar</a>
+                                </td>
                             </tr>
                         <?php } ?>
                     </tbody>
                 </table>
+                <h1>
+                    <?php
+                        echo $_SESSION['message'];
+                        unset($_SESSION['message']);
+                    ?>
+                </h1>
             </body>
             </html>
         <?php }

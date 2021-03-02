@@ -14,7 +14,7 @@
     <form action="/adding/category" method="POST">
         <label for="nome">Nome da categoria</label>
         <input type="text" name="nome" id="nome" required></br>
-        <button type="submit">Entrar</button>
+        <button type="submit">Cadastrar</button>
     </form>
     <h1>
         <?php 

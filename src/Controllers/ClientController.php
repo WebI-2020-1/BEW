@@ -45,10 +45,43 @@
             echo json_encode($client->getAllClients());
         }
 
+        public function getClient($params){
+            $client = new ClientModel();
+            echo json_encode($client->getClient($params));
+        }
+
         public function show(){
             $client = new ClientModel();
             $params['clients'] = $client->getAllClients();
             $client = new ClientView($params);
+        }
+
+        public function edit($params){
+            $client = new ClientModel();
+            $params['client'] = $client->getClientById($params);
+            $client = new EditClientView($params);
+        }
+
+        public function update($params){
+            $client = new ClientModel();
+            $result = $client->update($params);
+
+            if($result){
+                return redirect('/client','Cliente atualizado com sucesso.');
+            }else{
+                return redirect('/client','Algo deu errado, tente novamente.');
+            }
+        }
+
+        public function delete($params){
+            $client = new ClientModel();
+            $result = $client->delete($params);
+
+            if($result){
+                return redirect('/client','Cliente deletado com sucesso.');
+            }else{
+                return redirect('/client','Algo deu errado, tente novamente.');
+            }
         }
     }
 ?>

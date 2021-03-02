@@ -42,11 +42,20 @@
                                 <td><?php echo $employee['email']; ?></td>
                                 <td><?php echo $employee['dataNascimento']; ?></td>
                                 <td><?php echo $employee['usuario']; ?></td>
-                                <td>Deletar/Editar</td>
+                                <td>
+                                    <a href="/edit/employee&id=<?php echo $employee['id']; ?>">Editar</a>
+                                    <a href="/delete/employee&id=<?php echo $employee['id']; ?>">Deletar</a>
+                                </td>
                             </tr>
                         <?php } ?>
                     </tbody>
                 </table>
+                <h1>
+                    <?php 
+                        echo $_SESSION['message']; 
+                        unset($_SESSION['message']);
+                    ?>
+                </h1>
             </body>
             </html>
         <?php }

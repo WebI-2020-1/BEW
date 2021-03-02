@@ -36,11 +36,21 @@
                                 <td><?php echo $provider['endereco']; ?></td>
                                 <td><?php echo $provider['telefone']; ?></td>
                                 <td><?php echo $provider['email']; ?></td>
-                                <td>Deletar/Editar</td>
+                                <td>
+                                    <a href="/edit/provider&id=<?php echo $provider['id']; ?>">Editar</a>
+                                    <a href="/delete/provider&id=<?php echo $provider['id']; ?>">Deletar</a>
+                                </td>
+                                
                             </tr>
                         <?php } ?>
                     </tbody>
                 </table>
+                <h1>
+                    <?php 
+                        echo $_SESSION['message']; 
+                        unset($_SESSION['message']);
+                    ?>
+                </h1>
             </body>
             </html>  
         <?php }

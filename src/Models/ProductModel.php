@@ -23,5 +23,31 @@
 
             return DB::getAll($sql);
         }
+        public function getProductById($params){
+            $id = addslashes($params['id']);
+            $sql = "SELECT * FROM Produto WHERE id = '{$id}'";
+
+            return DB::getFirst($sql);
+        }
+        public function update($params){
+            $id = addslashes($params['productId']);
+            $nome = addslashes($params['nome']);
+            $unidade = addslashes($params['unidade']);
+            $valorVenda = addslashes($params['valorVenda']);
+            $codigoBarras = addslashes($params['codigoBarras']);
+            $categoria = addslashes($params['categoria']);
+
+            $sql = "UPDATE Produto SET nome = '{$nome}', unidade = '{$unidade}', valorVenda = '{$valorVenda}', codigoBarras = '{$codigoBarras}', idCategoria = '{$categoria}' WHERE id = '{$id}'";
+            
+            return DB::execute($sql);
+        }
+
+        public function delete($params){
+            $id = addslashes($params['id']);
+
+            $sql = "DELETE FROM Produto WHERE id = '{$id}'";
+
+            return DB::execute($sql);
+        }
     }
 ?>

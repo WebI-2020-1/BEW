@@ -23,5 +23,32 @@
             $params['providers'] = $provider->getAllProviders();
             $providerView = new ProviderView($params);
         }
+
+        public function edit($params){
+            $provider = new ProviderModel();
+            $params['provider'] = $provider->getProviderById($params);            
+            $provider = new EditProviderView($params);
+        }
+
+        public function update($params){
+            $provider = new ProviderModel();
+            $result = $provider->update($params);
+
+            if($result){
+                return redirect('/provider', 'Fornecedor atualizado com sucesso');
+            }else{
+                return redirect('/provider', 'Algo deu errado, tente novamente');
+            }
+        }
+        public function delete($params){
+            $provider = new ProviderModel();
+            $result = $provider->delete($params);
+
+            if($result){
+                return redirect('/provider', 'Fornecedor deletado com sucesso');
+            }else{
+                return redirect('/provider', 'Algo deu errado, tente novamente');
+            }
+        }
     }
 ?>

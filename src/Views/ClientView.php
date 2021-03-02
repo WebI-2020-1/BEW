@@ -36,11 +36,20 @@
                                 <td><?php echo $client['endereco']; ?></td>
                                 <td><?php echo $client['telefone']; ?></td>
                                 <td><?php echo $client['dataNascimento']; ?></td>
-                                <td>Deletar/Editar</td>
+                                <td>
+                                    <a href="/edit/client&id=<?php echo $client['id']; ?>">Editar</a>
+                                    <a href="/delete/client&id=<?php echo $client['id']; ?>">Deletar</a>
+                                </td>
                             </tr>
                         <?php } ?>
                     </tbody>
                 </table>
+                <h1>
+                    <?php 
+                        echo $_SESSION['message']; 
+                        unset($_SESSION['message']);
+                    ?>
+                </h1>
             </body>
             </html>
         <?php }

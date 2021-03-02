@@ -28,11 +28,20 @@
                             <tr>
                                 <td><?php echo $category['id']; ?></td>
                                 <td><?php echo $category['nome']; ?></td>
-                                <td>Deletar/Editar</td>
+                                <td>
+                                    <a href="/edit/category&id=<?php echo $category['id']; ?>">Editar</a>
+                                    <a href="/delete/category&id=<?php echo $category['id']; ?>">Deletar</a>
+                                </td>
                             </tr>
                         <?php } ?>
                     </tbody>
                 </table>
+                <h1>
+                    <?php 
+                        echo $_SESSION['message']; 
+                        unset($_SESSION['message']);
+                    ?>
+                </h1>
             </body>
             </html>
         <?php }
