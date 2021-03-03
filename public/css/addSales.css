@@ -23,6 +23,10 @@ main .content {
   margin-top: 1%;
 }
 
+button {
+  cursor: pointer;
+}
+
 main .content form {
   height: 100%;
   width: 100%;
@@ -66,12 +70,103 @@ form .abrir-modal svg {
   background: #0008;
 }
 
-.modal div {
+.modal div:nth-child(1) {
   background-color: var(--preto);
   width: 50%;
   height: 50%;
   margin: 12.5% 25%;
   border-radius: 6px;
+  padding: 2%;
+  display: grid;
+  grid-template-columns: repeat(5, 20%);
+  grid-template-rows: 5vh 5vh 1fr;
+  row-gap: 15px;
+  color: var(--branco);
+}
+
+.modal.produtos div:nth-child(1) {
+  width: 75%;
+  height: 75%;
+  margin: 6.25% 12.5%;
+}
+
+.modal div button {
+  grid-area: fechar;
+  width: 25%;
+  border: none;
+  border-radius: 6px;
+  color: var(--laranja);
+  background-color: var(--cinza-escuro);
+  margin-left: 75%;
+}
+
+.modal div label {
+  grid-area: texto;
+  width: 95%;
+  text-align: center;
+  border-radius: 6px;
+  padding: 2%;
+  background-color: var(--cinza-escuro);
+  color: var(--branco);
+}
+
+.modal div label svg {
+  height: 60%;
+  margin-top: 3%;
+}
+
+.modal div input {
+  grid-area: buscar;
+  background-color: var(--cinza-escuro);
+  color: var(--branco);
+  border-radius: 6px;
+  border:none;
+  padding: 2%;
+}
+
+.modal div .table {
+  grid-area: tabela;
+  background-color: var(--cinza-claro);
+  border-radius: 6px;
+}
+
+.modal div {
+grid-template-areas:
+  '.      .      .      .      fechar'
+  '.      texto  buscar buscar .'
+  'tabela tabela tabela tabela tabela';
+}
+
+.modal.pagamentos div {
+  grid-template-areas:
+  '.      .      .      .      fechar'
+  'tabela tabela tabela tabela tabela'
+  'tabela tabela tabela tabela tabela';
+}
+
+.modal thead th, .modal tbody td {
+  padding-left: 5%;
+  width: auto;
+  text-align: center;
+}
+
+.modal.clientes thead th:nth-child(2), .modal.clientes tbody td:nth-child(2) {
+  width: 60%;
+  text-align: left;
+}
+
+.modal.produtos thead th:nth-child(2), .modal.produtos tbody td:nth-child(2) {
+  width: 40%;
+  text-align: left;
+}
+
+.modal tbody button {
+  width: 25%;
+  margin-left: unset;
+}
+
+.modal tbody button svg {
+    color: var(--verde);
 }
 
 .modal.disabled {
@@ -89,7 +184,7 @@ form .abrir-modal svg {
   text-align: center;
 }
 
-.tabela-produtos table {
+ table {
   width: 100%;
   max-height: 100%;
   color: var(--branco);
@@ -97,7 +192,7 @@ form .abrir-modal svg {
   border-spacing: 1;
 }
 
-.tabela-produtos thead th {
+ thead th {
   background-color: var(--cinza-escuro);
   font-weight: 400;
   height: 5vh;
@@ -113,19 +208,21 @@ form .abrir-modal svg {
 .topo-tabela th {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  text-align: center;
 }
 
-.tabela-produtos tbody {
+tbody {
   overflow-y: scroll;
+  width: 100%;
 }
 
-.tabela-produtos tbody tr {
+ tbody tr {
   border-bottom-color: var(--branco);
   border-bottom-style: groove;
   border-bottom-width: 1px;
 }
 
-.tabela-produtos tbody td {
+ tbody td {
   font-weight: 400;
   height: 6vh;
   text-align: center;
@@ -148,7 +245,7 @@ form .abrir-modal svg {
   padding-right: 5px;
 }
 
-.tabela-produtos tbody td button {
+ tbody td button {
   height: auto;
   width: auto;
   background-color: var(--cinza-escuro);
@@ -160,7 +257,7 @@ button:active {
   opacity: 0.8;
 }
 
-.tabela-produtos tbody td button svg {
+tbody td button svg {
   height: 20px;
   padding: 2px;
   color: var(--laranja);
