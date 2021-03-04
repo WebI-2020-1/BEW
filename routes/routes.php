@@ -1,4 +1,4 @@
-<?php 
+<?php
     require_once('app.php');
 
     // Rotas de login
@@ -10,15 +10,15 @@
 
     // Rotas de logout
     Route::get('/logout', 'LogoutController@logout');
-    
+
     // Rotas de produto
-    Route::get('/add/product', 'ProductController@index'); 
-    Route::post('/adding/product', 'ProductController@store'); 
+    Route::get('/add/product', 'ProductController@index');
+    Route::post('/adding/product', 'ProductController@store');
     Route::post('/getProducts','ProductController@getProducts');
 
     // Rotas de categoria
     Route::get('/add/category', 'CategoryController@index');
-    Route::post('/adding/category', 'CategoryController@store'); 
+    Route::post('/adding/category', 'CategoryController@store');
 
     // Rotas de cliente
     Route::get('/add/client','ClientController@index');
@@ -30,11 +30,12 @@
     Route::get('/add/sale','SaleController@index');
     Route::post('/adding/sale', 'SaleController@store');
     Route::get('/sale','SaleController@show');
+    Route::post('/getSale', 'SaleController@getSale');
     Route::post('/sale/getProducts', 'SaleController@getProducts');
 
     //Rotas de funcionário
     Route::get('/add/employee','EmployeeController@index');
     Route::post('/adding/employee', 'EmployeeController@store');
-    
+
     Route::run();
 ?>
