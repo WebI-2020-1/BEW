@@ -83,42 +83,54 @@ main header .header-conteudo {
   overflow-y: scroll;
 }
 
-.tabela-vendas tbody tr{
-  border-radius: 5px;
-}
-
 .tabela-vendas tbody td{
   font-weight: 400;
   height: 6vh;
   text-align: center;
   background-color: var(--cinza-escuro);
+  border: 5px solid var(--preto);
+  border-style: solid none;
+}
+
+.tabela-vendas tbody td:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.tabela-vendas tbody td:last-child {
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.abrir-modal{
+  color: var(--branco);
+  background-color: var(--cinza-claro);
+  border-radius: 5px;
+  border: none;
+  height: 2vw;
+  width: 2.5vw;
 }
 
 .modal {
   position: fixed;
+  left: 0;
   top: 0;
   right: 0;
   bottom: 0;
-  left: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: rgba(0, 0, 0, 0.8);
-  z-index: 99999;
+  z-index: 1;
+  background: #0008;
+}
+
+.modal div {
+  background-color: var(--preto);
+  width: 50%;
+  height: 50%;
+  margin: 12.5% 25%;
+  border-radius: 6px;
+}
+
+.modal.disabled {
+  display: none;
   opacity: 0;
-  -webkit-transition: opacity 400ms ease-in;
-  -moz-transition: opacity 400ms ease-in;
-  transition: opacity 400ms ease-in;
-  pointer-events: none;
 }
 
-.modal:target {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.modal>div {
-  width: 400px;
-  position: relative;
-  margin: 10% auto;
-  padding: 15px 20px;
-  background: #fff;
-}
