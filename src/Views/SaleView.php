@@ -8,11 +8,14 @@
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Consultar vendas</title>
                 <link rel="stylesheet" href="/public/css/sale.css">
-                <script>const host =  '<?php echo $env; ?>';</script>
+                <title>Consultar vendas</title>
+                <script>
+                    const host =  '<?php echo $env; ?>';
+                </script>
             </head>
 
+            <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
             <script src="https://unpkg.com/feather-icons"></script>
 
             <body>
@@ -53,8 +56,22 @@
                                     <td><?php echo $sale['nomeCliente']; ?></td>
                                     <td><?php echo $sale['formaPagamento']; ?></td>
                                     <td><?php echo $sale['dataVenda']; ?></td>
-                                    <td><a href="#modal_<?php echo $sale['idVenda']; ?>"><i data-feather="search"></i></a></td>
+                                    <td><button type="button" class="abrir-modal" onclick="consultarVenda(<?php echo $sale['idVenda']; ?>)">
+                                        <i data-feather="search"></i></button>
+                                    </td>
+                                    <!--<td><a href="#modal_<?php echo $sale['idVenda']; ?>"><i data-feather="search"></i></a></td>
+                                    -->
                                 </tr>
+                                <div class="modal disabled">
+                                    <button type="button" class="fechar-modal">
+                                        <i data-feather="x"></i>
+                                    </button>
+                                    <div class="conteudoVenda">
+                                        <h2>Venda</h2>
+
+                                    </div>
+                                </div>
+                                <!--
                                 <div id="modal_<?php echo $sale['idVenda']; ?>" class="modal">
                                     <div>
                                         <a href="#close" title="close" class="close">x</a>
@@ -69,18 +86,19 @@
                                         </div>
                                     </div>
                                 </div>
-                                <script src="/public/js/SaleFunctions.js"></script>
                                 <script>
                                     mountClients(<?php echo $sale['idVenda']?>);
-                                    </script>
+                                </script>
+                                -->
                     <?php } ?>
                 </tbody>
             </table>
-            </div>
-        </main>
-            </body>
+        </div>
+    </main>
+</body>
 
-            <script src="/public/js/global.js"></script>
+<script src="/public/js/global.js"></script>
+<script src="/public/js/SaleFunctions.js"></script>
 
             </html>
             <?php   }
