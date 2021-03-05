@@ -61,6 +61,7 @@ main header .header-conteudo {
   align-items: center;
   justify-content: flex-end;
   width: 50%;
+  height: 3vw;
 }
 
 .tabela-vendas{
@@ -85,7 +86,7 @@ main header .header-conteudo {
 
 .tabela-vendas tbody td{
   font-weight: 400;
-  height: 6vh;
+  height: 4vw;
   text-align: center;
   background-color: var(--cinza-escuro);
   border: 5px solid var(--preto);
@@ -121,12 +122,15 @@ main header .header-conteudo {
   background: #0008;
 }
 
-.modal div {
+.venda{
   background-color: var(--preto);
   width: 50%;
   height: 50%;
   margin: 12.5% 25%;
   border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .modal.disabled {
@@ -134,3 +138,50 @@ main header .header-conteudo {
   opacity: 0;
 }
 
+.conteudoVenda{
+  color: var(--branco);
+  display: grid;
+  grid-template-areas:
+        'titulo titulo titulo'
+        'info info info'
+        'tabela tabela tabela'
+        'total total editar';
+  padding: 2%;
+}
+
+.conteudoVenda h2{
+  color: var(--verde);
+  grid-area: titulo;
+}
+
+.info{
+  color: var(--branco);
+  grid-area: info;
+}
+
+.info th{
+  background-color: var(--cinza-claro);
+  text-align: start;
+  width: 30%;
+  padding: 3px;
+  font-weight: 400;
+}
+
+.info td{
+  background-color: var(--cinza-escuro);
+  padding: 3px;
+}
+
+.tabelaProdutos{
+  color: var(--branco);
+  grid-area: tabela;
+}
+
+.fechar-modal{
+  background-color: var(--cinza-claro);
+  color: var(--laranja);
+  border: none;
+  border-radius: 5px;
+  position: absolute;
+  right: 0;
+}
