@@ -27,23 +27,23 @@ const modalClientesLista = document.querySelector(".lista.clientes tbody");
 
 const listarClientes = () => {
   axios
-      .get(`${host}/getAllClients`)
-      .then((response) => {
-        const clientes = response.data;
-        clientes.forEach((cliente) => {
-          modalClientesLista.insertAdjacentHTML(
-            "beforeend",
-            `
+    .get(`${host}/getAllClients`)
+    .then((response) => {
+      const clientes = response.data;
+      clientes.forEach((cliente) => {
+        modalClientesLista.insertAdjacentHTML(
+          "beforeend",
+          `
             <tr>
               <td>${cliente.id}</td>
               <td>${cliente.nome}</td>
-              <td><button type="button" onclick="selecionarCliente(${cliente.id}, '${cliente.nome}')">Selecionar</button></td>
+              <td><button type="button" onclick="selecionarCliente(${cliente.id}, '${cliente.nome}')">${feather.icons.check.toSvg()}</button></td>
             </tr>
             `
-          );
-        });
-      })
-      .catch((err) => console.log(err));
+        );
+      });
+    })
+    .catch((err) => console.log(err));
 }
 
 const limparClientes = () => {
@@ -54,8 +54,37 @@ const limparClientes = () => {
 const selecionarCliente = (id, nome) => {
   const clienteSpan = document.querySelector(".info .cliente span");
   clienteSpan.innerHTML = `${nome} <input type="hidden" name="cliente" value="${id}">`;
+  limparClientes();
   toggleModalClientes();
 };
+
+const filtrarCliente = (value) => {
+  axios
+    .post(
+      `${host}/getClient`,
+      (`itemSearch=${value}`),
+      {
+        headers: {
+          "Content-type": "application/x-www-form-urlencoded",
+        },
+      }
+    )
+    .then((response) => {
+      limparClientes();
+      const cliente = response.data;
+      cliente.forEach((cliente) => {
+        modalClientesLista.insertAdjacentHTML(
+          "beforeend",
+          `<tr>
+          <td>${cliente.id}</td>
+          <td>${cliente.nome}</td>
+          <td><button type="button" onclick="selecionarCliente(${cliente.id}, '${cliente.nome}')">${feather.icons.check.toSvg()}</button></td>
+        </tr>`
+        );
+      });
+    })
+    .catch((err) => console.log(err));
+}
 
 /*
 modalClientesInput.addEventListener('keyup', () => {
@@ -103,7 +132,7 @@ function addClient() {
 /* --------------- PAGAMENTO --------------- */
 const selecionarPagamento = (id, descricao) => {
   const pagamentoSpan = document.querySelector(".info .pagamento span");
-  pagamentoSpan.innerHTML = `${descricao} <input type="hidden" name="pagamento" value="${id}">`;
+  pagamentoSpan.innerHTML = `${descricao} <input type="hidden" name="formaPagamento" value="${id}">`;
   toggleModalPagamentos();
 };
 
@@ -133,7 +162,7 @@ const listarProdutos = () => {
           <td>${nome}</td>
           <td>${quantidade}</td>
           <td>${valorVenda}</td>
-          <td><button type="button" onclick="selecionarProduto(${id}, '${nome}', ${quantidade}, ${valorVenda})">Selecionar</button></td>
+          <td><button type="button" onclick="selecionarProduto(${id}, '${nome}', ${quantidade}, ${valorVenda})">${feather.icons.check.toSvg()}</button></td>
         </tr>`
         );
       });
@@ -255,3 +284,7 @@ function addProduct(product) {
   mountTotal();
 }
 */
+
+document.querySelector('.submit').addEventListener('click', () => {
+  document.getElementById('formSale').submit();
+})

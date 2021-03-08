@@ -31,7 +31,7 @@ class AddSaleView
 
                 <!-- novo conteúdo -->
                 <div class="content">
-                    <form action="/adding/sale" method="POST">
+                    <form action="/adding/sale" method="POST" id="formSale">
 
                         <div class="buttons-modal">
                             <button type="button" class="abrir-modal">Adicionar Produto<i data-feather="plus"></i></button>
@@ -45,23 +45,25 @@ class AddSaleView
                                 <button type="button" class="fechar-modal">
                                     <i data-feather="x"></i>
                                 </button>
-                                <label for="product-search">Buscar Produto</label>
+                                <label for="product-search">Filtrar<i data-feather="filter"></i></label>
                                 <input type="text" name="product-search" placeholder="Digite o nome do produto" onkeyup="filtrarProduto(this.value)">
-                                <table class="lista produtos">
-                                    <thead>
-                                        <tr>
-                                            <th colspan="5">PRODUTOS</th>
-                                        </tr>
-                                        <tr>
-                                            <th>Código</th>
-                                            <th>Nome</th>
-                                            <th>Quantidade</th>
-                                            <th>Valor Unitario</th>
-                                            <th>Selecionar</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody></tbody>
-                                </table>
+                                <div class="table">
+                                    <table class="lista produtos">
+                                        <thead>
+                                            <tr class="topo-tabela">
+                                                <th colspan="5">PRODUTOS</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Código</th>
+                                                <th>Nome</th>
+                                                <th>Quantidade</th>
+                                                <th>Valor Unitario</th>
+                                                <th>Selecionar</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
 
@@ -70,31 +72,33 @@ class AddSaleView
                                 <button type="button" class="fechar-modal">
                                     <i data-feather="x"></i>
                                 </button>
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th colspan="3">FORMAS DE PAGAMENTO</th>
-                                        </tr>
-                                        <tr>
-                                            <th>Código</th>
-                                            <th>Tipo</th>
-                                            <th>Selecionar</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        foreach ($params['paymentMethods'] as $paymentMethod) {
-                                            echo "
+                                <div class="table">
+                                    <table>
+                                        <thead>
+                                            <tr class="topo-tabela">
+                                                <th colspan="3">FORMAS DE PAGAMENTO</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Código</th>
+                                                <th>Tipo</th>
+                                                <th>Selecionar</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            foreach ($params['paymentMethods'] as $paymentMethod) {
+                                                echo "
                                             <tr>
                                                 <td>{$paymentMethod['id']}</td>
                                                 <td>{$paymentMethod['descricao']}</td>
-                                                <td><button type='button' onclick='selecionarPagamento({$paymentMethod['id']}, \"{$paymentMethod['descricao']}\")'>SELECIONAR</button></td>
+                                                <td><button type='button' onclick='selecionarPagamento({$paymentMethod['id']}, \"{$paymentMethod['descricao']}\")'><i data-feather='check'></i></button></td>
                                             </tr>
                                             ";
-                                        }
-                                        ?>
-                                    </tbody>
-                                </table>
+                                            }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
 
@@ -103,22 +107,23 @@ class AddSaleView
                                 <button type="button" class="fechar-modal">
                                     <i data-feather="x"></i>
                                 </button>
-
-                                <label for="product-search">Buscar Cliente</label>
-                                <input type="text" name="customer-search" placeholder="Digite o nome do cliente">
-                                <table class="lista clientes">
-                                    <thead>
-                                        <tr>
-                                            <th colspan="3">CLIENTES</th>
-                                        </tr>
-                                        <tr>
-                                            <th>Código</th>
-                                            <th>Nome</th>
-                                            <th>Selecionar</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody></tbody>
-                                </table>
+                                <label for="product-search">Filtrar<i data-feather="filter"></i></label>
+                                <input type="text" name="customer-search" placeholder="Digite o nome do cliente" onkeyup="filtrarCliente(this.value)">
+                                <div class="table">
+                                    <table class="lista clientes">
+                                        <thead>
+                                            <tr class="topo-tabela">
+                                                <th colspan="3">CLIENTES</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Código</th>
+                                                <th>Nome</th>
+                                                <th>Selecionar</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
 
@@ -161,7 +166,7 @@ class AddSaleView
 
                             <div class="botoes">
                                 <button type="button">CANCELAR <i data-feather="x"></i></button>
-                                <button type="submit">FINALIZAR <i data-feather="check"></i></button>
+                                <button type="submit" class="submit">FINALIZAR <i data-feather="check"></i></button>
                             </div>
                         </div>
 
