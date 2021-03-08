@@ -285,6 +285,6 @@ function addProduct(product) {
 }
 */
 
-document.querySelector('.submit').addEventListener('click', () => {
+/*document.querySelector('.submit').addEventListener('click', () => {
   document.getElementById('formSale').submit();
-})
+})*/
