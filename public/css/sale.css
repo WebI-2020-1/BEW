@@ -72,6 +72,7 @@ main header .header-conteudo {
   border-collapse: collapse;
   border-spacing: 1;
   text-align: center;
+  overflow-y: scroll;
 }
 
 .tabela-vendas thead tr{
@@ -125,7 +126,6 @@ main header .header-conteudo {
 .venda{
   background-color: var(--preto);
   width: 50%;
-  height: 50%;
   margin: 12.5% 25%;
   border-radius: 6px;
   display: flex;
@@ -160,7 +160,7 @@ main header .header-conteudo {
 }
 
 .info th{
-  background-color: var(--cinza-claro);
+  background-color: var(--cinza-escuro);
   text-align: start;
   width: 30%;
   padding: 3px;
@@ -168,13 +168,49 @@ main header .header-conteudo {
 }
 
 .info td{
-  background-color: var(--cinza-escuro);
+  background-color: var(--cinza-claro);
   padding: 3px;
 }
 
 .tabelaProdutos{
   color: var(--branco);
   grid-area: tabela;
+  margin-top: 1%;
+  overflow-y: scroll;
+}
+
+.tabelaProdutos th{
+  text-align: center;
+  font-weight: 400;
+  background-color: var(--cinza-escuro);
+  padding: 3px;
+  width: 33%;
+}
+
+.tabelaProdutos td{
+  text-align: center;
+  background-color: var(--cinza-claro);
+  padding: 3px;
+}
+
+.totais{
+  grid-area: total;
+  color: var(--branco);
+  margin-top: 1%;
+}
+
+.totais th{
+  text-align: center;
+  font-weight: 400;
+  background-color: var(--cinza-escuro);
+  padding: 5px 4px;
+  width: 50%;
+}
+
+.totais td{
+  text-align: center;
+  background-color: var(--cinza-claro);
+  padding: 8px 3px;
 }
 
 .fechar-modal{
@@ -184,4 +220,18 @@ main header .header-conteudo {
   border-radius: 5px;
   position: absolute;
   right: 0;
+}
+
+.btnEditar{
+  background-color: var(--verde);
+  color: var(--preto);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  height: 40px;
+  margin: auto;
+  padding-left: 10px;
+  font-weight: 500;
 }
