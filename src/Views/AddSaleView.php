@@ -165,20 +165,25 @@ class AddSaleView
                             </div>
 
                             <div class="botoes">
-                                <button type="button">CANCELAR <i data-feather="x"></i></button>
+                                <button type="reset" onclick="location.href=`${host}/sale`">CANCELAR <i data-feather="x"></i></button>
                                 <button type="submit" class="submit">FINALIZAR <i data-feather="check"></i></button>
                             </div>
                         </div>
-
-
-
-                        <h1>
-                            <?php
-                            echo $_SESSION['message'];
-                            unset($_SESSION['message']);
-                            ?>
-                        </h1>
                     </form>
+                    <div class="modal mensagem disabled">
+                        <div>
+                            <button type="button" onclick="location.href=`${host}/sale`">
+                                <i data-feather="x"></i>
+                            </button>
+                                <?php
+                                if ($_SESSION['message'] != '') {
+                                    echo "<h3>".$_SESSION['message']."</h3>";
+                                    unset($_SESSION['message']);
+                                    echo "<script type='text/javascript'>document.querySelector('.modal.mensagem').classList.toggle('disabled');</script>";
+                                }
+                                ?>
+                        </div>
+                    </div>
                 </div>
             </main>
 

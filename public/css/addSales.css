@@ -13,7 +13,7 @@ main header {
   grid-template-columns: 10% 1fr;
 }
 
-main header h1 {
+main header h3 {
   justify-self: center;
   padding-right: 10vw;
 }
@@ -67,7 +67,7 @@ form .abrir-modal svg {
   right: 0;
   bottom: 0;
   z-index: 1;
-  background: #0008;
+  background: #888a;
 }
 
 .modal div:nth-child(1) {
@@ -88,6 +88,12 @@ form .abrir-modal svg {
   width: 75%;
   height: 75%;
   margin: 6.25% 12.5%;
+}
+
+.modal.mensagem div:nth-child(1) {
+  width: 25%;
+  height: 25%;
+  margin: 18.75% 37.5%;
 }
 
 .modal div button {
@@ -124,6 +130,14 @@ form .abrir-modal svg {
   padding: 2%;
 }
 
+.modal div h3 {
+  grid-area: msg;
+  color: var(--branco);
+  font-size: 22px;
+  text-align: center;
+  font-weight: 500;
+}
+
 .modal div .table {
   grid-area: tabela;
   background-color: var(--cinza-claro);
@@ -142,6 +156,13 @@ grid-template-areas:
   '.      .      .      .      fechar'
   'tabela tabela tabela tabela tabela'
   'tabela tabela tabela tabela tabela';
+}
+
+.modal.mensagem div {
+  grid-template-areas:
+  '. . . fechar fechar'
+  '. msg msg msg .'
+  '. msg msg msg .';
 }
 
 .modal thead th, .modal tbody td {
