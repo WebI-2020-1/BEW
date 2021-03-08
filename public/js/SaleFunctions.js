@@ -74,7 +74,7 @@ const consultarVenda = (id) => {
       <tr>
       <th>Nome</th>
       <th>Quantidade</th>
-      <th>Valor Unitario</th>
+      <th>Valor Unitário</th>
       </tr>
       </thead>
       <tbody>
@@ -92,8 +92,16 @@ const consultarVenda = (id) => {
       });
 
       modalVenda.insertAdjacentHTML('beforeend',
-        `Quantidade Total: ${venda.quantidade}<br>
-        Valor Total: ${venda.valor}`
+        `<table class="totais">
+          <thead>
+            <th>Quantidade Total</th>
+            <th>Valor Total</th>
+          </thead>
+          <tbody>
+            <td>${venda.quantidade}</td>
+            <td>${venda.valor}</td>
+          </tbody>
+        </table>`
       )
     })
     .catch((err) => console.log(err));
