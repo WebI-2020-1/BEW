@@ -21,21 +21,21 @@ main header h1 {
 .content{
   background-color: var(--cinza-claro);
   border-radius: 10px;
-  width: 70vw;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.3rem;
   color: var(--branco);
+  overflow-y: scroll;
 }
 
-.formulario{
+main .content form {
   display: grid;
-  /*justify-content: center; */
   grid-column-gap: 3%;
   grid-template-columns: auto auto;
   margin: 20px;
   width: 80%;
+  height: 90%;
 }
 
 .itemTodo{
