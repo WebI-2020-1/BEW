@@ -19,91 +19,6 @@ main header .header-conteudo {
   justify-content: space-between;
 }
 
-.btnAddVenda{
-  background-color: var(--verde);
-  text-decoration: none;
-  color: var(--preto);
-  display: flex;
-  align-items: center;
-  border-radius: 5px;
-  height: 80%;
-  padding-left: 1%;
-  margin-right: 1.5%;
-}
-
-.pesquisar{
-  display: flex;
-  justify-content: center;
-  height: 80%;
-  border-radius: 5px;
-  background-color: var(--cinza-escuro);
-}
-
-.pesquisar input{
-  background-color: var(--cinza-escuro);
-  border: 0;
-  color: var(--branco);
-  font-size: 1rem;
-  padding-left: 2%;
-  border-radius: 5px;
-}
-
-.pesquisar button{
-  background-color: var(--cinza-escuro);
-  border: 0;
-  color: var(--branco);
-  padding: 0 5px;
-  border-radius: 5px;
-}
-
-.botoesDireito{
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  width: 50%;
-  height: 3vw;
-}
-
-.tabela-vendas{
-  width: 100%;
-  max-width: 100%;
-  color: var(--branco);
-  margin-top: 2%;
-  border-collapse: collapse;
-  border-spacing: 1;
-  text-align: center;
-  overflow-y: scroll;
-}
-
-.tabela-vendas thead tr{
-  font-weight: 400;
-  height: 5vh;
-  width: 12%;
-}
-
-.tabela-vendas tbody{
-  overflow-y: scroll;
-}
-
-.tabela-vendas tbody td{
-  font-weight: 400;
-  height: 4vw;
-  text-align: center;
-  background-color: var(--cinza-escuro);
-  border: 5px solid var(--preto);
-  border-style: solid none;
-}
-
-.tabela-vendas tbody td:first-child {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-}
-
-.tabela-vendas tbody td:last-child {
-  border-bottom-right-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
 .abrir-modal{
   color: var(--branco);
   background-color: var(--cinza-claro);
@@ -123,6 +38,11 @@ main header .header-conteudo {
   background: #0008;
 }
 
+.modal.disabled {
+  display: none;
+  opacity: 0;
+}
+
 .venda{
   background-color: var(--preto);
   width: 50%;
@@ -131,11 +51,6 @@ main header .header-conteudo {
   display: flex;
   flex-direction: column;
   position: relative;
-}
-
-.modal.disabled {
-  display: none;
-  opacity: 0;
 }
 
 .conteudoVenda{
