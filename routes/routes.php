@@ -12,6 +12,7 @@
     Route::get('/logout', 'LogoutController@logout');
 
     // Rotas de produto
+    Route::get('/product', 'ProductController@show');
     Route::get('/add/product', 'ProductController@index');
     Route::post('/adding/product', 'ProductController@store');
     Route::post('/getProducts','ProductController@getProducts');
@@ -23,6 +24,9 @@
     Route::get('/category', 'CategoryController@show');
     Route::get('/add/category', 'CategoryController@index');
     Route::post('/adding/category', 'CategoryController@store');
+    Route::get('/edit/category','CategoryController@edit');
+    Route::post('/update/category','CategoryController@update');
+    Route::get('/delete/category', 'CategoryController@delete');
 
     // Rotas de cliente
     Route::get('/client','ClientController@show');
@@ -46,5 +50,17 @@
     Route::get('/employee', 'EmployeeController@show');
     Route::get('/add/employee','EmployeeController@index');
     Route::post('/adding/employee', 'EmployeeController@store');
+    Route::get('/edit/employee', 'EmployeeController@edit');
+    Route::post('/update/employee','EmployeeController@update');
+    Route::get('/delete/employee', 'EmployeeController@delete');
+
+    //Rotas de forncedores
+    Route::get('/provider', 'ProviderController@show');
+    Route::get('/add/provider', 'ProviderController@index');
+    Route::post('/adding/provider', 'ProviderController@store');
+    Route::get('/edit/provider', 'ProviderController@edit');
+    Route::post('/update/provider', 'ProviderController@update');
+    Route::get('/delete/provider', 'ProviderController@delete');
+
     Route::run();
 ?>
