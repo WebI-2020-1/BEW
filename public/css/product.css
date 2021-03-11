@@ -26,6 +26,7 @@ main header .header-conteudo {
   border: none;
   height: 2vw;
   width: 2.5vw;
+  cursor: pointer;
 }
 
 .modal {
@@ -60,4 +61,66 @@ main header .header-conteudo {
   display: flex;
   flex-direction: column;
   position: relative;
+}
+
+.conteudoProduto{
+  color: var(--branco);
+  padding: 2%;
+}
+
+.conteudoProduto h2{
+  color: var(--verde);
+}
+
+.info{
+  color: var(--branco);
+  width: 100%;
+}
+
+.info th{
+  background-color: var(--cinza-escuro);
+  text-align: start;
+  width: 30%;
+  padding: 3px;
+  font-weight: 400;
+}
+
+.info td{
+  background-color: var(--cinza-claro);
+  padding: 3px;
+}
+
+.botoesModal{
+  width: 100%;
+  display: flex;
+}
+
+.btnEditar{
+  background-color: var(--verde);
+  color: var(--preto);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  height: 40px;
+  margin: auto;
+  padding-left: 10px;
+  font-weight: 500;
+  width: 30%;
+}
+
+.btnDeletar{
+  background-color: var(--laranja);
+  color: var(--preto);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  height: 40px;
+  margin: auto;
+  padding-left: 10px;
+  font-weight: 500;
+  width: 30%;
 }
