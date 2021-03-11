@@ -26,6 +26,7 @@ main header .header-conteudo {
   border: none;
   height: 2vw;
   width: 2.5vw;
+  cursor: pointer;
 }
 
 .modal {
@@ -60,7 +61,7 @@ main header .header-conteudo {
         'titulo titulo titulo'
         'info info info'
         'tabela tabela tabela'
-        'total total editar';
+        'total total total';
   padding: 2%;
 }
 
