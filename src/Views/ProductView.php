@@ -1,6 +1,8 @@
 <?php
     class ProductView{
-        public function __construct($params){ ?>
+        public function __construct($params){
+            $env = parse_ini_file('env.ini')['HOST'];
+?>
             <!DOCTYPE html>
             <html lang="pt-BR">
             <head>
@@ -8,6 +10,9 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <link rel="stylesheet" href="/public/css/product.css">
                 <title>Produtos</title>
+                <script>
+                    const host =  '<?php echo $env; ?>';
+                </script>
             </head>
 
             <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -22,10 +27,10 @@
                     <h1>PRODUTOS</h1>
                     <div class="botoesDireito">
                         <a href="/add/product" class="btnAdd">Adicionar produto<i data-feather="plus"></i></a>
-                        <form action="" class="pesquisar">
-                            <input type="search" name="pesquisar" id="" placeholder="Pesquisar na tabela">
-                            <button type="submit"><i data-feather="search"></i></button>
-                        </form>
+                        <div class="pesquisar">
+                            <input type="text" id="input" name="pesquisar" placeholder="Pesquisar na tabela" onkeyup="filtrarProduto()">
+                            <i data-feather="search" class="iconePesquisa"></i>
+                        </div>
                     </div>
                 </div>
             </header>
@@ -55,18 +60,19 @@
                                     <i data-feather="search"></i></button>
                                 </td>
                             </tr>
-                        <?php } ?>
-                        <div class="modal disabled">
-                            <div class="produto">
-                                <button type="button" class="fechar-modal">
-                                    <i data-feather="x"></i>
-                                </button>
-                                <div class="conteudoProduto"></div>
-                                <a href="/edit/product&id=<?php echo $product['id']; ?>">Editar</a>
-                                <a href="/delete/product&id=<?php echo $product['id']; ?>">Deletar</a>
-                                <a href="" class="btnEditar">Editar<i data-feather="edit"></i></a>
+                            <div class="modal disabled">
+                                <div class="produto">
+                                    <button type="button" class="fechar-modal">
+                                        <i data-feather="x"></i>
+                                    </button>
+                                    <div class="conteudoProduto"></div>
+                                    <div class="botoesModal">
+                                        <a href="/edit/product&id=<?php echo $product['id']; ?>" class="btnEditar">Editar <i data-feather="edit"></i></a>
+                                        <a href="/delete/product&id=<?php echo $product['id']; ?>" class="btnDeletar">Deletar <i data-feather="x"></i></a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        <?php } ?>
                     </tbody>
                 </table>
                 </div>
@@ -79,8 +85,8 @@
             </main>
             </body>
 
-            <script src="/public/js/global.js"></script>
             <script src="/public/js/ProductFunctions.js"></script>
+            <script src="/public/js/global.js"></script>
 
             </html>
         <?php }
