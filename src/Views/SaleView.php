@@ -27,10 +27,10 @@ class SaleView {
                     <h1>VENDAS</h1>
                     <div class="botoesDireito">
                         <a href="/add/sale" class="btnAdd">Adicionar venda<i data-feather="plus"></i></a>
-                        <form action="" class="pesquisar">
-                            <input type="search" name="pesquisar" id="" placeholder="Pesquisar na tabela">
-                            <button type="submit"><i data-feather="search"></i></button>
-                        </form>
+                        <div class="pesquisar">
+                            <input type="text" id="input" name="pesquisar" placeholder="Pesquisar na tabela" onkeyup="filtrarVenda()">
+                            <i data-feather="search" class="iconePesquisa"></i>
+                        </div>
                     </div>
                 </div>
             </header>
@@ -66,7 +66,7 @@ class SaleView {
                                         <i data-feather="x"></i>
                                     </button>
                                     <div class="conteudoVenda"></div>
-                                    <a href="" class="btnEditar">Editar<i data-feather="edit"></i></a>
+                                    <a href="edit/sale$id=<?php echo $sale['idVenda']; ?>" class="btnEditar">Editar<i data-feather="edit"></i></a>
                                 </div>
                             </div>
                         <?php } ?>
