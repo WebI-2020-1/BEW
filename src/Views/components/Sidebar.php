@@ -16,9 +16,6 @@
             <a href="/product"><i data-feather="package"></i> PRODUTOS</a>
         </li>
         <li class="menu-option">
-            <a href="/inventory"><i data-feather="archive"></i> ESTOQUE</a>
-        </li>
-        <li class="menu-option">
             <a href="/provider"><i data-feather="truck"></i> FORNECEDORES</a>
         </li>
         <li class="menu-option" id="funcionarios">
