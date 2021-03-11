@@ -15,7 +15,8 @@
     Route::get('/product', 'ProductController@show');
     Route::get('/add/product', 'ProductController@index');
     Route::post('/adding/product', 'ProductController@store');
-    Route::post('/getProducts','ProductController@getProducts');
+    Route::post('/getProducts', 'ProductController@getProducts');
+    Route::post('/getProduct', 'ProductController@getProduct');
     Route::get('/edit/product', 'ProductController@edit');
     Route::post('/update/product', 'ProductController@update');
     Route::get('/delete/product', 'ProductController@delete');
