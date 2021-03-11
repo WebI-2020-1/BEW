@@ -108,6 +108,7 @@ main .content {
 
 .pesquisar{
   display: flex;
+  align-items: center;
   justify-content: center;
   height: 80%;
   border-radius: 5px;
@@ -123,12 +124,9 @@ main .content {
   border-radius: 5px;
 }
 
-.pesquisar button{
-  background-color: var(--cinza-escuro);
-  border: 0;
+.iconePesquisa{
   color: var(--branco);
-  padding: 0 5px;
-  border-radius: 5px;
+  margin-right: 5px;
 }
 
 /*BODY*/
