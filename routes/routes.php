@@ -13,9 +13,10 @@
 
     // Rotas de produto
     Route::get('/product', 'ProductController@show');
-    Route::get('/add/product', 'ProductController@index'); 
-    Route::post('/adding/product', 'ProductController@store'); 
-    Route::post('/getProducts','ProductController@getProducts');
+    Route::get('/add/product', 'ProductController@index');
+    Route::post('/adding/product', 'ProductController@store');
+    Route::post('/getProducts', 'ProductController@getProducts');
+    Route::post('/getProduct', 'ProductController@getProduct');
     Route::get('/edit/product', 'ProductController@edit');
     Route::post('/update/product', 'ProductController@update');
     Route::get('/delete/product', 'ProductController@delete');
@@ -23,7 +24,7 @@
     // Rotas de categoria
     Route::get('/category', 'CategoryController@show');
     Route::get('/add/category', 'CategoryController@index');
-    Route::post('/adding/category', 'CategoryController@store'); 
+    Route::post('/adding/category', 'CategoryController@store');
     Route::get('/edit/category','CategoryController@edit');
     Route::post('/update/category','CategoryController@update');
     Route::get('/delete/category', 'CategoryController@delete');

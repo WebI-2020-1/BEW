@@ -1,11 +1,11 @@
 @import './global.css';
 
-#vendas{
+#produtos{
   background-color: rgba( 8, 102, 59, 0.47);
   border-left-color: black;
 }
 
-#vendas a{
+#produtos a{
   color: #fff;
 }
 
@@ -39,12 +39,21 @@ main header .header-conteudo {
   background: #0008;
 }
 
+.fechar-modal{
+  background-color: var(--cinza-claro);
+  color: var(--laranja);
+  border: none;
+  border-radius: 5px;
+  position: absolute;
+  right: 0;
+}
+
 .modal.disabled {
   display: none;
   opacity: 0;
 }
 
-.venda{
+.produto{
   background-color: var(--preto);
   width: 50%;
   margin: 12.5% 25%;
@@ -54,25 +63,18 @@ main header .header-conteudo {
   position: relative;
 }
 
-.conteudoVenda{
+.conteudoProduto{
   color: var(--branco);
-  display: grid;
-  grid-template-areas:
-        'titulo titulo titulo'
-        'info info info'
-        'tabela tabela tabela'
-        'total total total';
   padding: 2%;
 }
 
-.conteudoVenda h2{
+.conteudoProduto h2{
   color: var(--verde);
-  grid-area: titulo;
 }
 
 .info{
   color: var(--branco);
-  grid-area: info;
+  width: 100%;
 }
 
 .info th{
@@ -88,54 +90,9 @@ main header .header-conteudo {
   padding: 3px;
 }
 
-.tabelaProdutos{
-  color: var(--branco);
-  grid-area: tabela;
-  margin-top: 1%;
-  overflow-y: scroll;
-}
-
-.tabelaProdutos th{
-  text-align: center;
-  font-weight: 400;
-  background-color: var(--cinza-escuro);
-  padding: 3px;
-  width: 33%;
-}
-
-.tabelaProdutos td{
-  text-align: center;
-  background-color: var(--cinza-claro);
-  padding: 3px;
-}
-
-.totais{
-  grid-area: total;
-  color: var(--branco);
-  margin-top: 1%;
-}
-
-.totais th{
-  text-align: center;
-  font-weight: 400;
-  background-color: var(--cinza-escuro);
-  padding: 5px 4px;
-  width: 50%;
-}
-
-.totais td{
-  text-align: center;
-  background-color: var(--cinza-claro);
-  padding: 8px 3px;
-}
-
-.fechar-modal{
-  background-color: var(--cinza-claro);
-  color: var(--laranja);
-  border: none;
-  border-radius: 5px;
-  position: absolute;
-  right: 0;
+.botoesModal{
+  width: 100%;
+  display: flex;
 }
 
 .btnEditar{
@@ -150,4 +107,20 @@ main header .header-conteudo {
   margin: auto;
   padding-left: 10px;
   font-weight: 500;
+  width: 30%;
+}
+
+.btnDeletar{
+  background-color: var(--laranja);
+  color: var(--preto);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  height: 40px;
+  margin: auto;
+  padding-left: 10px;
+  font-weight: 500;
+  width: 30%;
 }

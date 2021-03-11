@@ -20,7 +20,7 @@
                 return redirect('/add/product','Algo deu errado, tente novamente.');
             }
         }
-        
+
         public function show(){
             $product = new ProductModel();
             $params['products'] = $product->getAllProducts();
@@ -31,7 +31,10 @@
             $products = new ProductModel();
             echo json_encode($products->getProducts($params));
         }
-
+        public function getProduct($params){
+            $product = new ProductModel();
+            echo json_encode($product->getProductById($params));
+        }
         public function edit($params){
             $product = new ProductModel();
             $category = new CategoryModel();
