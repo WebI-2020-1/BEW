@@ -1,1 +1,10 @@
-{}
+
+{
+    "name": "bew",
+    "type": "project",
+    "description": "Business Enterprise Webshop",
+    "license": "MIT",
+    "require": {
+        "php": "^7.2"
+    }
+}
