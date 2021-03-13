@@ -18,7 +18,7 @@
         <li class="menu-option">
             <a href="/inventory"><i data-feather="archive"></i> ESTOQUE</a>
         </li>
-        <li class="menu-option">
+        <li class="menu-option" id="fornecedores">
             <a href="/provider"><i data-feather="truck"></i> FORNECEDORES</a>
         </li>
         <li class="menu-option" id="funcionarios">

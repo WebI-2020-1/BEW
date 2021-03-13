@@ -64,7 +64,7 @@
                     ?>
                 </h1>
             </div>
-
+            </main>
             <script src="/public/js/CategoryFunctions.js"></script>
             <script src="/public/js/global.js"></script>
             </body>
