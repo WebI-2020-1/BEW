@@ -34,12 +34,14 @@
                     </div>
                 </div>
             </header>
+            <div class="content">
                 <table class="tabela-consulta">
                     <thead>
                         <tr>
                             <td>ID</td>
                             <td>Nome</td>
                             <td>Telefone</td>
+                            <td>Email</td>
                             <td>Ação</td>
                         </tr>
                     </thead>
@@ -49,6 +51,7 @@
                                 <td><?php echo $provider['id']; ?></td>
                                 <td><?php echo $provider['nome']; ?></td>
                                 <td><?php echo $provider['telefone']; ?></td>
+                                <td><?php echo $provider['email']; ?></td>
                                 <td><button type="button" class="abrir-modal" onclick="consultarFornecedor(<?php echo $provider['id']; ?>)">
                                     <i data-feather="search"></i></button>
                                 </td>
@@ -74,6 +77,7 @@
                         unset($_SESSION['message']);
                     ?>
                 </h1>
+            </div>
             </main>
 
             <script src="/public/js/ProviderFunctions.js"></script>
