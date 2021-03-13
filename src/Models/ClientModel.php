@@ -7,7 +7,7 @@
             $telefone = addslashes($params['telefone']);
             $dataNascimento = addslashes($params['dataNascimento']);
 
-            $sql = "INSERT INTO Cliente (nome, cpf, endereco, telefone, dataNascimento) 
+            $sql = "INSERT INTO Cliente (nome, cpf, endereco, telefone, dataNascimento)
             VALUES ('{$nome}', '{$cpf}', '{$endereco}', '{$telefone}', '{$dataNascimento}')";
 
             return DB::execute($sql);
@@ -26,7 +26,7 @@
         public function getClientById($params){
             $id = addslashes($params['id']);
 
-            $sql = "SELECT * FROM Cliente WHERE id = '{$id}'";
+            $sql = "SELECT * FROM Cliente WHERE id = '{$id}';";
 
             return DB::getFirst($sql);
         }
