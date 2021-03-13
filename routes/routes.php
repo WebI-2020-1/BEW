@@ -36,6 +36,7 @@
     Route::post('/adding/sale-client', 'ClientController@addSaleClient');
     Route::get('/getAllClients', 'ClientController@getAllClients');
     Route::post('/getClient','ClientController@getClient');
+    Route::post('/getClientById','ClientController@getClientById');
     Route::get('/edit/client', 'ClientController@edit');
     Route::post('/update/client','ClientController@update');
     Route::get('/delete/client', 'ClientController@delete');
@@ -59,6 +60,7 @@
     Route::get('/provider', 'ProviderController@show');
     Route::get('/add/provider', 'ProviderController@index');
     Route::post('/adding/provider', 'ProviderController@store');
+    Route::post('/getProvider', 'ProviderController@getProvider');
     Route::get('/edit/provider', 'ProviderController@edit');
     Route::post('/update/provider', 'ProviderController@update');
     Route::get('/delete/provider', 'ProviderController@delete');
