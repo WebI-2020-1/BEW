@@ -23,10 +23,15 @@
             $params['providers'] = $provider->getAllProviders();
             $providerView = new ProviderView($params);
         }
+        public function getProvider($params){
+            $provider = new ProviderModel();
+
+            echo json_encode($provider->getProviderById($params));
+        }
 
         public function edit($params){
             $provider = new ProviderModel();
-            $params['provider'] = $provider->getProviderById($params);            
+            $params['provider'] = $provider->getProviderById($params);
             $provider = new EditProviderView($params);
         }
 
