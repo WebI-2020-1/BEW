@@ -1,0 +1,46 @@
+@import './global.css';
+
+#categorias{
+  background-color: rgba( 8, 102, 59, 0.47);
+  border-left-color: black;
+}
+
+#categorias a{
+  color: #fff;
+}
+
+main header {
+  grid-template-columns: 10% 1fr;
+}
+
+main header .header-conteudo {
+  display: flex;
+  padding-right: 5vw;
+  justify-content: space-between;
+}
+
+.btnAcao{
+  width: 10%;
+}
+
+.btnEditar{
+  text-decoration: none;
+  color: var(--branco);
+  background-color: var(--cinza-claro);
+  border-radius: 5px;
+  border: none;
+  height: 2vw;
+  width: 4vw;
+  cursor: pointer;
+}
+
+.btnDeletar{
+  text-decoration: none;
+  color: var(--laranja);
+  background-color: var(--cinza-claro);
+  border-radius: 5px;
+  border: none;
+  height: 2vw;
+  width: 4vw;
+  cursor: pointer;
+}
