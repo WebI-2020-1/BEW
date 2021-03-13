@@ -5,7 +5,7 @@
             $password = addslashes($params['password']);
             $sql = "SELECT * FROM Funcionario WHERE usuario = '{$login}' AND senha = md5('{$password}')";
             $result = DB::getFirst($sql);
-            
+
             return $result;
         }
 
@@ -19,9 +19,9 @@
             $email = addslashes($params['email']);
             $usuario = addslashes($params['usuario']);
             $senha = addslashes($params['senha']);
-            
 
-            $sql = "INSERT INTO Funcionario (nome, nivelAcesso, cpf, endereco, telefone, dataNascimento, usuario, senha, email) 
+
+            $sql = "INSERT INTO Funcionario (nome, nivelAcesso, cpf, endereco, telefone, dataNascimento, usuario, senha, email)
             VALUES('{$nome}', '{$nivelAcesso}', '{$cpf}', '{$endereco}', '{$telefone}', '{$dataNascimento}', '{$usuario}', md5('{$senha}'), '{$email}')";
 
             return DB::execute($sql);
@@ -36,7 +36,7 @@
         public function getEmployeeById($params){
             $id = addslashes($params['id']);
 
-            $sql = "SELECT * FROM Funcionario WHERE id = '{$id}'";
+            $sql = "SELECT * FROM Funcionario WHERE id = '{$id}';";
 
             return DB::getFirst($sql);
         }
@@ -54,7 +54,7 @@
             $id = addslashes($params['employeeId']);
 
             $sql = "UPDATE Funcionario SET nome = '{$nome}', nivelAcesso = '{$nivelAcesso}', cpf = '{$cpf}', endereco = '{$endereco}', telefone = '{$telefone}', dataNascimento = '{$dataNascimento}', email = '{$email}', usuario = '{$usuario}', senha = md5('{$senha}') WHERE id = '{$id}'";
-            
+
             return DB::execute($sql);
         }
 

@@ -1,4 +1,4 @@
-@import "./global.css";
+@import './global.css';
 
 #funcionarios{
   background-color: rgba( 8, 102, 59, 0.47);
@@ -13,91 +13,114 @@ main header {
   grid-template-columns: 10% 1fr;
 }
 
-main header h1 {
-  justify-self: center;
-  padding-right: 10vw;
+main header .header-conteudo {
+  display: flex;
+  padding-right: 5vw;
+  justify-content: space-between;
 }
 
-.content{
+.abrir-modal{
+  color: var(--branco);
   background-color: var(--cinza-claro);
-  border-radius: 10px;
+  border-radius: 5px;
+  border: none;
+  height: 2vw;
+  width: 2.5vw;
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background: #0008;
+}
+
+.fechar-modal{
+  background-color: var(--cinza-claro);
+  color: var(--laranja);
+  border: none;
+  border-radius: 5px;
+  position: absolute;
+  right: 0;
+}
+
+.modal.disabled {
+  display: none;
+  opacity: 0;
+}
+
+.funcionario{
+  background-color: var(--preto);
+  width: 50%;
+  margin: 12.5% 25%;
+  border-radius: 6px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3rem;
+  flex-direction: column;
+  position: relative;
+}
+
+.conteudoFuncionario{
   color: var(--branco);
-  overflow-y: scroll;
+  padding: 2%;
 }
 
-main .content form {
-  display: grid;
-  grid-column-gap: 3%;
-  grid-template-columns: auto auto;
-  margin: 20px;
-  width: 80%;
-  height: 90%;
+.conteudoFuncionario h2{
+  color: var(--verde);
 }
 
-.itemTodo{
-  grid-column: 1 / span 2;
-}
-
-label{
-  display: flex;
-}
-
-.icone{
-  margin-right: 5px;
-}
-
-.input{
-  background-color: var(--cinza-escuro);
-  border-radius: 7px;
-  border: 0;
+.info{
   color: var(--branco);
-  font-size: 1.3rem;
-  padding: 0.7rem;
-  margin-bottom: 2%;
-  margin-top: 1%;
   width: 100%;
 }
 
-.botao{
+.info th{
+  background-color: var(--cinza-escuro);
+  text-align: start;
+  width: 30%;
+  padding: 3px;
+  font-weight: 400;
+}
+
+.info td{
+  background-color: var(--cinza-claro);
+  padding: 3px;
+}
+
+.botoesModal{
+  width: 100%;
+  display: flex;
+}
+
+.btnEditar{
+  background-color: var(--verde);
+  color: var(--preto);
+  text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 0;
   border-radius: 5px;
-  margin-top: 10%;
-  padding: 10px;
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
+  height: 40px;
+  margin: auto;
+  padding-left: 10px;
   font-weight: 500;
+  width: 30%;
 }
 
-.btnCancelar{
-  background-color: var(--cinza-escuro);
-  color: var(--branco);
-}
-
-.btnCadastrar{
-  background-color: var(--verde);
-}
-
-.btnIcone{
-  margin-left: 5px;
-}
-
-@media screen and (max-width: 900px){
-  .item{
-    grid-column: 1 / span 2;
-  }
-
-  .btnCadastrar{
-    margin-top: 4%;
-  }
-
-  .content{
-    margin-top: 60px;
-  }
+.btnDeletar{
+  background-color: var(--laranja);
+  color: var(--preto);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  height: 40px;
+  margin: auto;
+  padding-left: 10px;
+  font-weight: 500;
+  width: 30%;
 }
