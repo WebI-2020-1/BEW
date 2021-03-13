@@ -59,6 +59,7 @@
     Route::get('/provider', 'ProviderController@show');
     Route::get('/add/provider', 'ProviderController@index');
     Route::post('/adding/provider', 'ProviderController@store');
+    Route::post('/getProvider', 'ProviderController@getProvider');
     Route::get('/edit/provider', 'ProviderController@edit');
     Route::post('/update/provider', 'ProviderController@update');
     Route::get('/delete/provider', 'ProviderController@delete');
