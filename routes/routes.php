@@ -36,6 +36,7 @@
     Route::post('/adding/sale-client', 'ClientController@addSaleClient');
     Route::get('/getAllClients', 'ClientController@getAllClients');
     Route::post('/getClient','ClientController@getClient');
+    Route::post('/getClientById','ClientController@getClientById');
     Route::get('/edit/client', 'ClientController@edit');
     Route::post('/update/client','ClientController@update');
     Route::get('/delete/client', 'ClientController@delete');
