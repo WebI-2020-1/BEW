@@ -13,7 +13,7 @@ class SaleView {
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="/public/css/sale.css">
-            <title>Consultar vendas</title>
+            <title>Vendas</title>
             <script>
                 const host =  '<?php echo $env; ?>';
             </script>
@@ -28,18 +28,18 @@ class SaleView {
             <header>
                 <i class="menu-toggle" data-feather="menu"></i>
                 <div class="header-conteudo">
-                    <h1>CONSULTAR VENDA</h1>
+                    <h1>VENDAS</h1>
                     <div class="botoesDireito">
-                        <a href="/add/sale" class="btnAddVenda">Adicionar venda<i data-feather="plus"></i></a>
-                        <form action="" class="pesquisar">
-                            <input type="search" name="pesquisar" id="" placeholder="Pesquisar na tabela">
-                            <button type="submit"><i data-feather="search"></i></button>
-                        </form>
+                        <a href="/add/sale" class="btnAdd">Adicionar venda<i data-feather="plus"></i></a>
+                        <div class="pesquisar">
+                            <input type="text" id="input" name="pesquisar" placeholder="Pesquisar na tabela" onkeyup="filtrarVenda()">
+                            <i data-feather="search" class="iconePesquisa"></i>
+                        </div>
                     </div>
                 </div>
             </header>
             <div class="content">
-                <table class="tabela-vendas">
+                <table class="tabela-consulta">
                     <thead>
                         <tr>
                             <td>ID</td>
@@ -70,7 +70,7 @@ class SaleView {
                                         <i data-feather="x"></i>
                                     </button>
                                     <div class="conteudoVenda"></div>
-                                    <a href="" class="btnEditar">Editar<i data-feather="edit"></i></a>
+                                    <a href="edit/sale$id=<?php echo $sale['idVenda']; ?>" class="btnEditar">Editar<i data-feather="edit"></i></a>
                                 </div>
                             </div>
                         <?php } ?>

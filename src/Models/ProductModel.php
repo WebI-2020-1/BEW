@@ -7,15 +7,15 @@
             $codigoBarras = addslashes($params['codigoBarras']);
             $categoria = addslashes($params['categoria']);
 
-            $sql = "INSERT INTO Produto (nome, unidade, valorVenda, codigoBarras, idCategoria) 
+            $sql = "INSERT INTO Produto (nome, unidade, valorVenda, codigoBarras, idCategoria)
             VALUES ('{$nome}', '{$unidade}', '{$valorVenda}', '{$codigoBarras}', '{$categoria}');";
-            
+
             return DB::execute($sql);
         }
         public function getProducts($params){
             $itemSearch = addslashes($params['itemSearch']);
             $sql = "SELECT * FROM Produto WHERE nome like '%{$itemSearch}%'";
-            
+
             return DB::getAll($sql);
         }
         public function getAllProducts(){
@@ -25,7 +25,19 @@
         }
         public function getProductById($params){
             $id = addslashes($params['id']);
-            $sql = "SELECT * FROM Produto WHERE id = '{$id}'";
+            //$sql = "SELECT * FROM Produto WHERE id = '{$id}'";
+            $sql = "SELECT p.id,
+                p.nome,
+                p.unidade,
+                p.quantidade,
+                p.valorVenda,
+                p.valorCompra,
+                p.codigoBarras,
+                c.nome AS nomeCategoria
+                FROM Produto AS p
+                INNER JOIN Categoria AS c
+                WHERE p.id = '{$id}';";
+
 
             return DB::getFirst($sql);
         }
@@ -38,7 +50,7 @@
             $categoria = addslashes($params['categoria']);
 
             $sql = "UPDATE Produto SET nome = '{$nome}', unidade = '{$unidade}', valorVenda = '{$valorVenda}', codigoBarras = '{$codigoBarras}', idCategoria = '{$categoria}' WHERE id = '{$id}'";
-            
+
             return DB::execute($sql);
         }
 
