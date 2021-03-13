@@ -68,7 +68,7 @@
                                     <div class="conteudoProduto"></div>
                                     <div class="botoesModal">
                                         <a href="/edit/product&id=<?php echo $product['id']; ?>" class="btnEditar">Editar <i data-feather="edit"></i></a>
-                                        <a href="/delete/product&id=<?php echo $product['id']; ?>" class="btnDeletar">Deletar <i data-feather="x"></i></a>
+                                        <a href="/delete/product&id=<?php echo $product['id']; ?>" class="btnDeletar">Deletar <i data-feather="trash"></i></a>
                                     </div>
                                 </div>
                             </div>
