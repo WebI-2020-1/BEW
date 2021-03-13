@@ -52,6 +52,7 @@
     Route::get('/employee', 'EmployeeController@show');
     Route::get('/add/employee','EmployeeController@index');
     Route::post('/adding/employee', 'EmployeeController@store');
+    Route::post('/getEmployee', 'EmployeeController@getEmployee');
     Route::get('/edit/employee', 'EmployeeController@edit');
     Route::post('/update/employee','EmployeeController@update');
     Route::get('/delete/employee', 'EmployeeController@delete');
