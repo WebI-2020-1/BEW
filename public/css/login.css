@@ -63,7 +63,10 @@ button.input{
   display: flex;
   align-items: center;
 }
-
+.message{
+  margin: 1.3rem;
+  color: var(--laranja);
+}
 @media screen and (max-width: 900px){
   .container{
     width: 60vw;

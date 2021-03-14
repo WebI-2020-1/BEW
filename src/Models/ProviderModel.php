@@ -8,7 +8,7 @@
             $email = addslashes($params['email']);
 
             $sql = "INSERT INTO Fornecedor (nome, cnpj, endereco, telefone, email) VALUES
-            ('{$nome}', '{$cnpj}', '{$cnpj}', '{$telefone}', '{$email}')";
+            ('{$nome}', '{$cnpj}', '{$endereco}', '{$telefone}', '{$email}')";
 
             return DB::execute($sql);
         }
