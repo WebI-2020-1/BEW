@@ -27,12 +27,12 @@
       </div>
       <button type="submit" class="input">Entrar</button>
       <a href="/register" class="esqueciSenha">Esqueci minha senha <i data-feather="arrow-right"></i></a>
-      <h1>
+      <span class="message">
         <?php
               echo $_SESSION['message'];
               unset($_SESSION['message']);
               ?>
-      </h1>
+      </span>
     </form>
   </div>
 </body>
