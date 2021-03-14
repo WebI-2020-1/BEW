@@ -1,0 +1,62 @@
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background: #888a;
+}
+
+.modal div button {
+  grid-area: fechar;
+  width: 25%;
+  border: none;
+  border-radius: 6px;
+  color: var(--laranja);
+  background-color: var(--cinza-escuro);
+  margin-left: 75%;
+}
+
+.modal div h3 {
+  grid-area: msg;
+  color: var(--branco);
+  font-size: 22px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.modal div:nth-child(1) {
+  background-color: var(--preto);
+  width: 50%;
+  height: 50%;
+  margin: 12.5% 25%;
+  border-radius: 6px;
+  padding: 2%;
+  display: grid;
+  grid-template-columns: repeat(5, 20%);
+  grid-template-rows: 5vh 5vh 1fr;
+  row-gap: 15px;
+  color: var(--branco);
+}
+
+.modal.mensagem div:nth-child(1) {
+  width: 25%;
+  height: 25%;
+  margin: 18.75% 37.5%;
+}
+
+
+.modal.mensagem div {
+  grid-template-areas:
+  '. . . fechar fechar'
+  '. msg msg msg .'
+  '. msg msg msg .';
+}
+
+
+.modal.disabled {
+  display: none;
+  opacity: 0;
+}
