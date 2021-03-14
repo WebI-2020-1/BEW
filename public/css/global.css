@@ -72,6 +72,26 @@ main .content {
   width: 95%;
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input:out-of-range {
+  border: 1px solid var(--laranja);
+}
+
+button {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 900px) {
   main {
     width: 60vw;
@@ -208,4 +228,23 @@ button:active {
 
 .botoes svg {
   margin-left: 10px;
+}
+
+/* Scroll bar */
+* {
+  scrollbar-width: 10px;
+  scrollbar-color: var(--cinza-escuro) var(--cinza-claro);
+
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+    background: #e4f1eb;
+    border-radius: 6px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--cinza-escuro);
+    border-radius: 6px;
 }
