@@ -66,5 +66,21 @@
     Route::post('/update/provider', 'ProviderController@update');
     Route::get('/delete/provider', 'ProviderController@delete');
 
+    // Rotas de promoções
+    Route::get('/add/promotion', 'PromotionController@index');
+    Route::post('/adding/promotion', 'PromotionController@store');
+    Route::get('/promotion', 'PromotionController@show');
+    Route::get('/edit/promotion', 'PromotionController@edit');
+    Route::post('/update/promotion', 'PromotionController@update');
+    Route::get('/delete/promotion', 'PromotionController@delete');
+    
+    // Rotas de produto promoção
+    Route::get('/add/promotion-product', 'PromotionProductController@index');
+    Route::post('/adding/promotion-product', 'PromotionProductController@store');
+    Route::get('/promotion-product', 'PromotionProductController@show');
+    Route::get('/edit/promotion-product', 'PromotionProductController@edit');
+    Route::post('/update/promotion-product', 'PromotionProductController@update');
+    Route::get('/delete/promotion-product', 'PromotionProductController@delete');
+
     Route::run();
 ?>
