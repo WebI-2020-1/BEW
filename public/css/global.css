@@ -169,3 +169,43 @@ main .content {
   border-bottom-right-radius: 10px;
   border-top-right-radius: 10px;
 }
+
+/* Conteúdo de cadastro */
+.conteudo-cadastro {
+  background-color: var(--cinza-claro);
+  color: var(--branco);
+  max-width: 90%;
+  max-height: 70%;
+  border-radius: 6px;
+  padding: 2%;
+  margin: 5% 0;
+}
+
+/* botoes form */
+button:active {
+  opacity: 0.8;
+}
+
+.botoes button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3vh;
+  border: none;
+  border-radius: 6px;
+  height: 45%;
+}
+
+.botoes button:nth-child(1) {
+  color: var(--branco);
+  background-color: var(--cinza-escuro);
+}
+
+.botoes button:nth-child(2) {
+  color: var(--preto);
+  background-color: var(--verde);
+}
+
+.botoes svg {
+  margin-left: 10px;
+}
