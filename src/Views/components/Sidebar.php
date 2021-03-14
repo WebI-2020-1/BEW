@@ -9,16 +9,13 @@
         <li class="menu-option" id="vendas">
             <a href="/sale"><i data-feather="shopping-bag"></i> VENDAS</a>
         </li>
-        <li class="menu-option">
+        <li class="menu-option" id="compras">
             <a href="/purchase"><i data-feather="shopping-cart"></i> COMPRAS</a>
         </li>
         <li class="menu-option" id="produtos">
             <a href="/product"><i data-feather="package"></i> PRODUTOS</a>
         </li>
-        <li class="menu-option">
-            <a href="/inventory"><i data-feather="archive"></i> ESTOQUE</a>
-        </li>
-        <li class="menu-option">
+        <li class="menu-option" id="fornecedores">
             <a href="/provider"><i data-feather="truck"></i> FORNECEDORES</a>
         </li>
         <li class="menu-option" id="funcionarios">
@@ -27,13 +24,13 @@
         <li class="menu-option" id="clientes">
             <a href="/client"><i data-feather="users"></i> CLIENTES</a>
         </li>
-        <li class="menu-option">
+        <li class="menu-option" id="promocoes">
             <a href="/promotion"><i data-feather="dollar-sign"></i> PROMOÇÕES</a>
         </li>
         <li class="menu-option" id="categorias">
             <a href="/category"><i data-feather="folder"></i> CATEGORIAS</a>
         </li>
-        <li class="menu-option">
+        <li class="menu-option" id="relatorios">
             <a href="/reports"><i data-feather="layers"></i> RELATÓRIOS</a>
         </li>
     </ul>
