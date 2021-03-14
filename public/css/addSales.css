@@ -1,4 +1,4 @@
-@import "./global.css";
+@import "./modal.css";
 
 #vendas {
   background-color: rgba(8, 102, 59, 0.47);
@@ -13,7 +13,7 @@ main header {
   grid-template-columns: 10% 1fr;
 }
 
-main header h3 {
+main header h1 {
   justify-self: center;
   padding-right: 10vw;
 }
@@ -60,50 +60,10 @@ form .abrir-modal svg {
   height: 1vw;
 }
 
-.modal {
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-  background: #888a;
-}
-
-.modal div:nth-child(1) {
-  background-color: var(--preto);
-  width: 50%;
-  height: 50%;
-  margin: 12.5% 25%;
-  border-radius: 6px;
-  padding: 2%;
-  display: grid;
-  grid-template-columns: repeat(5, 20%);
-  grid-template-rows: 5vh 5vh 1fr;
-  row-gap: 15px;
-  color: var(--branco);
-}
-
 .modal.produtos div:nth-child(1) {
   width: 75%;
   height: 75%;
   margin: 6.25% 12.5%;
-}
-
-.modal.mensagem div:nth-child(1) {
-  width: 25%;
-  height: 25%;
-  margin: 18.75% 37.5%;
-}
-
-.modal div button {
-  grid-area: fechar;
-  width: 25%;
-  border: none;
-  border-radius: 6px;
-  color: var(--laranja);
-  background-color: var(--cinza-escuro);
-  margin-left: 75%;
 }
 
 .modal div label {
@@ -130,14 +90,6 @@ form .abrir-modal svg {
   padding: 2%;
 }
 
-.modal div h3 {
-  grid-area: msg;
-  color: var(--branco);
-  font-size: 22px;
-  text-align: center;
-  font-weight: 500;
-}
-
 .modal div .table {
   grid-area: tabela;
   background-color: var(--cinza-claro);
@@ -156,13 +108,6 @@ grid-template-areas:
   '.      .      .      .      fechar'
   'tabela tabela tabela tabela tabela'
   'tabela tabela tabela tabela tabela';
-}
-
-.modal.mensagem div {
-  grid-template-areas:
-  '. . . fechar fechar'
-  '. msg msg msg .'
-  '. msg msg msg .';
 }
 
 .modal thead th, .modal tbody td {
@@ -188,11 +133,6 @@ grid-template-areas:
 
 .modal tbody button svg {
     color: var(--verde);
-}
-
-.modal.disabled {
-  display: none;
-  opacity: 0;
 }
 
 .tabela-produtos {
