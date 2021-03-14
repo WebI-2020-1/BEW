@@ -1,4 +1,4 @@
-@import "./global.css";
+@import "./modal.css";
 
 #vendas {
   background-color: rgba(8, 102, 59, 0.47);
@@ -60,44 +60,10 @@ form .abrir-modal svg {
   height: 1vw;
 }
 
-.modal {
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-  background: #0008;
-}
-
-.modal div:nth-child(1) {
-  background-color: var(--preto);
-  width: 50%;
-  height: 50%;
-  margin: 12.5% 25%;
-  border-radius: 6px;
-  padding: 2%;
-  display: grid;
-  grid-template-columns: repeat(5, 20%);
-  grid-template-rows: 5vh 5vh 1fr;
-  row-gap: 15px;
-  color: var(--branco);
-}
-
 .modal.produtos div:nth-child(1) {
   width: 75%;
   height: 75%;
   margin: 6.25% 12.5%;
-}
-
-.modal div button {
-  grid-area: fechar;
-  width: 25%;
-  border: none;
-  border-radius: 6px;
-  color: var(--laranja);
-  background-color: var(--cinza-escuro);
-  margin-left: 75%;
 }
 
 .modal div label {
@@ -167,11 +133,6 @@ grid-template-areas:
 
 .modal tbody button svg {
     color: var(--verde);
-}
-
-.modal.disabled {
-  display: none;
-  opacity: 0;
 }
 
 .tabela-produtos {

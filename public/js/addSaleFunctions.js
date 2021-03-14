@@ -240,7 +240,7 @@ const filtrarProduto = (value) => {
           <td>${nome}</td>
           <td>${quantidade}</td>
           <td>${valorVenda}</td>
-          <td><button type="button" onclick="selecionarProduto(${id}, '${nome}', ${quantidade}, ${valorVenda})">Selecionar</button></td>
+          <td><button type="button" onclick="selecionarProduto(${id}, '${nome}', ${quantidade}, ${valorVenda})">${feather.icons.check.toSvg()}</button></td>
         </tr>`
         );
       });
@@ -285,6 +285,6 @@ function addProduct(product) {
 }
 */
 
-document.querySelector('.submit').addEventListener('click', () => {
+/*document.querySelector('.submit').addEventListener('click', () => {
   document.getElementById('formSale').submit();
-})
+})*/

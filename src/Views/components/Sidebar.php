@@ -9,7 +9,7 @@
         <li class="menu-option" id="vendas">
             <a href="/sale"><i data-feather="shopping-bag"></i> VENDAS</a>
         </li>
-        <li class="menu-option">
+        <li class="menu-option" id="compras">
             <a href="/purchase"><i data-feather="shopping-cart"></i> COMPRAS</a>
         </li>
         <li class="menu-option" id="produtos">
@@ -24,13 +24,13 @@
         <li class="menu-option" id="clientes">
             <a href="/client"><i data-feather="users"></i> CLIENTES</a>
         </li>
-        <li class="menu-option">
+        <li class="menu-option" id="promocoes">
             <a href="/promotion"><i data-feather="dollar-sign"></i> PROMOÇÕES</a>
         </li>
         <li class="menu-option" id="categorias">
             <a href="/category"><i data-feather="folder"></i> CATEGORIAS</a>
         </li>
-        <li class="menu-option">
+        <li class="menu-option" id="relatorios">
             <a href="/reports"><i data-feather="layers"></i> RELATÓRIOS</a>
         </li>
     </ul>
