@@ -16,8 +16,6 @@ class AddSaleView
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="/public/css/addSales.css">
-            <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-            <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
             <title>Vendas</title>
             <script>
                 const host = '<?php echo $env; ?>';
@@ -168,20 +166,25 @@ class AddSaleView
                             </div>
 
                             <div class="botoes">
-                                <button type="button">CANCELAR <i data-feather="x"></i></button>
+                                <button type="reset" onclick="location.href=`${host}/sale`">CANCELAR <i data-feather="x"></i></button>
                                 <button type="submit" class="submit">FINALIZAR <i data-feather="check"></i></button>
                             </div>
                         </div>
-
-
-
-                        <h1>
-                            <?php
-                            echo $_SESSION['message'];
-                            unset($_SESSION['message']);
-                            ?>
-                        </h1>
                     </form>
+                    <div class="modal mensagem disabled">
+                        <div>
+                            <button type="button" onclick="location.href=`${host}/sale`">
+                                <i data-feather="x"></i>
+                            </button>
+                            <?php
+                            if ($_SESSION['message'] != '') {
+                                echo "<h3>" . $_SESSION['message'] . "</h3>";
+                                unset($_SESSION['message']);
+                                echo "<script type='text/javascript'>document.querySelector('.modal.mensagem').classList.toggle('disabled');</script>";
+                            }
+                            ?>
+                        </div>
+                    </div>
                 </div>
             </main>
 
