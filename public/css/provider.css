@@ -1,11 +1,11 @@
 @import './global.css';
 
-#funcionarios{
+#fornecedores{
   background-color: rgba( 8, 102, 59, 0.47);
   border-left-color: black;
 }
 
-#funcionarios a{
+#fornecedores a{
   color: #fff;
 }
 
@@ -39,21 +39,12 @@ main header .header-conteudo {
   background: #0008;
 }
 
-.fechar-modal{
-  background-color: var(--cinza-claro);
-  color: var(--laranja);
-  border: none;
-  border-radius: 5px;
-  position: absolute;
-  right: 0;
-}
-
 .modal.disabled {
   display: none;
   opacity: 0;
 }
 
-.funcionario{
+.fornecedor{
   background-color: var(--preto);
   width: 50%;
   margin: 12.5% 25%;
@@ -63,12 +54,12 @@ main header .header-conteudo {
   position: relative;
 }
 
-.conteudoFuncionario{
+.conteudoFornecedor{
   color: var(--branco);
   padding: 2%;
 }
 
-.conteudoFuncionario h2{
+.conteudoFornecedor h2{
   color: var(--verde);
 }
 
@@ -88,6 +79,15 @@ main header .header-conteudo {
 .info td{
   background-color: var(--cinza-claro);
   padding: 3px;
+}
+
+.fechar-modal{
+  background-color: var(--cinza-claro);
+  color: var(--laranja);
+  border: none;
+  border-radius: 5px;
+  position: absolute;
+  right: 0;
 }
 
 .botoesModal{

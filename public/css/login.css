@@ -54,6 +54,7 @@ button.input{
   margin-bottom: 15px;
   color: var(--preto);
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .esqueciSenha{

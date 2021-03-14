@@ -22,7 +22,10 @@
             $params['employees'] = $employee->getAllEmployees();
             $employee = new EmployeeView($params);
         }
-
+        public function getEmployee($params){
+            $employee = new EmployeeModel();
+            echo json_encode($employee->getEmployeeById($params));
+        }
         public function edit($params){
             $employee = new EmployeeModel();
             $params['employee'] = $employee->getEmployeeById($params);

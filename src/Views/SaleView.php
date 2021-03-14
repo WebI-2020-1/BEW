@@ -2,6 +2,10 @@
 class SaleView {
     public function __construct($params) {
         $env = parse_ini_file('env.ini')['HOST'];
+
+        if(empty($env) || !isset($env)){
+            $env = getenv('HOST');
+        }
 ?>
         <!DOCTYPE html>
         <html lang="pt-BR">

@@ -1,7 +1,7 @@
 CREATE TABLE Categoria (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(30) NOT NULL,
-    created DATETIME DEFAULT CURRENT_TIMESTAMP(),
+    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
     edited DATETIME
 );
 CREATE TABLE Produto (
@@ -14,7 +14,7 @@ CREATE TABLE Produto (
     valorCompra FLOAT(2) DEFAULT 0,
     codigoBarras VARCHAR(50),
     idCategoria INT REFERENCES Categoria(id),
-    created DATETIME DEFAULT CURRENT_TIMESTAMP(),
+    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
     edited DATETIME
 );
 CREATE TABLE Funcionario (
@@ -28,7 +28,7 @@ CREATE TABLE Funcionario (
     usuario VARCHAR(20),
     senha TEXT,
     email VARCHAR(50),
-    created DATETIME DEFAULT CURRENT_TIMESTAMP(),
+    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
     edited DATETIME
 );
 CREATE TABLE Cliente (
@@ -38,13 +38,13 @@ CREATE TABLE Cliente (
     endereco VARCHAR(80),
     telefone VARCHAR(15),
     dataNascimento DATE,
-    created DATETIME DEFAULT CURRENT_TIMESTAMP(),
+    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
     edited DATETIME
 );
 CREATE TABLE FormaPagamento (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     descricao VARCHAR(80) NOT NULL,
-    created DATETIME DEFAULT CURRENT_TIMESTAMP(),
+    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
     edited DATETIME
 );
 CREATE TABLE Fornecedor (
@@ -54,7 +54,7 @@ CREATE TABLE Fornecedor (
     endereco VARCHAR(80),
     telefone VARCHAR(15),
     email VARCHAR(50),
-    created DATETIME DEFAULT CURRENT_TIMESTAMP(),
+    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
     edited DATETIME
 );
 CREATE TABLE Venda (
@@ -65,7 +65,7 @@ CREATE TABLE Venda (
     idCliente INT REFERENCES Cliente(id),
     idFuncionario INT REFERENCES Funcionario(id),
     idFormaPagamento INT REFERENCES FormaPagamento(id),
-    created DATETIME DEFAULT CURRENT_TIMESTAMP(),
+    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
     edited DATETIME
 );
 CREATE TABLE ProdutoVenda(
@@ -75,7 +75,7 @@ CREATE TABLE ProdutoVenda(
     valorTotal FLOAT(2) DEFAULT 0,
     idProduto INT REFERENCES Produto(id),
     idVenda INT REFERENCES Venda(id),
-    created DATETIME DEFAULT CURRENT_TIMESTAMP(),
+    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
     edited DATETIME
 );
 CREATE TABLE Compra (
@@ -85,7 +85,7 @@ CREATE TABLE Compra (
     notaFiscal VARCHAR(44),
     idFornecedor INT REFERENCES Fornecedor(id),
     idFuncionario INT REFERENCES Funcionario(id),
-    created DATETIME DEFAULT CURRENT_TIMESTAMP(),
+    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
     edited DATETIME
 );
 CREATE TABLE ProdutoCompra (
@@ -95,7 +95,7 @@ CREATE TABLE ProdutoCompra (
     valorTotal FLOAT(2) DEFAULT 0,
     idProduto INT REFERENCES Produto(id),
     idCompra INT REFERENCES Compra(id),
-    created DATETIME DEFAULT CURRENT_TIMESTAMP(),
+    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
     edited DATETIME
 );
 CREATE TABLE Promocao (
@@ -103,7 +103,7 @@ CREATE TABLE Promocao (
     nome VARCHAR(50) NOT NULL,
     dataInicio DATE NOT NULL,
     dataFim DATE,
-    created DATETIME DEFAULT CURRENT_TIMESTAMP(),
+    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
     edited DATETIME
 );
 CREATE TABLE ProdutoPromocao (
@@ -111,6 +111,6 @@ CREATE TABLE ProdutoPromocao (
     valorDesconto FLOAT(2) NOT NULL,
     idProduto INT REFERENCES Produto(id),
     idPromocao INT REFERENCES Promocao(id),
-    created DATETIME DEFAULT CURRENT_TIMESTAMP(),
+    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
     edited DATETIME
 );
