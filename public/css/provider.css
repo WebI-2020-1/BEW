@@ -1,5 +1,3 @@
-@import './global.css';
-
 #fornecedores{
   background-color: rgba( 8, 102, 59, 0.47);
   border-left-color: black;
@@ -123,4 +121,31 @@ main header .header-conteudo {
   padding-left: 10px;
   font-weight: 500;
   width: 30%;
+}
+
+.modal.mensagem div {
+  background-color: var(--preto);
+}
+
+.modal.mensagem div:nth-child(1) {
+  width: 25%;
+  height: 25%;
+  margin: 18.75% 37.5%;
+}
+
+.modal.mensagem div button {
+  width: 20%;
+  border: none;
+  border-radius: 6px;
+  color: var(--laranja);
+  background-color: var(--cinza-escuro);
+  margin-left: 80%;
+}
+
+.modal.mensagem div h3 {
+  color: var(--branco);
+  font-size: 22px;
+  text-align: center;
+  font-weight: 500;
+  margin-top: 5%;
 }
