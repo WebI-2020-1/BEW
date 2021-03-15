@@ -12,7 +12,7 @@ class AddProviderView
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="/public/css/addProvider.css">
-            <title>Document</title>
+            <title>Cadastro de Fornecedor</title>
 
             <script>
                 const host = '<?php echo $env; ?>';
