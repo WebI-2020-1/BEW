@@ -14,10 +14,6 @@
                     const host =  '<?php echo $env; ?>';
                 </script>
             </head>
-
-            <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-            <script src="https://unpkg.com/feather-icons"></script>
-
             <body>
             <?php include "components/Sidebar.php" ?>
             <main class="wide">
@@ -71,12 +67,20 @@
                         <?php } ?>
                     </tbody>
                 </table>
-                <h1>
-                    <?php
-                        echo $_SESSION['message'];
-                        unset($_SESSION['message']);
-                    ?>
-                </h1>
+                <div class="modal mensagem disabled">
+                    <div>
+                        <button type="button" onclick="location.href=`${host}/client`">
+                            <i data-feather="x"></i>
+                        </button>
+                        <?php
+                        if ($_SESSION['message'] != '') {
+                            echo "<h3>" . $_SESSION['message'] . "</h3>";
+                            unset($_SESSION['message']);
+                            echo "<script type='text/javascript'>document.querySelector('.modal.mensagem').classList.toggle('disabled');</script>";
+                        }
+                        ?>
+                    </div>
+                </div>
             </div>
             </main>
 

@@ -18,10 +18,6 @@ class SaleView {
                 const host =  '<?php echo $env; ?>';
             </script>
         </head>
-
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script src="https://unpkg.com/feather-icons"></script>
-
         <body>
         <?php include "components/Sidebar.php" ?>
         <main class="wide">
@@ -78,11 +74,11 @@ class SaleView {
                 </table>
             </div>
         </main>
+
+        <script src="/public/js/global.js"></script>
+        <script src="/public/js/SaleFunctions.js"></script>
+
         </body>
-
-    <script src="/public/js/global.js"></script>
-    <script src="/public/js/SaleFunctions.js"></script>
-
     </html>
 <?php   }
     }
