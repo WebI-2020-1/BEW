@@ -1,0 +1,297 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+
+:root {
+  --preto: #0a0e11;
+  --verde: #19bf72;
+  --branco: #e4f1eb;
+  --cinza-escuro: #262b2d;
+  --cinza-claro: #414748;
+  --laranja: #f95738;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--preto);
+  width: 100vw;
+  height: 100vh;
+  font-family: "Roboto", sans-serif;
+}
+
+main {
+  width: 75vw;
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main.wide {
+  width: 95vw;
+}
+
+main header {
+  display: grid;
+  height: 5vh;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+main header .menu-toggle {
+  color: #fff;
+  height: 5vh;
+  width: 10vw;
+  margin: 0;
+  justify-self: flex-start;
+}
+
+main header h1 {
+  color: var(--verde);
+  font-size: 4vh;
+  font-weight: 400;
+}
+
+.menu-toggle {
+  cursor: pointer;
+}
+
+.menu-toggle.disabled {
+  visibility: hidden;
+}
+
+main .content {
+  width: 95%;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input:out-of-range {
+  border: 1px solid var(--laranja);
+}
+
+button {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 900px) {
+  main {
+    width: 60vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  main {
+    width: 95vw;
+  }
+}
+
+/* atributos da tela de consulta */
+/*HEADER*/
+.botoesDireito{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 50%;
+  height: 3vw;
+}
+
+.btnAdd{
+  background-color: var(--verde);
+  text-decoration: none;
+  color: var(--preto);
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  height: 3vw;
+  padding-left: 1%;
+  margin-right: 1.5%;
+}
+
+.pesquisar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3vw;
+  border-radius: 5px;
+  background-color: var(--cinza-escuro);
+}
+
+.pesquisar input{
+  background-color: var(--cinza-escuro);
+  border: 0;
+  color: var(--branco);
+  font-size: 1rem;
+  padding-left: 2%;
+  border-radius: 5px;
+}
+
+.iconePesquisa{
+  color: var(--branco);
+  margin-right: 5px;
+}
+
+/*BODY*/
+.tabela-consulta{
+  width: 100%;
+  max-width: 100%;
+  color: var(--branco);
+  margin-top: 2%;
+  border-collapse: collapse;
+  border-spacing: 1;
+  text-align: center;
+  overflow-y: scroll;
+}
+
+.tabela-consulta thead tr{
+  font-weight: 400;
+  height: 5vh;
+  width: 12%;
+}
+
+.tabela-consulta tbody{
+  overflow-y: scroll;
+}
+
+.tabela-consulta tbody td{
+  font-weight: 400;
+  height: 4vw;
+  text-align: center;
+  background-color: var(--cinza-escuro);
+  border: 5px solid var(--preto);
+  border-style: solid none;
+}
+
+.tabela-consulta tbody td:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.tabela-consulta tbody td:last-child {
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* Conteúdo de cadastro */
+.conteudo-cadastro {
+  background-color: var(--cinza-claro);
+  color: var(--branco);
+  max-width: 90%;
+  max-height: 70%;
+  border-radius: 6px;
+  padding: 2%;
+  margin: 5% 0;
+}
+
+.label1 {
+  grid-area: label1;
+}
+.label2 {
+  grid-area: label2;
+}
+.label3 {
+  grid-area: label3;
+}
+.label4 {
+  grid-area: label4;
+}
+.label5 {
+  grid-area: label5;
+}
+
+main .content .conteudo-cadastro label {
+  font-size: 22px;
+  text-align: center;
+}
+
+main .content .conteudo-cadastro input{
+  width: 80%;
+  height: 70%;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  color: var(--branco);
+  background-color: var(--cinza-escuro);
+  font-size: 18px;
+  padding: 5px;
+  padding-left: 10px;
+  margin-left: 10%;
+}
+
+main .content .botoes {
+  display: flex;
+  width: 90%;
+  margin: 0 5%;
+  justify-content: space-evenly;
+}
+
+main .content .botoes button {
+  width: 45%;
+  padding: 1% 0;
+}
+
+/* botoes form */
+button:active {
+  opacity: 0.8;
+}
+
+.botoes button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3vh;
+  border: none;
+  border-radius: 6px;
+  height: 45%;
+}
+
+.botoes button:nth-child(1) {
+  color: var(--branco);
+  background-color: var(--cinza-escuro);
+}
+
+.botoes button:nth-child(2) {
+  color: var(--preto);
+  background-color: var(--verde);
+}
+
+.botoes svg {
+  margin-left: 10px;
+}
+
+/* Scroll bar */
+* {
+  scrollbar-width: 10px;
+  scrollbar-color: var(--cinza-escuro) var(--cinza-claro);
+
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+    background: #e4f1eb;
+    border-radius: 6px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--cinza-escuro);
+    border-radius: 6px;
+}

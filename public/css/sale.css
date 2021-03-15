@@ -1,0 +1,153 @@
+@import './global.css';
+
+#vendas{
+  background-color: rgba( 8, 102, 59, 0.47);
+  border-left-color: black;
+}
+
+#vendas a{
+  color: #fff;
+}
+
+main header {
+  grid-template-columns: 10% 1fr;
+}
+
+main header .header-conteudo {
+  display: flex;
+  padding-right: 5vw;
+  justify-content: space-between;
+}
+
+.abrir-modal{
+  color: var(--branco);
+  background-color: var(--cinza-claro);
+  border-radius: 5px;
+  border: none;
+  height: 2vw;
+  width: 2.5vw;
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background: #0008;
+}
+
+.modal.disabled {
+  display: none;
+  opacity: 0;
+}
+
+.venda{
+  background-color: var(--preto);
+  width: 50%;
+  margin: 12.5% 25%;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.conteudoVenda{
+  color: var(--branco);
+  display: grid;
+  grid-template-areas:
+        'titulo titulo titulo'
+        'info info info'
+        'tabela tabela tabela'
+        'total total total';
+  padding: 2%;
+}
+
+.conteudoVenda h2{
+  color: var(--verde);
+  grid-area: titulo;
+}
+
+.info{
+  color: var(--branco);
+  grid-area: info;
+}
+
+.info th{
+  background-color: var(--cinza-escuro);
+  text-align: start;
+  width: 30%;
+  padding: 3px;
+  font-weight: 400;
+}
+
+.info td{
+  background-color: var(--cinza-claro);
+  padding: 3px;
+}
+
+.tabelaProdutos{
+  color: var(--branco);
+  grid-area: tabela;
+  margin-top: 1%;
+  overflow-y: scroll;
+}
+
+.tabelaProdutos th{
+  text-align: center;
+  font-weight: 400;
+  background-color: var(--cinza-escuro);
+  padding: 3px;
+  width: 33%;
+}
+
+.tabelaProdutos td{
+  text-align: center;
+  background-color: var(--cinza-claro);
+  padding: 3px;
+}
+
+.totais{
+  grid-area: total;
+  color: var(--branco);
+  margin-top: 1%;
+}
+
+.totais th{
+  text-align: center;
+  font-weight: 400;
+  background-color: var(--cinza-escuro);
+  padding: 5px 4px;
+  width: 50%;
+}
+
+.totais td{
+  text-align: center;
+  background-color: var(--cinza-claro);
+  padding: 8px 3px;
+}
+
+.fechar-modal{
+  background-color: var(--cinza-claro);
+  color: var(--laranja);
+  border: none;
+  border-radius: 5px;
+  position: absolute;
+  right: 0;
+}
+
+.btnEditar{
+  background-color: var(--verde);
+  color: var(--preto);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  height: 40px;
+  margin: auto;
+  padding-left: 10px;
+  font-weight: 500;
+}

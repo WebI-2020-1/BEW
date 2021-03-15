@@ -1,0 +1,63 @@
+@import './modal.css';
+
+#fornecedores {
+  background-color: rgba(8, 102, 59, 0.47);
+  border-left-color: black;
+}
+
+#fornecedores a {
+  color: #fff;
+}
+
+main header {
+  grid-template-columns: 10% 1fr;
+}
+
+main header h1 {
+  justify-self: center;
+  padding-right: 10vw;
+}
+
+main .content {
+  height: 90%;
+  margin-top: 1%;
+}
+
+main .content .conteudo-cadastro {
+  display: grid;
+  width: 90%;
+  height: 60%;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding: 2.5% 5%;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 12% 20% 12% 20% 12% 20%;
+  column-gap: 15px;
+  grid-template-areas:
+  'label1 label2'
+  'nome cnpj'
+  'label4 label5'
+  'telefone email'
+  'label3 label3'
+  'endereco endereco';
+}
+
+#nome {
+  grid-area: nome;
+}
+
+#cnpj {
+  grid-area: cnpj;
+}
+
+#endereco {
+  grid-area: endereco;
+}
+
+#telefone {
+  grid-area: telefone;
+}
+
+#email {
+  grid-area: email;
+}

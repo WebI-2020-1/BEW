@@ -1,0 +1,123 @@
+@import "./global.css";
+
+.sidebar-menu {
+  width: 25%;
+  background-color: var(--verde);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-toggle {
+    height: 25%;
+    width: 10%;
+    margin: 5%;
+}
+
+.sidebar-menu a {
+  display: flex;
+  align-items: center;
+  color: var(--preto);
+  text-decoration: none;
+}
+
+.logo-container {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: right;
+}
+
+.logo-container .menu-toggle {
+  border-bottom: 2px solid transparent;
+  align-self: flex-start;
+}
+
+.logo-container svg:hover {
+  border-bottom: 2px solid var(--preto);
+}
+
+.logo {
+  max-height: 75%;
+  width: 50%;
+  cursor: pointer;
+}
+
+.menu-list {
+  height: 65%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  font-size: 1.5vw;
+}
+
+.menu-option {
+  height: 10%;
+  border-left: 0.5vw solid transparent;
+  display: flex;
+  padding-left: 10%;
+}
+
+.menu-option:hover {
+  background-color: rgba(8, 102, 59, 0.47);
+}
+
+.logout {
+  display: flex;
+  align-items: center;
+  height: 10%;
+  font-size: 1.5vw;
+}
+
+.logout a {
+  padding-left: 1vw;
+  border-bottom: 2px solid transparent;
+}
+
+.logout a:hover {
+  border-bottom: 2px solid var(--preto);
+}
+
+a svg {
+  height: 1.5vw;
+  margin: 0 1vw;
+}
+
+.sidebar-menu.disabled {
+  display: none;
+}
+
+@media screen and (max-width: 900px) {
+  .sidebar-menu {
+    width: 40%;
+  }
+  .menu-list {
+    font-size: 3vw;
+  }
+  .logout {
+    font-size: 3vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .sidebar-menu {
+    width: 75%;
+    position: fixed;
+    left: 0;
+  }
+  .menu-list {
+    font-size: 5vw;
+  }
+  .logout {
+    font-size: 5vw;
+  }
+  a svg {
+  height: 5vw;
+  margin: 0 2.5vw;
+  }
+}

@@ -1,0 +1,17 @@
+@import "./global.css";
+
+body{
+  color: var(--laranja);
+  flex-direction: column;
+}
+
+h1{
+  font-size: 7rem;
+}
+a{
+  text-decoration: none;
+  color: var(--laranja);
+  display: flex;
+  align-items: center;
+  margin:1.2rem;
+}
