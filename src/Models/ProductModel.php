@@ -14,7 +14,26 @@
         }
         public function getProducts($params){
             $itemSearch = addslashes($params['itemSearch']);
-            $sql = "SELECT * FROM Produto WHERE nome like '%{$itemSearch}%'";
+
+            $sql = "SELECT 
+                    p.*,
+                    CASE
+                        WHEN
+                            pp.valorDesconto IS NOT NULL
+                                AND pr.dataInicio <= NOW()
+                                AND pr.dataFim >= NOW()
+                        THEN
+                            FORMAT((p.valorVenda - pp.valorDesconto),
+                                2)
+                        ELSE FORMAT(p.valorVenda, 2)
+                    END AS valorVenda
+                FROM
+                    Produto AS p
+                        LEFT JOIN
+                    ProdutoPromocao AS pp ON p.id = pp.idProduto
+                        LEFT JOIN
+                    Promocao AS pr ON pr.id = pp.idPromocao 
+                WHERE p.nome like '%{$itemSearch}%'";
 
             return DB::getAll($sql);
         }

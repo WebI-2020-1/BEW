@@ -2,9 +2,26 @@ DELIMITER $$
     CREATE TRIGGER ProdutoVendaInsert BEFORE INSERT ON ProdutoVenda
     FOR EACH ROW BEGIN
 
-    -- valorUnitario (ProdutoVenda) = valorVenda (Produto)
+    -- valorUnitario (ProdutoVenda) = valorVenda (Produto) ou (Promoção produto)
     -- valorTotal (ProdutoVenda) = quantidade * valorUnitario
-        SET NEW.valorUnitario = (SELECT valorVenda FROM Produto WHERE id = NEW.idProduto);
+        SET NEW.valorUnitario = (SELECT 
+                                    CASE
+                                        WHEN
+                                            pp.valorDesconto IS NOT NULL
+                                                AND pr.dataInicio <= NOW()
+                                                AND pr.dataFim >= NOW()
+                                        THEN
+                                            FORMAT((p.valorVenda - pp.valorDesconto),
+                                                2)
+                                        ELSE FORMAT(p.valorVenda, 2)
+                                    END AS valorVenda
+                                FROM
+                                    Produto AS p
+                                        LEFT JOIN
+                                    ProdutoPromocao AS pp ON p.id = pp.idProduto
+                                        LEFT JOIN
+                                    Promocao AS pr ON pr.id = pp.idPromocao 
+                                WHERE p.id = NEW.idProduto);
         SET NEW.valorTotal = NEW.quantidade * NEW.valorUnitario;
 
     -- quantidade (Produto) -= quantidade (ProdutoVenda)
