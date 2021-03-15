@@ -31,32 +31,3 @@ main .content .conteudo-cadastro {
   margin-right: 15%;
   align-items: center;
 }
-
-main .content .conteudo-cadastro label {
-  font-size: 22px;
-  margin-bottom: 2%;
-}
-
-main .content .conteudo-cadastro input {
-  width: 80%;
-  border: none;
-  outline: none;
-  border-radius: 6px;
-  color: var(--branco);
-  background-color: var(--cinza-escuro);
-  font-size: 18px;
-  padding: 5px;
-  padding-left: 10px;
-}
-
-main .content .botoes {
-  display: flex;
-  width: 70%;
-  margin: 0 15%;
-  justify-content: space-evenly;
-}
-
-main .content .botoes button {
-  width: 45%;
-  padding: 1% 0;
-}

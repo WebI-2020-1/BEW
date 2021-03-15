@@ -62,28 +62,7 @@ main .content .conteudo-cadastro {
   grid-area: categoria;
 }
 
-.label1 {
-  grid-area: label1;
-}
-.label2 {
-  grid-area: label2;
-}
-.label3 {
-  grid-area: label3;
-}
-.label4 {
-  grid-area: label4;
-}
-.label5 {
-  grid-area: label5;
-}
-
-main .content .conteudo-cadastro label {
-  font-size: 22px;
-  text-align: center;
-}
-
-main .content .conteudo-cadastro input, main .content .conteudo-cadastro select {
+main .content .conteudo-cadastro select {
   width: 80%;
   height: 70%;
   border: none;
@@ -99,16 +78,4 @@ main .content .conteudo-cadastro input, main .content .conteudo-cadastro select 
 
 main .content .conteudo-cadastro select {
   grid-area: select;
-}
-
-main .content .botoes {
-  display: flex;
-  width: 90%;
-  margin: 0 5%;
-  justify-content: space-evenly;
-}
-
-main .content .botoes button {
-  width: 45%;
-  padding: 1% 0;
 }
