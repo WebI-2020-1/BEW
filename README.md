@@ -4,15 +4,15 @@
 
 <p align="justify">Business Enterprise Webshop (BEW) é um sistema de gerenciamento de vendas desenvolvido para a matéria de Laboratório de Programação Web I.</p>
 
-![LICENSE](https://img.shields.io/badge/MIT-19BF72?style=flat-square&label=License&Color=white&labelColor=0D1117) 
-![REPO SIZE](https://img.shields.io/github/repo-size/projetoscms/bew?color=19BF72&label=Repo%20Size&style=flat-square&labelColor=0D1117) 
-![LAST COMMIT](https://img.shields.io/github/last-commit/projetoscms/bew?color=19BF72&label=Last%20Commit&style=flat-square&labelColor=0D1117) 
+![LICENSE](https://img.shields.io/badge/MIT-19BF72?style=flat-square&label=License&Color=white&labelColor=0D1117)
+![REPO SIZE](https://img.shields.io/github/repo-size/projetoscms/bew?color=19BF72&label=Repo%20Size&style=flat-square&labelColor=0D1117)
+![LAST COMMIT](https://img.shields.io/github/last-commit/projetoscms/bew?color=19BF72&label=Last%20Commit&style=flat-square&labelColor=0D1117)
 ![STATUS](https://img.shields.io/badge/Development-19BF72?style=flat-square&label=Status&Color=white&labelColor=0D1117)
 
 <p align="center">
   <a href="#sobre">Sobre</a> •
-  <a href="#tecnologias">Tecnologias</a> • 
-  <a href="#licenca">Licença</a> • 
+  <a href="#tecnologias">Tecnologias</a> •
+  <a href="#licenca">Licença</a> •
   <a href="#layout">Layout</a> •
   <a href="#funcionalidades">Funcionalidades</a> •
   <a href="#autores">Autores</a>
@@ -51,21 +51,23 @@ Acesse o layout completo no [Figma](https://www.figma.com/file/VLJiXLRJlLLLioYwb
 
 - [X] Login
 - [X] Dashboard
-- [ ] Gerenciamento de clientes
-- [ ] Gerenciamento de vendas
-- [ ] Gerenciamento de compras
-- [ ] Gerenciamento de produtos
-- [ ] Gerenciamento de estoque
-- [ ] Gerenciamento de fornecedores
-- [X] Cadastro de funcionários
-- [ ] Consulta edição e remoção de funcionários
-- [ ] Gerenciamento de promoções
-- [ ] Gerenciamento de categorias dos produtos
+- [X] Adição e consulta de vendas
+- [ ] Edição de vendas
+- [ ] Adição, consulta e edição de compras
+- [X] Adição, consulta, edição e remoção de produtos
+- [X] Adição, consulta, edição e remoção de fornecedores
+- [X] Adição, consulta, edição e remoção de funcionários
+- [X] Adição, consulta, edição e remoção de clientes
+- [ ] Adição, consulta, edição e remoção de promoções
+- [X] Adição, consulta, edição e remoção de categorias
 - [ ] Gerenciamento de relatórios
 
 <h3>Visualizar versão de produção</h3>
 
-Em breve... 
+- User: convidado
+- Senha: Convidado@123
+
+acesse este link: [bew.com.br](http://bew-web.herokuapp.com/login) e insira suas credenciais.
 
 <h2 id="autores">Autores</h2>
 
