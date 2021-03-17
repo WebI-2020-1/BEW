@@ -22,7 +22,9 @@
                 <div class="header-conteudo">
                     <h1>FORNECEDORES</h1>
                     <div class="botoesDireito">
-                        <a href="/add/provider" class="btnAdd">Adicionar fornecedor<i data-feather="plus"></i></a>
+                        <?php if($_SESSION['dados_usuario']['nivelAcesso'] == 2){ ?>
+                            <a href="/add/provider" class="btnAdd">Adicionar fornecedor<i data-feather="plus"></i></a>
+                        <?php } ?>
                         <div class="pesquisar">
                             <input type="text" id="input" name="pesquisar" placeholder="Pesquisar na tabela" onkeyup="filtrarFornecedor()">
                             <i data-feather="search" class="iconePesquisa"></i>
@@ -58,10 +60,12 @@
                                         <i data-feather="x"></i>
                                     </button>
                                     <div class="conteudoFornecedor"></div>
-                                    <div class="botoesModal">
-                                        <a class="btnEditar">Editar<i data-feather="edit"></i></a>
-                                        <a class="btnDeletar">Deletar <i data-feather="trash"></i></a>
-                                    </div>
+                                    <?php if($_SESSION['dados_usuario']['nivelAcesso'] == 2){ ?>
+                                        <div class="botoesModal">
+                                            <a class="btnEditar">Editar<i data-feather="edit"></i></a>
+                                            <a class="btnDeletar">Deletar <i data-feather="trash"></i></a>
+                                        </div>
+                                    <?php } ?>
                                 </div>
                             </div>
                         <?php } ?>

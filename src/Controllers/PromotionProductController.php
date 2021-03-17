@@ -1,5 +1,11 @@
 <?php
     class PromotionProductController{
+        public function __construct(){
+            if($_SESSION['dados_usuario']['nivelAcesso'] != 2){
+                return redirect('/promotion', 'Usuário sem permissão.');
+            }
+
+        }
         public function index(){
             $product = new ProductModel();
             $promotion = new PromotionModel();

@@ -60,7 +60,9 @@
                                     <div class="conteudoCliente"></div>
                                     <div class="botoesModal">
                                         <a class="btnEditar">Editar<i data-feather="edit"></i></a>
+                                        <?php if($_SESSION['dados_usuario']['nivelAcesso'] == 2){ ?>
                                         <a class="btnDeletar">Deletar <i data-feather="trash"></i></a>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>

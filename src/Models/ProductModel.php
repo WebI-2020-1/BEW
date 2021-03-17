@@ -38,7 +38,7 @@
             return DB::getAll($sql);
         }
         public function getAllProducts(){
-            $sql = "SELECT * FROM  Produto;";
+            $sql = "SELECT * FROM  Produto ORDER BY nome ASC;";
 
             return DB::getAll($sql);
         }
