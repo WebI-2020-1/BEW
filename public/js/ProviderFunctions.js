@@ -51,6 +51,9 @@ const consultarFornecedor = (id) => {
         </tr>
         </table>
         `;
+
+        document.querySelector('.btnEditar').href = 'edit/provider&id=' + fornecedor.id;
+        document.querySelector('.btnDeletar').href = 'delete/provider&id=' + fornecedor.id;
       })
       .catch((err) => console.log(err));
 };
