@@ -60,7 +60,9 @@
                                     <div class="conteudoCliente"></div>
                                     <div class="botoesModal">
                                         <a href="/edit/client&id=<?php echo $client['id']; ?>" class="btnEditar">Editar<i data-feather="edit"></i></a>
-                                        <a href="/delete/client&id=<?php echo $client['id']; ?>" class="btnDeletar">Deletar <i data-feather="trash"></i></a>
+                                        <?php if($_SESSION['dados_usuario']['nivelAcesso'] == 2){ ?>
+                                            <a href="/delete/client&id=<?php echo $client['id']; ?>" class="btnDeletar">Deletar <i data-feather="trash"></i></a>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>

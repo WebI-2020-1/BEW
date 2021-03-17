@@ -20,7 +20,7 @@
                         v.created AS dataVenda
                     FROM Venda AS v
                     INNER JOIN Cliente AS c ON c.id = v.idCliente
-                    INNER JOIN FormaPagamento AS fp ON fp.id = v.idFormaPagamento;";
+                    INNER JOIN FormaPagamento AS fp ON fp.id = v.idFormaPagamento ORDER BY v.id DESC;";
 
             return DB::getAll($sql);
         }

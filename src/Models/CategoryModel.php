@@ -8,7 +8,7 @@
             return $category;
         }
         public function getAllCategories(){
-            $sql = "SELECT * FROM Categoria;";
+            $sql = "SELECT * FROM Categoria ORDER BY nome ASC;";
             $categories = DB::getAll($sql);
             
             return $categories;

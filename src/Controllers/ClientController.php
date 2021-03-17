@@ -79,13 +79,17 @@
         }
 
         public function delete($params){
-            $client = new ClientModel();
-            $result = $client->delete($params);
+            if($_SESSION['dados_usuario']['nivelAcesso'] == 2){
+                $client = new ClientModel();
+                $result = $client->delete($params);
 
-            if($result){
-                return redirect('/client','Cliente deletado com sucesso.');
+                if($result){
+                    return redirect('/client','Cliente deletado com sucesso.');
+                }else{
+                    return redirect('/client','Algo deu errado, tente novamente.');
+                }
             }else{
-                return redirect('/client','Algo deu errado, tente novamente.');
+                return redirect('/client','Usuário sem permissão.');
             }
         }
     }

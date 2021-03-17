@@ -13,7 +13,7 @@
             return DB::execute($sql);
         }
         public function getAllProviders(){
-            $sql = "SELECT * FROM Fornecedor;";
+            $sql = "SELECT * FROM Fornecedor ORDER BY nome ASC;";
 
             return DB::getAll($sql);
         }
