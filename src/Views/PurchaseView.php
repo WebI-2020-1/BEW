@@ -1,6 +1,6 @@
 <?php
     class PurchaseView{
-        public function __construct($params){ 
+        public function __construct($params){
             $env = parse_ini_file('env.ini')['HOST'];
 
         if(empty($env) || !isset($env)){
@@ -20,9 +20,9 @@
             </head>
             <body>
             <?php include "components/Sidebar.php" ?>
-            <main class="wide">
+            <main>
                 <header>
-                    <i class="menu-toggle" data-feather="menu"></i>
+                    <i class="menu-toggle disabled" data-feather="menu"></i>
                     <div class="header-conteudo">
                         <h1>COMPRAS</h1>
                         <div class="botoesDireito">
@@ -55,7 +55,7 @@
                                     <td><?php echo $purchase['valorTotal']; ?></td>
                                     <td><?php echo $purchase['notaFiscal']; ?></td>
                                     <td><?php echo $purchase['nomeFornecedor']; ?></td>
-                                    <td><?php echo $purchase['dataCompra']; ?></td>
+                                    <td><?php echo date("d/m/Y", strtotime($purchase['dataCompra'])); ?></td>
                                     <td><button type="button" class="abrir-modal" onclick="consultarCompra(<?php echo $purchase['idCompra']; ?>)">
                                         <i data-feather="search"></i></button>
                                     </td>
@@ -66,7 +66,7 @@
                                             <i data-feather="x"></i>
                                         </button>
                                         <div class="conteudoCompra"></div>
-                                        <a href="edit/purchase&id=<?php echo $purchase['idCompra']; ?>" class="btnEditar">Editar<i data-feather="edit"></i></a>
+                                        <a class="btnEditar">Editar<i data-feather="edit"></i></a>
                                     </div>
                                 </div>
                             <?php } ?>

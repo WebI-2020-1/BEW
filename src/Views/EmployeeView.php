@@ -16,9 +16,9 @@
             </head>
             <body>
             <?php include "components/Sidebar.php" ?>
-            <main class="wide">
+            <main>
             <header>
-                <i class="menu-toggle" data-feather="menu"></i>
+                <i class="menu-toggle disabled" data-feather="menu"></i>
                 <div class="header-conteudo">
                     <h1>FUNCIONÁRIOS</h1>
                     <div class="botoesDireito">
@@ -59,8 +59,8 @@
                                     </button>
                                     <div class="conteudoFuncionario"></div>
                                     <div class="botoesModal">
-                                        <a href="/edit/employee&id=<?php echo $employee['id']; ?>" class="btnEditar">Editar<i data-feather="edit"></i></a>
-                                        <a href="/delete/employee&id=<?php echo $employee['id']; ?>" class="btnDeletar">Deletar <i data-feather="trash"></i></a>
+                                        <a class="btnEditar">Editar<i data-feather="edit"></i></a>
+                                        <a class="btnDeletar">Deletar <i data-feather="trash"></i></a>
                                     </div>
                                 </div>
                             </div>

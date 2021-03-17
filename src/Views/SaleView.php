@@ -20,9 +20,9 @@ class SaleView {
         </head>
         <body>
         <?php include "components/Sidebar.php" ?>
-        <main class="wide">
+        <main>
             <header>
-                <i class="menu-toggle" data-feather="menu"></i>
+                <i class="menu-toggle disabled" data-feather="menu"></i>
                 <div class="header-conteudo">
                     <h1>VENDAS</h1>
                     <div class="botoesDireito">
@@ -55,7 +55,7 @@ class SaleView {
                                 <td><?php echo $sale['valor']; ?></td>
                                 <td><?php echo $sale['nomeCliente']; ?></td>
                                 <td><?php echo $sale['formaPagamento']; ?></td>
-                                <td><?php echo $sale['dataVenda']; ?></td>
+                                <td><?php echo date("d/m/Y", strtotime($sale['dataVenda'])); ?></td>
                                 <td><button type="button" class="abrir-modal" onclick="consultarVenda(<?php echo $sale['idVenda']; ?>)">
                                     <i data-feather="search"></i></button>
                                 </td>
