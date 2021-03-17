@@ -1,4 +1,4 @@
-@import "./global.css";
+@import './modal.css';
 
 #funcionarios{
   background-color: rgba( 8, 102, 59, 0.47);
@@ -18,86 +18,86 @@ main header h1 {
   padding-right: 10vw;
 }
 
-.content{
-  background-color: var(--cinza-claro);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3rem;
-  color: var(--branco);
-  overflow-y: scroll;
-}
-
-main .content form {
-  display: grid;
-  grid-column-gap: 3%;
-  grid-template-columns: auto auto;
-  margin: 20px;
-  width: 80%;
+main .content {
   height: 90%;
-}
-
-.itemTodo{
-  grid-column: 1 / span 2;
-}
-
-label{
-  display: flex;
-}
-
-.icone{
-  margin-right: 5px;
-}
-
-.input{
-  background-color: var(--cinza-escuro);
-  border-radius: 7px;
-  border: 0;
-  color: var(--branco);
-  font-size: 1.3rem;
-  padding: 0.7rem;
-  margin-bottom: 2%;
   margin-top: 1%;
-  width: 100%;
 }
 
-.botao{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 0;
-  border-radius: 5px;
-  margin-top: 10%;
-  padding: 10px;
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
-  font-weight: 500;
+main .content .conteudo-cadastro {
+  display: grid;
+  width: 90%;
+  height: 100%;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding: 2.5% 5%;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: repeat(12, 12%, 20%);
+  column-gap: 15px;
+  grid-template-areas:
+  'label1 label1'
+  'nome nome'
+  'label2 label3'
+  'nivelAcesso cpf'
+  'label4 label4'
+  'endereco endereco'
+  'label5 label6'
+  'telefone dataNascimento'
+  'label7 label7'
+  'email email'
+  'label8 label9'
+  'usuario senha';
 }
 
-.btnCancelar{
-  background-color: var(--cinza-escuro);
+#nome{
+  grid-area: nome;
+}
+
+#nivelAcesso{
+  grid-area: nivelAcesso;
+}
+
+#cpf{
+  grid-area: cpf;
+}
+
+#endereco{
+  grid-area: endereco;
+}
+
+#telefone{
+  grid-area: telefone;
+}
+
+#dataNascimento{
+  grid-area: dataNascimento;
+}
+
+#email{
+  grid-area: email;
+}
+
+#usuario{
+  grid-area: usuario;
+}
+
+#senha{
+  grid-area: senha;
+}
+
+.label7{
+  grid-area: label7;
+}
+
+main .content .conteudo-cadastro select {
+  width: 80%;
+  height: 70%;
+  border: none;
+  outline: none;
+  border-radius: 6px;
   color: var(--branco);
-}
-
-.btnCadastrar{
-  background-color: var(--verde);
-}
-
-.btnIcone{
-  margin-left: 5px;
-}
-
-@media screen and (max-width: 900px){
-  .item{
-    grid-column: 1 / span 2;
-  }
-
-  .btnCadastrar{
-    margin-top: 4%;
-  }
-
-  .content{
-    margin-top: 60px;
-  }
+  background-color: var(--cinza-escuro);
+  font-size: 18px;
+  padding: 5px;
+  padding-left: 10px;
+  margin-left: 10%;
 }
