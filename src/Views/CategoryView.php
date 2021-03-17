@@ -16,9 +16,9 @@
             </head>
             <body>
             <?php include "components/Sidebar.php" ?>
-            <main class="wide">
+            <main>
             <header>
-                <i class="menu-toggle" data-feather="menu"></i>
+                <i class="menu-toggle disabled" data-feather="menu"></i>
                 <div class="header-conteudo">
                     <h1>CATEGORIAS</h1>
                     <div class="botoesDireito">
