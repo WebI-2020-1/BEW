@@ -4,17 +4,25 @@
 
     class ProviderController{
         public function index(){
-            $provider = new AddProviderView();
+            if($_SESSION['dados_usuario']['nivelAcesso'] == 2){
+                $provider = new AddProviderView();
+            }else{
+                return redirect('/provider', 'Usuário sem permissão.');
+            }
         }
 
         public function store($params){
-            $provider = new ProviderModel();
-            $result = $provider->create($params);
+            if($_SESSION['dados_usuario']['nivelAcesso'] == 2){
+                $provider = new ProviderModel();
+                $result = $provider->create($params);
 
-            if($result){
-                return redirect('/add/provider', 'Forncedor cadastrado com sucesso');
+                if($result){
+                    return redirect('/add/provider', 'Forncedor cadastrado com sucesso');
+                }else{
+                    return redirect('/add/provider', 'Algo deu errado, tente novamente');
+                }
             }else{
-                return redirect('/add/provider', 'Algo deu errado, tente novamente');
+                return redirect('/provider', 'Usuário sem permissão.');
             }
         }
 
@@ -35,29 +43,41 @@
         }
 
         public function edit($params){
-            $provider = new ProviderModel();
-            $params['provider'] = $provider->getProviderById($params);
-            $provider = new EditProviderView($params);
+            if($_SESSION['dados_usuario']['nivelAcesso'] == 2){
+                $provider = new ProviderModel();
+                $params['provider'] = $provider->getProviderById($params);
+                $provider = new EditProviderView($params);
+             }else{
+                return redirect('/provider', 'Usuário sem permissão.');
+            }
         }
 
         public function update($params){
-            $provider = new ProviderModel();
-            $result = $provider->update($params);
+            if($_SESSION['dados_usuario']['nivelAcesso'] == 2){
+                $provider = new ProviderModel();
+                $result = $provider->update($params);
 
-            if($result){
-                return redirect('/provider', 'Fornecedor atualizado com sucesso');
+                if($result){
+                    return redirect('/provider', 'Fornecedor atualizado com sucesso');
+                }else{
+                    return redirect('/provider', 'Algo deu errado, tente novamente');
+                }
             }else{
-                return redirect('/provider', 'Algo deu errado, tente novamente');
+                return redirect('/provider', 'Usuário sem permissão.');
             }
         }
         public function delete($params){
-            $provider = new ProviderModel();
-            $result = $provider->delete($params);
+            if($_SESSION['dados_usuario']['nivelAcesso'] == 2){
+                $provider = new ProviderModel();
+                $result = $provider->delete($params);
 
-            if($result){
-                return redirect('/provider', 'Fornecedor deletado com sucesso');
+                if($result){
+                    return redirect('/provider', 'Fornecedor deletado com sucesso');
+                }else{
+                    return redirect('/provider', 'Algo deu errado, tente novamente');
+                }
             }else{
-                return redirect('/provider', 'Algo deu errado, tente novamente');
+                return redirect('/provider', 'Usuário sem permissão.');
             }
         }
         public function getAllProviders(){

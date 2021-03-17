@@ -14,8 +14,10 @@
                 </style>
             </head>
             <body>
-                <a href="/add/promotion">Adicionar promoção</a>
-                <a href="/promotion-product">Relacionar promoção</a>
+                <?php if($_SESSION['dados_usuario']['nivelAcesso'] == 2){ ?>
+                    <a href="/add/promotion">Adicionar promoção</a>
+                    <a href="/promotion-product">Relacionar promoção</a>
+                <?php } ?>
                 <table>
                     <thead>
                         <tr>
@@ -33,8 +35,10 @@
                                 <td><?php echo $promotion['dataInicio'] ?></td>
                                 <td><?php echo $promotion['dataFim'] ?></td>
                                 <td>
-                                    <a href="/edit/promotion&id=<?php echo $promotion['id'] ?>">Editar</a>
-                                    <a href="/delete/promotion&id=<?php echo $promotion['id'] ?>">Deletar</a>
+                                    <?php if($_SESSION['dados_usuario']['nivelAcesso'] == 2){ ?>
+                                        <a href="/edit/promotion&id=<?php echo $promotion['id'] ?>">Editar</a>
+                                        <a href="/delete/promotion&id=<?php echo $promotion['id'] ?>">Deletar</a>
+                                    <?php } ?>
                                 </td>
                             </tr>
                         <?php } ?>

@@ -22,7 +22,9 @@
                 <div class="header-conteudo">
                     <h1>PRODUTOS</h1>
                     <div class="botoesDireito">
-                        <a href="/add/product" class="btnAdd">Adicionar produto<i data-feather="plus"></i></a>
+                        <?php if($_SESSION['dados_usuario']['nivelAcesso'] == 2){ ?>
+                            <a href="/add/product" class="btnAdd">Adicionar produto<i data-feather="plus"></i></a>
+                        <?php } ?>
                         <div class="pesquisar">
                             <input type="text" id="input" name="pesquisar" placeholder="Pesquisar na tabela" onkeyup="filtrarProduto()">
                             <i data-feather="search" class="iconePesquisa"></i>
@@ -62,10 +64,12 @@
                                         <i data-feather="x"></i>
                                     </button>
                                     <div class="conteudoProduto"></div>
-                                    <div class="botoesModal">
-                                        <a href="/edit/product&id=<?php echo $product['id']; ?>" class="btnEditar">Editar <i data-feather="edit"></i></a>
-                                        <a href="/delete/product&id=<?php echo $product['id']; ?>" class="btnDeletar">Deletar <i data-feather="trash"></i></a>
-                                    </div>
+                                    <?php if($_SESSION['dados_usuario']['nivelAcesso'] == 2){ ?>
+                                        <div class="botoesModal">
+                                            <a href="/edit/product&id=<?php echo $product['id']; ?>" class="btnEditar">Editar <i data-feather="edit"></i></a>
+                                            <a href="/delete/product&id=<?php echo $product['id']; ?>" class="btnDeletar">Deletar <i data-feather="trash"></i></a>
+                                        </div>
+                                    <?php } ?>
                                 </div>
                             </div>
                         <?php } ?>
