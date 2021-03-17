@@ -29,6 +29,11 @@
             echo json_encode($provider->getProviderById($params));
         }
 
+        public function getProviderByName($params){
+            $provider = new ProviderModel();
+            echo json_encode($provider->getProviderByName($params));
+        }
+
         public function edit($params){
             $provider = new ProviderModel();
             $params['provider'] = $provider->getProviderById($params);
@@ -54,6 +59,10 @@
             }else{
                 return redirect('/provider', 'Algo deu errado, tente novamente');
             }
+        }
+        public function getAllProviders(){
+            $provider = new ProviderModel();
+            echo json_encode($provider->getAllProviders());
         }
     }
 ?>
