@@ -32,6 +32,13 @@ const mountProducts = (value) => {
 /* --------------- Compra -------------- */
 const modalCompra = document.querySelector(".conteudoCompra");
 
+function adicionaZero(numero){
+  if (numero <= 9)
+      return "0" + numero;
+  else
+      return numero;
+}
+
 const consultarCompra = (id) => {
   mountProducts(id)
   axios
@@ -45,6 +52,8 @@ const consultarCompra = (id) => {
     )
     .then((response) => {
       const compra = response.data;
+      const dataCompra = new Date(compra.dataCompra);
+      const dataFormatada = `${adicionaZero(dataCompra.getDate().toString())}/${adicionaZero(dataCompra.getMonth()+1).toString()}/${dataCompra.getFullYear()} ${dataCompra.getHours()}:${dataCompra.getMinutes()}`
       modalCompra.insertAdjacentHTML('beforeend',
       `
       <h2>Compra ${compra.idCompra}</h2>
@@ -59,7 +68,7 @@ const consultarCompra = (id) => {
       </tr>
       <tr>
         <th>Data da Compra</th>
-        <td>${compra.dataCompra}</td>
+        <td>${dataFormatada}</td>
       </tr>
       </table>
       <table class="tabelaProdutos">
@@ -99,6 +108,8 @@ const consultarCompra = (id) => {
           </tbody>
         </table>`
       )
+
+      document.querySelector('.btnEditar').href = 'edit/purchase&id=' + compra.idCompra;
     })
     .catch((err) => console.log(err));
 }
