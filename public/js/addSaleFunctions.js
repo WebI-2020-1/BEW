@@ -12,14 +12,14 @@ const toggleModalClientes = () =>
   document.querySelector(".modal.clientes").classList.toggle("disabled");
 
 // adicionando evento de abrir modal + listar
-abrirModalElements[0].addEventListener("click", () => { toggleModalProdutos(); listarProdutos(); });
+abrirModalElements[0].addEventListener("click", () => { toggleModalProdutos(); });
 abrirModalElements[1].addEventListener("click", toggleModalPagamentos);
-abrirModalElements[2].addEventListener("click", () => { toggleModalClientes(); listarClientes(); });
+abrirModalElements[2].addEventListener("click", () => { toggleModalClientes(); });
 
 // adicionando evento de fechar modal + limpar
-fecharModalElements[0].addEventListener("click", () => { toggleModalProdutos(); limparProdutos(); });
+fecharModalElements[0].addEventListener("click", () => { toggleModalProdutos(); });
 fecharModalElements[1].addEventListener("click", toggleModalPagamentos);
-fecharModalElements[2].addEventListener("click", () => { toggleModalClientes(); limparClientes(); });
+fecharModalElements[2].addEventListener("click", () => { toggleModalClientes(); });
 
 /* --------------- CLIENTES -------------- */
 const modalClientesLista = document.querySelector(".lista.clientes tbody");
@@ -37,7 +37,7 @@ const listarClientes = () => {
             <tr>
               <td>${cliente.id}</td>
               <td>${cliente.nome}</td>
-              <td><button type="button" onclick="selecionarCliente(${cliente.id}, '${cliente.nome}')">${feather.icons.check.toSvg()}</button></td>
+              <td><button type="button" class="check" onclick="selecionarCliente(${cliente.id}, '${cliente.nome}')">${feather.icons['arrow-right'].toSvg()}</button></td>
             </tr>
             `
         );
@@ -78,7 +78,7 @@ const filtrarCliente = (value) => {
           `<tr>
           <td>${cliente.id}</td>
           <td>${cliente.nome}</td>
-          <td><button type="button" onclick="selecionarCliente(${cliente.id}, '${cliente.nome}')">${feather.icons.check.toSvg()}</button></td>
+          <td><button type="button" class="check" onclick="selecionarCliente(${cliente.id}, '${cliente.nome}')">${feather.icons['arrow-right'].toSvg()}</button></td>
         </tr>`
         );
       });
@@ -157,12 +157,12 @@ const listarProdutos = () => {
         const { id, nome, quantidade, valorVenda } = produto;
         modalProdutosLista.insertAdjacentHTML(
           "beforeend",
-          `<tr>
+          `<tr id="produto_lista${id}">
           <td>${id}</td>
           <td>${nome}</td>
           <td>${quantidade}</td>
           <td>${valorVenda}</td>
-          <td><button type="button" onclick="selecionarProduto(${id}, '${nome}', ${quantidade}, ${valorVenda})">${feather.icons.check.toSvg()}</button></td>
+          <td><button class="check" type="button" onclick="selecionarProduto(${id}, '${nome}', ${quantidade}, ${valorVenda})">${feather.icons['plus-circle'].toSvg()}</button></td>
         </tr>`
         );
       });
@@ -184,14 +184,18 @@ const selecionarProduto = (id, nome, quantidade, valorVenda) => {
       `<tr id="product_${id}">
         <td>${id} <input type="hidden" name="produtos[]" value="${id}"></td>
         <td>${nome}</td>
-        <td><input type="number" name="quantidadeVenda[]" min="1" max="${quantidade}" placeholder="0" onkeyup="calcularTotalProduto(${valorVenda}, this.value, ${id})" required></td>
+        <td><input type="number" name="quantidadeVenda[]" min="0" max="${quantidade}" placeholder="0" onkeyup="calcularTotalProduto(${valorVenda}, this.value, ${id})" required></td>
         <td>${valorVenda.toFixed(2)}</td>
         <td class="total-produto">0</td>
         <td><button type="button" onclick="removerProduto(${id})">${feather.icons.trash.toSvg()}</button></td>
       </tr>`
     );
+    const botao = document.querySelector(`tr#produto_lista${id} td button`);
+    botao.classList.remove("check");
+    botao.innerHTML = feather.icons['minus-circle'].toSvg();
+    botao.classList.add("unset");
   } else {
-    alert("Item já adicionado.");
+    removerProduto(id);
   }
 };
 
@@ -214,6 +218,10 @@ const calcularTotalProduto = (valor, quantidade, id) => {
 const removerProduto = (id) => {
   const produto = document.getElementById('product_' + id);
   produtosTabela.removeChild(produto);
+  const botao = document.querySelector(`tr#produto_lista${id} td button`);
+  botao.classList.remove("unset");
+  botao.innerHTML = feather.icons['plus-circle'].toSvg();
+  botao.classList.add("check");
   calcularTotalVenda();
 }
 
@@ -233,14 +241,16 @@ const filtrarProduto = (value) => {
       const produtos = response.data;
       produtos.forEach((produto) => {
         const { id, nome, quantidade, valorVenda } = produto;
+        const check = !document.querySelector(`#product_${id}`);
+
         modalProdutosLista.insertAdjacentHTML(
           "beforeend",
-          `<tr>
+          `<tr id="produto_lista${id}">
           <td>${id}</td>
           <td>${nome}</td>
           <td>${quantidade}</td>
           <td>${valorVenda}</td>
-          <td><button type="button" onclick="selecionarProduto(${id}, '${nome}', ${quantidade}, ${valorVenda})">${feather.icons.check.toSvg()}</button></td>
+          <td><button class="${check ? 'check' : 'unset'}" type="button" onclick="selecionarProduto(${id}, '${nome}', ${quantidade}, ${valorVenda})">${check ? feather.icons['plus-circle'].toSvg() : feather.icons['minus-circle'].toSvg()}</button></td>
         </tr>`
         );
       });
@@ -288,3 +298,6 @@ function addProduct(product) {
 /*document.querySelector('.submit').addEventListener('click', () => {
   document.getElementById('formSale').submit();
 })*/
+
+listarClientes();
+listarProdutos();
