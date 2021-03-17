@@ -24,6 +24,13 @@
 
             return DB::getFirst($sql);
         }
+
+        public function getProviderByName($params){
+            $fornecedor = addslashes($params['itemSearch']);
+            $sql = "SELECT * FROM Fornecedor WHERE nome like '%{$fornecedor}%'";
+
+            return DB::getAll($sql);
+        }
         
         public function update($params){
             $nome = addslashes($params['nome']);
