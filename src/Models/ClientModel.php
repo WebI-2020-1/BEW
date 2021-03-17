@@ -13,7 +13,7 @@
             return DB::execute($sql);
         }
         public function getAllClients(){
-            $sql = "SELECT * FROM Cliente;";
+            $sql = "SELECT * FROM Cliente ORDER BY nome ASC;";
 
             return DB::getAll($sql);
         }

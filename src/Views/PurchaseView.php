@@ -12,7 +12,7 @@
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <link rel="stylesheet" href="/public/css/compra.css">
+                <link rel="stylesheet" href="/public/css/purchase.css">
                 <title>Compras</title>
                 <script>
                     const host =  '<?php echo $env; ?>';
@@ -72,6 +72,20 @@
                             <?php } ?>
                         </tbody>
                     </table>
+                    <div class="modal mensagem disabled">
+                        <div>
+                            <button type="button" onclick="location.href=`${host}/purchase`">
+                                <i data-feather="x"></i>
+                            </button>
+                            <?php
+                            if ($_SESSION['message'] != '') {
+                                echo "<h3>" . $_SESSION['message'] . "</h3>";
+                                unset($_SESSION['message']);
+                                echo "<script type='text/javascript'>document.querySelector('.modal.mensagem').classList.toggle('disabled');</script>";
+                            }
+                            ?>
+                        </div>
+                    </div>
                 </div>
             </main>
 

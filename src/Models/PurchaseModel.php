@@ -18,7 +18,7 @@
                         f.nome AS nomeFornecedor,
                         c.created AS dataCompra
                     FROM Compra AS c
-                    INNER JOIN Fornecedor AS f ON f.id = c.idFornecedor;";
+                    INNER JOIN Fornecedor AS f ON f.id = c.idFornecedor ORDER BY c.id DESC;";
 
             return DB::getAll($sql);
         }

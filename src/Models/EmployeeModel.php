@@ -28,7 +28,7 @@
         }
 
         public function getAllEmployees(){
-            $sql = "SELECT * FROM Funcionario;";
+            $sql = "SELECT * FROM Funcionario ORDER BY nome ASC;";
 
             return DB::getAll($sql);
         }

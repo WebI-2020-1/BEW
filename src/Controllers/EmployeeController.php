@@ -4,50 +4,74 @@
 
     class EmployeeController{
         public function index(){
-            $employee = new AddEmployeeView();
+            if($_SESSION['dados_usuario']['nivelAcesso'] == 2){
+                $employee = new AddEmployeeView();
+            }else{
+                return redirect('/dashboard', 'Usuário sem permissão');
+            }
         }
 
         public function store($params){
-            $employee = new EmployeeModel();
-            $result = $employee->create($params);
-            if($result){
-                return redirect('/add/employee', 'Funcionário cadastrado com sucesso');
+            if($_SESSION['dados_usuario']['nivelAcesso'] == 2){
+                $employee = new EmployeeModel();
+                $result = $employee->create($params);
+                if($result){
+                    return redirect('/add/employee', 'Funcionário cadastrado com sucesso');
+                }else{
+                    return redirect('/add/employee', 'Algo deu errado, tente novamente');
+                }
             }else{
-                return redirect('/add/employee', 'Algo deu errado, tente novamente');
+                return redirect('/dashboard', 'Usuário sem permissão');
             }
         }
 
         public function show(){
-            $employee = new EmployeeModel();
-            $params['employees'] = $employee->getAllEmployees();
-            $employee = new EmployeeView($params);
+            if($_SESSION['dados_usuario']['nivelAcesso'] == 2){
+                $employee = new EmployeeModel();
+                $params['employees'] = $employee->getAllEmployees();
+                $employee = new EmployeeView($params);
+            }else{
+                return redirect('/dashboard', 'Usuário sem permissão');
+            }
         }
         public function getEmployee($params){
             $employee = new EmployeeModel();
             echo json_encode($employee->getEmployeeById($params));
         }
         public function edit($params){
-            $employee = new EmployeeModel();
-            $params['employee'] = $employee->getEmployeeById($params);
-            $employee = new EditEmployeeView($params);
+            if($_SESSION['dados_usuario']['nivelAcesso'] == 2){
+                $employee = new EmployeeModel();
+                $params['employee'] = $employee->getEmployeeById($params);
+                $employee = new EditEmployeeView($params);
+            }else{
+                return redirect('/dashboard', 'Usuário sem permissão');
+            }
         }
         public function update($params){
-            $employee = new EmployeeModel();
-            $result = $employee->update($params);
+            if($_SESSION['dados_usuario']['nivelAcesso'] == 2){
+                $employee = new EmployeeModel();
+                $result = $employee->update($params);
 
-            if($result){
-                return redirect('/employee', 'Funcionário atualizado com sucesso');
+                if($result){
+                    return redirect('/employee', 'Funcionário atualizado com sucesso');
+                }else{
+                    return redirect('/employee', 'Algo deu errado, tente novamente');
+                }
             }else{
-                return redirect('/employee', 'Algo deu errado, tente novamente');
+                return redirect('/dashboard', 'Usuário sem permissão');
             }
         }
         public function delete($params){
-            $employee = new EmployeeModel();
-            $result = $employee->delete($params);
-            if($result){
-                return redirect('/employee', 'Funcionário deletado com sucesso');
+            if($_SESSION['dados_usuario']['nivelAcesso'] == 2){
+                $employee = new EmployeeModel();
+                $result = $employee->delete($params);
+                if($result){
+                    return redirect('/employee', 'Funcionário deletado com sucesso');
+                }else{
+                    return redirect('/employee', 'Algo deu errado, tente novamente');
+                }
             }else{
-                return redirect('/employee', 'Algo deu errado, tente novamente');
+                return redirect('/dashboard', 'Usuário sem permissão');
             }
         }
     }
