@@ -66,7 +66,7 @@ class SaleView {
                                         <i data-feather="x"></i>
                                     </button>
                                     <div class="conteudoVenda"></div>
-                                    <a href="edit/sale$id=<?php echo $sale['idVenda']; ?>" class="btnEditar">Editar<i data-feather="edit"></i></a>
+                                    <a href="edit/sale&id=<?php echo $sale['idVenda']; ?>" class="btnEditar">Editar<i data-feather="edit"></i></a>
                                 </div>
                             </div>
                         <?php } ?>
