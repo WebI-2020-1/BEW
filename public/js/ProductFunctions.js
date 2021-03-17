@@ -57,8 +57,9 @@ const consultarProduto = (id) => {
           <td>${produto.codigoBarras}</td>
         </tr>
         </table>`;
-        document.querySelector('.btnEditar').href ='edit/product&id='+produto.id;
-        document.querySelector('.btnDeletar').href ='delete/product&id'+produto.id;
+
+      document.querySelector('.btnEditar').href = 'edit/product&id=' + produto.id;
+      document.querySelector('.btnDeletar').href = 'delete/product&id=' + produto.id;
     })
     .catch((err) => console.log(err));
 }

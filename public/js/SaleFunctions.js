@@ -32,6 +32,13 @@ const mountProducts = (value) => {
 /* --------------- VENDA -------------- */
 const modalVenda = document.querySelector(".conteudoVenda");
 
+function adicionaZero(numero){
+  if (numero <= 9)
+      return "0" + numero;
+  else
+      return numero;
+}
+
 const consultarVenda = (id) => {
   mountProducts(id)
   axios
@@ -45,6 +52,8 @@ const consultarVenda = (id) => {
     )
     .then((response) => {
       const venda = response.data;
+      const dataVenda = new Date(venda.dataVenda);
+      const dataFormatada = `${adicionaZero(dataVenda.getDate().toString())}/${adicionaZero(dataVenda.getMonth()+1).toString()}/${dataVenda.getFullYear()} ${dataVenda.getHours()}:${dataVenda.getMinutes()}`
       modalVenda.insertAdjacentHTML('beforeend',
       `
       <h2>Venda ${venda.idVenda}</h2>
@@ -63,7 +72,7 @@ const consultarVenda = (id) => {
       </tr>
       <tr>
         <th>Data da Venda</th>
-        <td>${venda.dataVenda}</td>
+        <td>${dataFormatada}</td>
       </tr>
       </table>
       <table class="tabelaProdutos">
@@ -103,6 +112,8 @@ const consultarVenda = (id) => {
           </tbody>
         </table>`
       )
+
+      document.querySelector('.btnEditar').href = 'edit/sale&id=' + venda.idVenda;
     })
     .catch((err) => console.log(err));
 }

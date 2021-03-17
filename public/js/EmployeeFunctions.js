@@ -61,6 +61,9 @@ const consultarFuncionario = (id) => {
           <td>${funcionario.usuario}</td>
         </tr>
         </table>`;
+
+      document.querySelector('.btnEditar').href = 'edit/employee&id=' + funcionario.id;
+      document.querySelector('.btnDeletar').href = 'delete/employee&id=' + funcionario.id;
     })
     .catch((err) => console.log(err));
 }

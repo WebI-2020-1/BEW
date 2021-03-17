@@ -16,9 +16,9 @@
             </head>
             <body>
             <?php include "components/Sidebar.php" ?>
-            <main class="wide">
+            <main>
             <header>
-                <i class="menu-toggle" data-feather="menu"></i>
+                <i class="menu-toggle disabled" data-feather="menu"></i>
                 <div class="header-conteudo">
                     <h1>CLIENTES</h1>
                     <div class="botoesDireito">
@@ -59,9 +59,9 @@
                                     </button>
                                     <div class="conteudoCliente"></div>
                                     <div class="botoesModal">
-                                        <a href="/edit/client&id=<?php echo $client['id']; ?>" class="btnEditar">Editar<i data-feather="edit"></i></a>
+                                        <a class="btnEditar">Editar<i data-feather="edit"></i></a>
                                         <?php if($_SESSION['dados_usuario']['nivelAcesso'] == 2){ ?>
-                                            <a href="/delete/client&id=<?php echo $client['id']; ?>" class="btnDeletar">Deletar <i data-feather="trash"></i></a>
+                                        <a class="btnDeletar">Deletar <i data-feather="trash"></i></a>
                                         <?php } ?>
                                     </div>
                                 </div>

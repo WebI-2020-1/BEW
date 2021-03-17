@@ -52,6 +52,8 @@ const consultarCliente = (id) => {
         </tr>
         </table>
         `;
+        document.querySelector('.btnEditar').href = 'edit/client&id=' + cliente.id;
+        document.querySelector('.btnDeletar').href = 'delete/client&id=' + cliente.id;
       })
       .catch((err) => console.log(err));
 };
