@@ -25,6 +25,10 @@ const consultarProduto = (id) => {
     )
     .then((response) => {
       const produto = response.data;
+      const valorCompra = Number(produto.valorCompra);
+      const valorVenda = Number(produto.valorVenda);
+      const valorCompraFormatado = valorCompra.toLocaleString('pt-br', { style: 'currency', currency: 'BRL'});
+      const valorVendaFormatado = valorVenda.toLocaleString('pt-br', { style: 'currency', currency: 'BRL'});
       modalProduto.innerHTML =
         `<h2>${produto.nome}</h2>
         <table class="info">
@@ -46,11 +50,11 @@ const consultarProduto = (id) => {
         </tr>
         <tr>
           <th>Valor de Venda</th>
-          <td>${produto.valorVenda}</td>
+          <td>${valorVendaFormatado}</td>
         </tr>
         <tr>
           <th>Valor de Compra</th>
-          <td>${produto.valorCompra}</td>
+          <td>${valorCompraFormatado}</td>
         </tr>
         <tr>
           <th>Código de Barras</th>
