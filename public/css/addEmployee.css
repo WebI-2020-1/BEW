@@ -101,3 +101,11 @@ main .content .conteudo-cadastro select {
   padding-left: 10px;
   margin-left: 10%;
 }
+
+.conteudo-cadastro{
+  overflow-y: scroll;
+}
+
+.conteudo-cadastro input{
+  margin-bottom: 30px;
+}

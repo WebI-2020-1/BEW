@@ -13,6 +13,13 @@ fecharModalElements.forEach((elemento) => { elemento.addEventListener("click", (
 /* --------------- FUNCIONARIO -------------- */
 const modalFuncionario = document.querySelector(".conteudoFuncionario");
 
+function adicionaZero(numero){
+  if (numero <= 9)
+      return "0" + numero;
+  else
+      return numero;
+}
+
 const consultarFuncionario = (id) => {
   axios
     .post(`${host}/getEmployee`,
@@ -25,6 +32,8 @@ const consultarFuncionario = (id) => {
     )
     .then((response) => {
       const funcionario = response.data;
+      const dataNascimento = new Date(funcionario.dataNascimento);
+      const dataFormatada = `${adicionaZero(dataNascimento.getDate().toString())}/${adicionaZero(dataNascimento.getMonth()+1).toString()}/${dataNascimento.getFullYear()}`;
       modalFuncionario.innerHTML =
         `<h2>${funcionario.nome}</h2>
         <table class="info">
@@ -54,7 +63,7 @@ const consultarFuncionario = (id) => {
         </tr>
         <tr>
           <th>Data de Nascimento</th>
-          <td>${funcionario.dataNascimento}</td>
+          <td>${dataFormatada}</td>
         </tr>
         <tr>
           <th>Usuário</th>
