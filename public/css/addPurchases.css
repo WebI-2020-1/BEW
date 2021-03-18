@@ -103,13 +103,6 @@ grid-template-areas:
   'tabela tabela tabela tabela tabela';
 }
 
-.modal.pagamentos div {
-  grid-template-areas:
-  '.      .      .      .      fechar'
-  'tabela tabela tabela tabela tabela'
-  'tabela tabela tabela tabela tabela';
-}
-
 .modal thead th, .modal tbody td {
   padding-left: 5%;
   width: auto;
@@ -240,8 +233,8 @@ input[type="number"] {
   grid-template-columns: 1fr 20% 30%;
   grid-template-rows: 1fr 1fr;
   grid-template-areas:
-    "cliente total botoes"
-    "pagamento total botoes";
+    "fornecedor total botoes"
+    "fornecedor total botoes";
   column-gap: 25px;
   row-gap: 5px;
   width: 100%;
@@ -264,8 +257,7 @@ input[type="number"] {
   padding: 5px 20px;
 }
 
-.cliente,
-.pagamento,
+.info .fornecedor,
 .total {
   display: flex;
   color: var(--branco);
@@ -274,24 +266,25 @@ input[type="number"] {
 }
 
 .fornecedor {
-  grid-area: cliente;
+  grid-area: fornecedor;
+  flex-direction: column;
+  text-align: center;
 }
-.pagamento {
-  grid-area: pagamento;
-}
+
 .total {
   grid-area: total;
   flex-direction: column;
   text-align: center;
-}
-.botoes {
+}.btn-sale {
+  width: 100%;
+  margin: unset;
   grid-area: botoes;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.botoes button {
+.btn-sale button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -299,18 +292,19 @@ input[type="number"] {
   border: none;
   border-radius: 6px;
   height: 45%;
+  width: 100%;
 }
 
-.botoes button:nth-child(1) {
+.btn-sale button:nth-child(1) {
   color: var(--branco);
   background-color: var(--cinza-escuro);
 }
 
-.botoes button:nth-child(2) {
+.btn-sale button:nth-child(2) {
   color: var(--preto);
   background-color: var(--verde);
 }
 
-.botoes svg {
+.btn-sale svg {
   margin-left: 10px;
 }
