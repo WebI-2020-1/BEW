@@ -1,0 +1,53 @@
+@import './modal.css';
+
+#promocoes {
+  background-color: rgba(8, 102, 59, 0.47);
+  border-left-color: black;
+}
+
+#promocoes a {
+  color: #fff;
+}
+
+main header {
+  grid-template-columns: 10% 1fr;
+}
+
+main header h1 {
+  justify-self: center;
+  padding-right: 10vw;
+}
+
+main .content {
+  height: 90%;
+  margin-top: 1%;
+}
+
+main .content .conteudo-cadastro {
+  display: grid;
+  width: 90%;
+  height: 60%;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding: 2.5% 5%;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 15% 25% 15% 25%;
+  column-gap: 15px;
+  grid-template-areas:
+  'label1 label1'
+  'nome nome'
+  'label2 label3'
+  'data1 data2';
+}
+
+#nome {
+  grid-area: nome;
+}
+
+#dataInicio {
+  grid-area: data1;
+}
+
+#dataFim {
+  grid-area: data2;
+}
