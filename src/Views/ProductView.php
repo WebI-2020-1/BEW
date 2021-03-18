@@ -26,7 +26,7 @@
                             <a href="/add/product" class="btnAdd">Adicionar produto<i data-feather="plus"></i></a>
                         <?php } ?>
                         <div class="pesquisar">
-                            <input type="text" id="input" name="pesquisar" placeholder="Pesquisar na tabela" onkeyup="filtrarProduto()">
+                            <input type="text" id="input" name="pesquisar" placeholder="Pesquise pelo nome" onkeyup="filtrarProduto()">
                             <i data-feather="search" class="iconePesquisa"></i>
                         </div>
                     </div>
@@ -52,8 +52,8 @@
                                 <td><?php echo $product['nome']; ?></td>
                                 <td><?php echo $product['unidade']; ?></td>
                                 <td><?php echo $product['quantidade']; ?></td>
-                                <td><?php echo $product['valorCompra']; ?></td>
-                                <td><?php echo $product['valorVenda']; ?></td>
+                                <td><?php echo 'R$ ' . number_format($product['valorCompra'], 2, ',', '.'); ?></td>
+                                <td><?php echo 'R$ ' . number_format($product['valorVenda'], 2, ',', '.'); ?></td>
                                 <td><button type="button" class="abrir-modal" onclick="consultarProduto(<?php echo $product['id']; ?>)">
                                     <i data-feather="search"></i></button>
                                 </td>

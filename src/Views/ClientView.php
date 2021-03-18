@@ -24,7 +24,7 @@
                     <div class="botoesDireito">
                         <a href="/add/client" class="btnAdd">Adicionar cliente<i data-feather="plus"></i></a>
                         <div class="pesquisar">
-                            <input type="text" id="input" name="pesquisar" placeholder="Pesquisar na tabela" onkeyup="filtrarCliente()">
+                            <input type="text" id="input" name="pesquisar" placeholder="Pesquise pelo nome" onkeyup="filtrarCliente()">
                             <i data-feather="search" class="iconePesquisa"></i>
                         </div>
                     </div>
