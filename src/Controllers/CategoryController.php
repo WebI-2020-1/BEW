@@ -15,7 +15,7 @@
                 'Nome_da_categoria' => 'required'
             );
             $resultValidation = validate($data,$validator);
-            if($validator['success']){
+            if($resultValidation['success']){
                 $category = new CategoryModel();
                 $result = $category->create($params);
                 if($result){
@@ -24,7 +24,7 @@
                     return redirect('/add/category','Ocorreu um erro interno. Contate os desenvolvedores..');
                 }
             }else{
-                return redirect('/add/category',$resultValidation['message']);
+                return redirect('/category',$resultValidation['message']);
             }
         }
         
@@ -48,7 +48,7 @@
                 'ID_da_categoria' => 'required'
             );
             $resultValidation = validate($data,$validator);
-            if($validator['success']){
+            if($resultValidation['success']){
                 $category = new CategoryModel();
                 $result = $category->update($params);
 
@@ -70,7 +70,7 @@
                 'ID_da_categoria' => 'required'
             );
             $resultValidation = validate($data,$validator);
-            if($validator['success']){
+            if($resultValidation['success']){
                 $category = new CategoryModel();
                 $result = $category->delete($params);
 
