@@ -75,7 +75,3 @@ main .content .conteudo-cadastro select {
   padding-left: 10px;
   margin-left: 10%;
 }
-
-main .content .conteudo-cadastro select {
-  grid-area: select;
-}
