@@ -28,7 +28,7 @@ class SaleView {
                     <div class="botoesDireito">
                         <a href="/add/sale" class="btnAdd">Adicionar venda<i data-feather="plus"></i></a>
                         <div class="pesquisar">
-                            <input type="text" id="input" name="pesquisar" placeholder="Pesquisar na tabela" onkeyup="filtrarVenda()">
+                            <input type="text" id="input" name="pesquisar" placeholder="Pesquise pelo id" onkeyup="filtrarVenda()">
                             <i data-feather="search" class="iconePesquisa"></i>
                         </div>
                     </div>
@@ -52,7 +52,7 @@ class SaleView {
                             <tr>
                                 <td><?php echo $sale['idVenda']; ?></td>
                                 <td><?php echo $sale['quantidade']; ?></td>
-                                <td><?php echo $sale['valor']; ?></td>
+                                <td><?php echo 'R$ ' . number_format($sale['valor'], 2, ',', '.'); ?></td>
                                 <td><?php echo $sale['nomeCliente']; ?></td>
                                 <td><?php echo $sale['formaPagamento']; ?></td>
                                 <td><?php echo date("d/m/Y", strtotime($sale['dataVenda'])); ?></td>

@@ -28,7 +28,7 @@
                         <div class="botoesDireito">
                             <a href="/add/purchase" class="btnAdd">Adicionar compra<i data-feather="plus"></i></a>
                             <div class="pesquisar">
-                                <input type="text" id="input" name="pesquisar" placeholder="Pesquisar na tabela" onkeyup="filtrarCompra()">
+                                <input type="text" id="input" name="pesquisar" placeholder="Pesquise pelo id" onkeyup="filtrarCompra()">
                                 <i data-feather="search" class="iconePesquisa"></i>
                             </div>
                         </div>
@@ -52,7 +52,7 @@
                                 <tr>
                                     <td><?php echo $purchase['idCompra']; ?></td>
                                     <td><?php echo $purchase['quantidade']; ?></td>
-                                    <td><?php echo $purchase['valorTotal']; ?></td>
+                                    <td><?php echo 'R$ ' . number_format($purchase['valorTotal'], 2, ',', '.'); ?></td>
                                     <td><?php echo $purchase['notaFiscal']; ?></td>
                                     <td><?php echo $purchase['nomeFornecedor']; ?></td>
                                     <td><?php echo date("d/m/Y", strtotime($purchase['dataCompra'])); ?></td>

@@ -93,13 +93,18 @@ const consultarVenda = (id) => {
       const tabelaProdutos = document.querySelector(".tabelaProdutos");
 
       arrayProdutos[0].forEach((produto) => {
+        const valorUnitario = Number(produto.valorUnitario);
+        let valorFormatado = valorUnitario.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+        console.log(valorFormatado)
         tabelaProdutos.insertAdjacentHTML('beforeend', `<tr>
           <td>${produto.nome}</td>
           <td>${produto.quantidade}</td>
-          <td>${produto.valorUnitario}</td>
+          <td>${valorFormatado}</td>
         </tr>`);
       });
 
+      const valorVenda = Number(venda.valor);
+      const valorVendaFormatado = valorVenda.toLocaleString('pt-br', { style: 'currency', currency: 'BRL'});
       modalVenda.insertAdjacentHTML('beforeend',
         `<table class="totais">
           <thead>
@@ -108,7 +113,7 @@ const consultarVenda = (id) => {
           </thead>
           <tbody>
             <td>${venda.quantidade}</td>
-            <td>${venda.valor}</td>
+            <td>${valorVendaFormatado}</td>
           </tbody>
         </table>`
       )

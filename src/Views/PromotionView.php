@@ -27,7 +27,7 @@
                         <a href="/promotion-product" class="btnAdd">Relacionar promoção<i data-feather="plus" class="iconeAdd"></i></a>
                       <?php } ?>
                         <div class="pesquisar">
-                            <input type="text" id="input" name="pesquisar" placeholder="Pesquisar na tabela" onkeyup="filtrarPromocao()">
+                            <input type="text" id="input" name="pesquisar" placeholder="Pesquise pelo nome" onkeyup="filtrarPromocao()">
                             <i data-feather="search" class="iconePesquisa"></i>
                         </div>
                     </div>
@@ -51,10 +51,10 @@
                         <?php foreach($params['promotions'] as $promotion){ ?>
                             <tr>
                                 <td><?php echo $promotion['id'] ?></td>
-                                <td><?php echo $promotion['nome'] ?></td>                                           
+                                <td><?php echo $promotion['nome'] ?></td>
                                 <td><?php echo date("d/m/Y", strtotime($promotion['dataInicio']))?></td>
                                 <td><?php echo date("d/m/Y", strtotime($promotion['dataFim']))?></td>
-                                
+
                                 <?php if($_SESSION['dados_usuario']['nivelAcesso'] == 2){ ?>
                                   <td class="btnAcao">
                                       <a href="/edit/promotion&id=<?php echo $promotion['id'] ?>">
@@ -65,7 +65,7 @@
                                       <a href="/delete/promotion&id=<?php echo $promotion['id'] ?>">
                                       <button class="btnDeletar"><i data-feather="trash"></i></button>
                                       </a>
-                                  </td>    
+                                  </td>
                                 <?php } ?>
                             </tr>
                         <?php } ?>
