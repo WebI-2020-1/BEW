@@ -132,7 +132,7 @@ const selecionarProduto = (id, nome, quantidade) => {
       `<tr id="product_${id}">
         <td>${id} <input type="hidden" name="produtos[]" value="${id}"></td>
         <td>${nome}</td>
-        <td><input type="number" name="quantidadeCompra[]" min="1" max="${quantidade}" placeholder="0" onkeyup="calcularTotalProduto(this.value, ${id})" required></td>
+        <td><input type="number" name="quantidadeCompra[]" min="1" placeholder="0" onkeyup="calcularTotalProduto(this.value, ${id})" required></td>
         <td><input id="valorUnitario_${id}" type="number" name="valorUnitario[]" min="0.00" placeholder="0.00" onkeyup="calcularTotalProduto(this.value, ${id})" required></td>
         <td class="total-produto">0</td>
         <td><button type="button" onclick="removerProduto(${id})">${feather.icons.trash.toSvg()}</button></td>
