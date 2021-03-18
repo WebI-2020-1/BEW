@@ -66,12 +66,25 @@ class SaleView {
                                         <i data-feather="x"></i>
                                     </button>
                                     <div class="conteudoVenda"></div>
-                                    <a href="edit/sale&id=<?php echo $sale['idVenda']; ?>" class="btnEditar">Editar<i data-feather="edit"></i></a>
                                 </div>
-                            </div>
+                            </div> 
                         <?php } ?>
                     </tbody>
                 </table>
+                <div class="modal mensagem disabled">
+                    <div>
+                        <button type="button" onclick="location.href=`${host}/sale`">
+                            <i data-feather="x"></i>
+                        </button>
+                        <?php
+                        if ($_SESSION['message'] != '') {
+                            echo "<h3>" . $_SESSION['message'] . "</h3>";
+                            unset($_SESSION['message']);
+                            echo "<script type='text/javascript'>document.querySelector('.modal.mensagem').classList.toggle('disabled');</script>";
+                        }
+                        ?>
+                    </div>
+                </div>
             </div>
         </main>
 
