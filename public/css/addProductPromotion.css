@@ -1,11 +1,11 @@
 @import './modal.css';
 
-#produtos {
+#promocoes {
   background-color: rgba(8, 102, 59, 0.47);
   border-left-color: black;
 }
 
-#produtos a {
+#promocoes a {
   color: #fff;
 }
 
@@ -25,44 +25,36 @@ main .content {
 
 main .content .conteudo-cadastro {
   display: grid;
-  width: 90%;
+  width: 70%;
   height: 60%;
-  margin-left: 5%;
+  margin-left: 15%;
   margin-right: 5%;
   padding: 2.5% 5%;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 1fr 80% 1fr;
   grid-template-rows: 12% 20% 12% 20% 12% 20%;
   column-gap: 15px;
   grid-template-areas:
-  'label1 label1'
-  'nome nome'
-  'label2 label3'
-  'unidade valor-venda'
-  'label4 label5'
-  'codigo-barras categoria';
+  '. label1 .'
+  '. promocao .'
+  '. label2 .'
+  '. produto .'
+  '. label3 .'
+  '. desconto .';
 }
 
-#nome {
-  grid-area: nome;
+#idPromocao {
+  grid-area: promocao;
 }
 
-#unidade {
-  grid-area: unidade;
+#idProduto {
+  grid-area: produto;
 }
 
-#valor_venda {
-  grid-area: valor-venda;
+#valorDesconto {
+  grid-area: desconto;
 }
 
-#codigo_barras {
-  grid-area: codigo-barras;
-}
-
-#categoria {
-  grid-area: categoria;
-}
-
-main .content .conteudo-cadastro select {
+select {
   width: 80%;
   height: 70%;
   border: none;
