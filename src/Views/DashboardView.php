@@ -1,8 +1,9 @@
 <?php
 class DashboardView
 {
-    public function __construct($params){
-        $env = parse_ini_file('env.ini')['HOST']; ?>
+    public function __construct($params)
+    {
+        $env = parse_ini_file('env.ini')['HOST'];
 ?>
         <!DOCTYPE html>
         <html lang="pt-br">
