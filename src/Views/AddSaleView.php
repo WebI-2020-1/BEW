@@ -34,7 +34,7 @@ class AddSaleView
                     <form action="/adding/sale" method="POST" id="formSale">
 
                         <div class="buttons-modal">
-                            <button type="button" class="abrir-modal">Adicionar Produto<i data-feather="file-plus"></i></button>
+                            <button type="button" class="abrir-modal">Adicionar Produto<i data-feather="package"></i></button>
                             <button type="button" class="abrir-modal">Forma de Pagamento<i data-feather="dollar-sign"></i></button>
                             <button type="button" class="abrir-modal">Selecionar Cliente<i data-feather="user"></i></button>
                         </div>
