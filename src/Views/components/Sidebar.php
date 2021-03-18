@@ -34,11 +34,6 @@
         <li class="menu-option" id="categorias">
             <a href="/category"><i data-feather="folder"></i> CATEGORIAS</a>
         </li>
-        <?php if($_SESSION['dados_usuario']['nivelAcesso'] == 2){ ?>
-            <li class="menu-option" id="relatorios">
-                <a href="/reports"><i data-feather="layers"></i> RELATÓRIOS</a>
-            </li>
-        <?php } ?>  
     </ul>
 
     <div class="logout">

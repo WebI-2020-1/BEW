@@ -11,7 +11,7 @@
 
         public function create($params){
             $nome = addslashes($params['nome']);
-            $nivelAcesso = addslashes(($params['nivelAcesso']));
+            $nivelAcesso = addslashes($params['nivelAcesso']);
             $cpf = addslashes($params['cpf']);
             $endereco = addslashes($params['endereco']);
             $telefone = addslashes($params['telefone']);
