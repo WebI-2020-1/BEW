@@ -29,7 +29,6 @@
         <input type="password" name="password" id="password" placeholder="Senha" class="input">
       </div>
       <button type="submit" class="input">Entrar</button>
-      <a href="/register" class="esqueciSenha">Esqueci minha senha <i data-feather="arrow-right"></i></a>
       <div class="modal mensagem disabled">
             <div>
                 <button type="button" onclick="location.href=`${host}/login`">
