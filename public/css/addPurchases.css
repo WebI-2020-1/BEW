@@ -124,8 +124,12 @@ grid-template-areas:
   margin-left: unset;
 }
 
-.modal tbody button svg {
-    color: var(--verde);
+.modal tbody button.check svg {
+  color: var(--verde);
+}
+
+.modal tbody button.unset svg {
+color: var(--laranja);
 }
 
 .tabela-produtos {

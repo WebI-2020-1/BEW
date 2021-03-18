@@ -1,8 +1,8 @@
 <?php
 class DashboardView
 {
-    public function __construct($params)
-    {
+    public function __construct($params){
+        $env = parse_ini_file('env.ini')['HOST']; ?>
 ?>
         <!DOCTYPE html>
         <html lang="pt-br">
@@ -12,8 +12,12 @@ class DashboardView
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="/public/css/dashboard.css">
-            <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
             <title>Dashboard</title>
+
+            <script>
+                const host = '<?php echo $env; ?>';
+            </script>
         </head>
 
         <body>
