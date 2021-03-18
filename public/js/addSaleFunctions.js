@@ -155,13 +155,15 @@ const listarProdutos = () => {
       const produtos = response.data;
       produtos.forEach((produto) => {
         const { id, nome, quantidade, valorVenda } = produto;
+        const novoValorVenda = Number(valorVenda);
+        const valorVendaFormatado = novoValorVenda.toLocaleString('pt-br', { style: 'currency', currency: 'BRL'});
         modalProdutosLista.insertAdjacentHTML(
           "beforeend",
           `<tr id="produto_lista${id}">
           <td>${id}</td>
           <td>${nome}</td>
           <td>${quantidade}</td>
-          <td>${valorVenda}</td>
+          <td>${valorVendaFormatado}</td>
           <td><button class="check" type="button" onclick="selecionarProduto(${id}, '${nome}', ${quantidade}, ${valorVenda})">${feather.icons['plus-circle'].toSvg()}</button></td>
         </tr>`
         );
@@ -179,13 +181,16 @@ const produtosTabela = document.querySelector(".tabela-produtos tbody");
 const selecionarProduto = (id, nome, quantidade, valorVenda) => {
 
   if (!document.querySelector(`#product_${id}`)) {
+    const novoValorVenda = Number(valorVenda);
+    const valorVendaFormatado = novoValorVenda.toLocaleString('pt-br', { style: 'currency', currency: 'BRL'});
+
     produtosTabela.insertAdjacentHTML(
       "beforeend",
       `<tr id="product_${id}">
         <td>${id} <input type="hidden" name="produtos[]" value="${id}"></td>
         <td>${nome}</td>
         <td><input type="number" name="quantidadeVenda[]" min="0" max="${quantidade}" placeholder="0" onkeyup="calcularTotalProduto(${valorVenda}, this.value, ${id})" required></td>
-        <td>${valorVenda.toFixed(2)}</td>
+        <td>${valorVendaFormatado}</td>
         <td class="total-produto">0</td>
         <td><button type="button" onclick="removerProduto(${id})">${feather.icons.trash.toSvg()}</button></td>
       </tr>`

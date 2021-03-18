@@ -33,7 +33,7 @@ const listarFornecedores = () => {
             <tr>
               <td>${fornecedor.id}</td>
               <td>${fornecedor.nome}</td>
-              <td><button type="button" onclick="selecionarFornecedor(${fornecedor.id}, '${fornecedor.nome}')">${feather.icons['arrow-right'].toSvg()}</button></td>
+              <td><button type="button" class="check" onclick="selecionarFornecedor(${fornecedor.id}, '${fornecedor.nome}')">${feather.icons['arrow-right'].toSvg()}</button></td>
             </tr>
             `
         );
@@ -100,13 +100,16 @@ const listarProdutos = () => {
       const produtos = response.data;
       produtos.forEach((produto) => {
         const { id, nome, quantidade, valorVenda } = produto;
+        const novoValorVenda = Number(valorVenda);
+        const valorVendaFormatado = novoValorVenda.toLocaleString('pt-br', { style: 'currency', currency: 'BRL'});
+
         modalProdutosLista.insertAdjacentHTML(
           "beforeend",
           `<tr id="produto_lista${id}">
           <td>${id}</td>
           <td>${nome}</td>
           <td>${quantidade}</td>
-          <td>${valorVenda}</td>
+          <td>${valorVendaFormatado}</td>
           <td><button class="check" type="button" onclick="selecionarProduto(${id}, '${nome}', ${quantidade}, ${valorVenda})">${feather.icons['plus-circle'].toSvg()}</button></td>
         </tr>`
         );
