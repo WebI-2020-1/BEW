@@ -26,7 +26,7 @@
                             <a href="/add/provider" class="btnAdd">Adicionar fornecedor<i data-feather="plus"></i></a>
                         <?php } ?>
                         <div class="pesquisar">
-                            <input type="text" id="input" name="pesquisar" placeholder="Pesquisar na tabela" onkeyup="filtrarFornecedor()">
+                            <input type="text" id="input" name="pesquisar" placeholder="Pesquise pelo nome" onkeyup="filtrarFornecedor()">
                             <i data-feather="search" class="iconePesquisa"></i>
                         </div>
                     </div>
