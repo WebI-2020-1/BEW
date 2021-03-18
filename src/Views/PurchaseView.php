@@ -66,7 +66,6 @@
                                             <i data-feather="x"></i>
                                         </button>
                                         <div class="conteudoCompra"></div>
-                                        <a class="btnEditar">Editar<i data-feather="edit"></i></a>
                                     </div>
                                 </div>
                             <?php } ?>

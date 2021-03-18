@@ -11,6 +11,7 @@
 
             if(!empty($result)){
                 $_SESSION['dados_usuario'] = $result;
+                require_once('src/helpers/CheckPromotion.php');
                 return redirect('/dashboard');
             }else{
                 return redirect('/login', 'Usuário ou senha incorretos');
