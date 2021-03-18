@@ -1,6 +1,7 @@
 <?php
     require_once(__DIR__.'../../../autoload.php');
     require_once('src/helpers/SessionValidate.php');
+    require_once('src/helpers/Validate.php');
 
     class ClientController{
         public function index(){
@@ -8,36 +9,67 @@
         }
 
         public function store($params){
-            $client = new ClientModel();
-
-            $cpf_valid = preg_match('/([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})/',$params['cpf']);
             $param['dataNascimento'] = str_replace('/','-',$params['dataNascimento']);
 
-            if($cpf_valid){
+            $data = array(
+                'Nome' => $params['nome'],
+                'CPF' => $params['cpf'],
+                'Endereco' => $params['endereco'],
+                'Telefone' => $params['telefone'],
+                'Data_de_nascimento' => $params['dataNascimento']
+            );
+            $validator = array(
+                'Nome' => 'required',
+                'CPF' => 'required|cpf',
+                'endereco' => 'required',
+                'telefone' => 'required',
+                'Data_de_nascimento' => 'required'
+            );
+            $resultValidation = validate($data,$validator);
+            if($resultValidation['success']){
+                $client = new ClientModel();
                 $result = $client->create($params);
 
                 if($result){
-                    return redirect('/add/client','Cliente cadastrado com sucesso.');
+                    return redirect('/client','Cliente cadastrado com sucesso.');
                 }else{
-                    return redirect('/add/client','Algo deu errado, tente novamente.');
+                    return redirect('/add/client','Ocorreu um erro interno. Contate os desenvolvedores..');
                 }
+            }else{
+                return redirect('/add/client', $resultValidation['message']);
             }
 
         }
         public function addSaleClient($params){
-            $client = new ClientModel();
-
-            $cpf_valid = preg_match('/([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})/',$params['cpf']);
             $param['dataNascimento'] = str_replace('/','-',$params['dataNascimento']);
 
-            if($cpf_valid){
+            $data = array(
+                'Nome' => $params['nome'],
+                'CPF' => $params['cpf'],
+                'Endereco' => $params['endereco'],
+                'Telefone' => $params['telefone'],
+                'Data_de_nascimento' => $params['dataNascimento']
+            );
+            $validator = array(
+                'Nome' => 'required',
+                'CPF' => 'required|cpf',
+                'endereco' => 'required',
+                'telefone' => 'required',
+                'Data_de_nascimento' => 'required'
+            );
+            $resultValidation = validate($data,$validator);
+
+            if($resultValidation['success']){
+                $client = new ClientModel();
                 $result = $client->create($params);
 
                 if($result){
                     echo json_encode('Cliente cadastrado com sucesso.');
                 }else{
-                    echo json_encode('Algo deu errado, tente novamente.');
+                    echo json_encode('Ocorreu um erro interno. Contate os desenvolvedores..');
                 }
+            }else{
+                return redirect('/add/client', $resultValidation['message']);
             }
         }
         public function getAllClients(){
@@ -68,24 +100,65 @@
         }
 
         public function update($params){
-            $client = new ClientModel();
-            $result = $client->update($params);
+            $param['dataNascimento'] = str_replace('/','-',$params['dataNascimento']);
 
-            if($result){
-                return redirect('/client','Cliente atualizado com sucesso.');
+            $data = array(
+                'Nome' => $params['nome'],
+                'CPF' => $params['cpf'],
+                'Endereco' => $params['endereco'],
+                'Telefone' => $params['telefone'],
+                'Data_de_nascimento' => $params['dataNascimento'],
+                'ID_do_cliente' => $params['clientId']
+            );
+            $validator = array(
+                'Nome' => 'required',
+                'CPF' => 'required|cpf',
+                'endereco' => 'required',
+                'telefone' => 'required',
+                'Data_de_nascimento' => 'required',
+                'ID_do_cliente' => 'required'
+            );
+            $resultValidation = validate($data,$validator);
+
+            if($resultValidation['success']){
+                $client = new ClientModel();
+                $result = $client->update($params);
+
+                if($result){
+                    return redirect('/client','Cliente atualizado com sucesso.');
+                }else{
+                    return redirect('/client','Ocorreu um erro interno. Contate os desenvolvedores..');
+                }
             }else{
-                return redirect('/client','Algo deu errado, tente novamente.');
+                return redirect('/client', $resultValidation['message']);
             }
+                
         }
 
         public function delete($params){
-            $client = new ClientModel();
-            $result = $client->delete($params);
+            $data = array(
+                'ID_do_cliente' => $params['id']
+            );
+            $validator = array(
+                'ID_do_cliente' => 'required'
+            );
+            $resultValidation = validate($data,$validator);
 
-            if($result){
-                return redirect('/client','Cliente deletado com sucesso.');
+            if($_SESSION['dados_usuario']['nivelAcesso'] == 2){
+                if($resultValidation['success']){
+                    $client = new ClientModel();
+                    $result = $client->delete($params);
+
+                    if($result){
+                        return redirect('/client','Cliente deletado com sucesso.');
+                    }else{
+                        return redirect('/client','Ocorreu um erro interno. Contate os desenvolvedores..');
+                    }
+                }else{
+                    return redirect('/client', $resultValidation['message']);
+                }
             }else{
-                return redirect('/client','Algo deu errado, tente novamente.');
+                return redirect('/client','Usuário sem permissão.');
             }
         }
     }

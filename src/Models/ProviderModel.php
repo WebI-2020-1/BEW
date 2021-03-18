@@ -13,7 +13,7 @@
             return DB::execute($sql);
         }
         public function getAllProviders(){
-            $sql = "SELECT * FROM Fornecedor;";
+            $sql = "SELECT * FROM Fornecedor ORDER BY nome ASC;";
 
             return DB::getAll($sql);
         }
@@ -23,6 +23,13 @@
             $sql = "SELECT * FROM Fornecedor WHERE id = '{$id}'";
 
             return DB::getFirst($sql);
+        }
+
+        public function getProviderByName($params){
+            $fornecedor = addslashes($params['itemSearch']);
+            $sql = "SELECT * FROM Fornecedor WHERE nome like '%{$fornecedor}%'";
+
+            return DB::getAll($sql);
         }
         
         public function update($params){

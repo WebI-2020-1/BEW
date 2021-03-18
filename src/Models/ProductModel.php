@@ -15,7 +15,7 @@
         public function getProducts($params){
             $itemSearch = addslashes($params['itemSearch']);
 
-            $sql = "SELECT 
+            $sql = "SELECT
                     p.*,
                     CASE
                         WHEN
@@ -32,13 +32,13 @@
                         LEFT JOIN
                     ProdutoPromocao AS pp ON p.id = pp.idProduto
                         LEFT JOIN
-                    Promocao AS pr ON pr.id = pp.idPromocao 
+                    Promocao AS pr ON pr.id = pp.idPromocao
                 WHERE p.nome like '%{$itemSearch}%'";
 
             return DB::getAll($sql);
         }
         public function getAllProducts(){
-            $sql = "SELECT * FROM  Produto;";
+            $sql = "SELECT * FROM  Produto ORDER BY nome ASC;";
 
             return DB::getAll($sql);
         }
@@ -54,7 +54,7 @@
                 p.codigoBarras,
                 c.nome AS nomeCategoria
                 FROM Produto AS p
-                INNER JOIN Categoria AS c
+                INNER JOIN Categoria AS c ON c.id = p.idCategoria
                 WHERE p.id = '{$id}';";
 
 

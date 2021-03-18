@@ -1,6 +1,8 @@
 <?php
     class CategoryView{
-        public function __construct($params){ ?>
+        public function __construct($params){
+            $env = parse_ini_file('env.ini')['HOST'];
+?>
             <!DOCTYPE html>
             <html lang="pt-BR">
             <head>
@@ -8,21 +10,21 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <link rel="stylesheet" href="public/css/category.css">
                 <title>Categorias</title>
+                <script>
+                    const host =  '<?php echo $env; ?>';
+                </script>
             </head>
-
-            <script src="https://unpkg.com/feather-icons"></script>
-
             <body>
             <?php include "components/Sidebar.php" ?>
-            <main class="wide">
+            <main>
             <header>
-                <i class="menu-toggle" data-feather="menu"></i>
+                <i class="menu-toggle disabled" data-feather="menu"></i>
                 <div class="header-conteudo">
                     <h1>CATEGORIAS</h1>
                     <div class="botoesDireito">
                         <a href="/add/category" class="btnAdd">Adicionar categoria<i data-feather="plus"></i></a>
                         <div class="pesquisar">
-                            <input type="text" id="input" name="pesquisar" placeholder="Pesquisar na tabela" onkeyup="filtrarCategoria()">
+                            <input type="text" id="input" name="pesquisar" placeholder="Pesquise pelo nome" onkeyup="filtrarCategoria()">
                             <i data-feather="search" class="iconePesquisa"></i>
                         </div>
                     </div>
@@ -57,16 +59,26 @@
                         <?php } ?>
                     </tbody>
                 </table>
-                <h1>
-                    <?php
-                        echo $_SESSION['message'];
-                        unset($_SESSION['message']);
-                    ?>
-                </h1>
+                <div class="modal mensagem disabled">
+                    <div>
+                        <button type="button" onclick="location.href=`${host}/category`">
+                            <i data-feather="x"></i>
+                        </button>
+                        <?php
+                        if ($_SESSION['message'] != '') {
+                            echo "<h3>" . $_SESSION['message'] . "</h3>";
+                            unset($_SESSION['message']);
+                            echo "<script type='text/javascript'>document.querySelector('.modal.mensagem').classList.toggle('disabled');</script>";
+                        }
+                        ?>
+                    </div>
+                </div>
             </div>
             </main>
+
             <script src="/public/js/CategoryFunctions.js"></script>
             <script src="/public/js/global.js"></script>
+
             </body>
             </html>
         <?php }

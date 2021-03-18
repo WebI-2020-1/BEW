@@ -5,7 +5,7 @@ class EditCategoryView
     {
         $env = parse_ini_file('env.ini')['HOST']; ?>
         <!DOCTYPE html>
-        <html lang="en">
+        <html lang="pt-BR">
 
         <head>
             <meta charset="UTF-8">
@@ -20,10 +20,10 @@ class EditCategoryView
 
         <body>
             <?php include "components/Sidebar.php" ?>
-            <main class="wide">
+            <main>
                 <header>
-                    <i class="menu-toggle" data-feather="menu"></i>
-                    <h1>ADICIONAR CATEGORIA</h1>
+                    <i class="menu-toggle disabled" data-feather="menu"></i>
+                    <h1>EDITAR CATEGORIA</h1>
                 </header>
 
                 <div class="content">

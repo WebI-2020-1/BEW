@@ -32,6 +32,13 @@ const mountProducts = (value) => {
 /* --------------- VENDA -------------- */
 const modalVenda = document.querySelector(".conteudoVenda");
 
+function adicionaZero(numero){
+  if (numero <= 9)
+      return "0" + numero;
+  else
+      return numero;
+}
+
 const consultarVenda = (id) => {
   mountProducts(id)
   axios
@@ -45,6 +52,8 @@ const consultarVenda = (id) => {
     )
     .then((response) => {
       const venda = response.data;
+      const dataVenda = new Date(venda.dataVenda);
+      const dataFormatada = `${adicionaZero(dataVenda.getDate().toString())}/${adicionaZero(dataVenda.getMonth()+1).toString()}/${dataVenda.getFullYear()} ${dataVenda.getHours()}:${dataVenda.getMinutes()}`
       modalVenda.insertAdjacentHTML('beforeend',
       `
       <h2>Venda ${venda.idVenda}</h2>
@@ -63,7 +72,7 @@ const consultarVenda = (id) => {
       </tr>
       <tr>
         <th>Data da Venda</th>
-        <td>${venda.dataVenda}</td>
+        <td>${dataFormatada}</td>
       </tr>
       </table>
       <table class="tabelaProdutos">
@@ -84,13 +93,18 @@ const consultarVenda = (id) => {
       const tabelaProdutos = document.querySelector(".tabelaProdutos");
 
       arrayProdutos[0].forEach((produto) => {
+        const valorUnitario = Number(produto.valorUnitario);
+        let valorFormatado = valorUnitario.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+        console.log(valorFormatado)
         tabelaProdutos.insertAdjacentHTML('beforeend', `<tr>
           <td>${produto.nome}</td>
           <td>${produto.quantidade}</td>
-          <td>${produto.valorUnitario}</td>
+          <td>${valorFormatado}</td>
         </tr>`);
       });
 
+      const valorVenda = Number(venda.valor);
+      const valorVendaFormatado = valorVenda.toLocaleString('pt-br', { style: 'currency', currency: 'BRL'});
       modalVenda.insertAdjacentHTML('beforeend',
         `<table class="totais">
           <thead>
@@ -99,10 +113,12 @@ const consultarVenda = (id) => {
           </thead>
           <tbody>
             <td>${venda.quantidade}</td>
-            <td>${venda.valor}</td>
+            <td>${valorVendaFormatado}</td>
           </tbody>
         </table>`
       )
+
+      document.querySelector('.btnEditar').href = 'edit/sale&id=' + venda.idVenda;
     })
     .catch((err) => console.log(err));
 }

@@ -18,21 +18,17 @@ class SaleView {
                 const host =  '<?php echo $env; ?>';
             </script>
         </head>
-
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script src="https://unpkg.com/feather-icons"></script>
-
         <body>
         <?php include "components/Sidebar.php" ?>
-        <main class="wide">
+        <main>
             <header>
-                <i class="menu-toggle" data-feather="menu"></i>
+                <i class="menu-toggle disabled" data-feather="menu"></i>
                 <div class="header-conteudo">
                     <h1>VENDAS</h1>
                     <div class="botoesDireito">
                         <a href="/add/sale" class="btnAdd">Adicionar venda<i data-feather="plus"></i></a>
                         <div class="pesquisar">
-                            <input type="text" id="input" name="pesquisar" placeholder="Pesquisar na tabela" onkeyup="filtrarVenda()">
+                            <input type="text" id="input" name="pesquisar" placeholder="Pesquise pelo id" onkeyup="filtrarVenda()">
                             <i data-feather="search" class="iconePesquisa"></i>
                         </div>
                     </div>
@@ -56,10 +52,10 @@ class SaleView {
                             <tr>
                                 <td><?php echo $sale['idVenda']; ?></td>
                                 <td><?php echo $sale['quantidade']; ?></td>
-                                <td><?php echo $sale['valor']; ?></td>
+                                <td><?php echo 'R$ ' . number_format($sale['valor'], 2, ',', '.'); ?></td>
                                 <td><?php echo $sale['nomeCliente']; ?></td>
                                 <td><?php echo $sale['formaPagamento']; ?></td>
-                                <td><?php echo $sale['dataVenda']; ?></td>
+                                <td><?php echo date("d/m/Y", strtotime($sale['dataVenda'])); ?></td>
                                 <td><button type="button" class="abrir-modal" onclick="consultarVenda(<?php echo $sale['idVenda']; ?>)">
                                     <i data-feather="search"></i></button>
                                 </td>
@@ -70,19 +66,32 @@ class SaleView {
                                         <i data-feather="x"></i>
                                     </button>
                                     <div class="conteudoVenda"></div>
-                                    <a href="edit/sale$id=<?php echo $sale['idVenda']; ?>" class="btnEditar">Editar<i data-feather="edit"></i></a>
                                 </div>
-                            </div>
+                            </div> 
                         <?php } ?>
                     </tbody>
                 </table>
+                <div class="modal mensagem disabled">
+                    <div>
+                        <button type="button" onclick="location.href=`${host}/sale`">
+                            <i data-feather="x"></i>
+                        </button>
+                        <?php
+                        if ($_SESSION['message'] != '') {
+                            echo "<h3>" . $_SESSION['message'] . "</h3>";
+                            unset($_SESSION['message']);
+                            echo "<script type='text/javascript'>document.querySelector('.modal.mensagem').classList.toggle('disabled');</script>";
+                        }
+                        ?>
+                    </div>
+                </div>
             </div>
         </main>
+
+        <script src="/public/js/global.js"></script>
+        <script src="/public/js/SaleFunctions.js"></script>
+
         </body>
-
-    <script src="/public/js/global.js"></script>
-    <script src="/public/js/SaleFunctions.js"></script>
-
     </html>
 <?php   }
     }

@@ -39,5 +39,10 @@
 
             return DB::execute($sql);
         }
+        public function checkPromotion(){
+            $sql = "DELETE FROM ProdutoPromocao WHERE idPromocao in(SELECT GROUP_CONCAT(id) FROM Promocao WHERE dataFim < NOW());";
+
+            return DB::execute($sql);
+        }
     }
 ?>

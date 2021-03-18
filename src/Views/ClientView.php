@@ -14,21 +14,17 @@
                     const host =  '<?php echo $env; ?>';
                 </script>
             </head>
-
-            <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-            <script src="https://unpkg.com/feather-icons"></script>
-
             <body>
             <?php include "components/Sidebar.php" ?>
-            <main class="wide">
+            <main>
             <header>
-                <i class="menu-toggle" data-feather="menu"></i>
+                <i class="menu-toggle disabled" data-feather="menu"></i>
                 <div class="header-conteudo">
                     <h1>CLIENTES</h1>
                     <div class="botoesDireito">
                         <a href="/add/client" class="btnAdd">Adicionar cliente<i data-feather="plus"></i></a>
                         <div class="pesquisar">
-                            <input type="text" id="input" name="pesquisar" placeholder="Pesquisar na tabela" onkeyup="filtrarCliente()">
+                            <input type="text" id="input" name="pesquisar" placeholder="Pesquise pelo nome" onkeyup="filtrarCliente()">
                             <i data-feather="search" class="iconePesquisa"></i>
                         </div>
                     </div>
@@ -63,20 +59,30 @@
                                     </button>
                                     <div class="conteudoCliente"></div>
                                     <div class="botoesModal">
-                                        <a href="/edit/client&id=<?php echo $client['id']; ?>" class="btnEditar">Editar<i data-feather="edit"></i></a>
-                                        <a href="/delete/client&id=<?php echo $client['id']; ?>" class="btnDeletar">Deletar <i data-feather="trash"></i></a>
+                                        <a class="btnEditar">Editar<i data-feather="edit"></i></a>
+                                        <?php if($_SESSION['dados_usuario']['nivelAcesso'] == 2){ ?>
+                                        <a class="btnDeletar">Deletar <i data-feather="trash"></i></a>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
                         <?php } ?>
                     </tbody>
                 </table>
-                <h1>
-                    <?php
-                        echo $_SESSION['message'];
-                        unset($_SESSION['message']);
-                    ?>
-                </h1>
+                <div class="modal mensagem disabled">
+                    <div>
+                        <button type="button" onclick="location.href=`${host}/client`">
+                            <i data-feather="x"></i>
+                        </button>
+                        <?php
+                        if ($_SESSION['message'] != '') {
+                            echo "<h3>" . $_SESSION['message'] . "</h3>";
+                            unset($_SESSION['message']);
+                            echo "<script type='text/javascript'>document.querySelector('.modal.mensagem').classList.toggle('disabled');</script>";
+                        }
+                        ?>
+                    </div>
+                </div>
             </div>
             </main>
 

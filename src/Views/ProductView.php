@@ -14,21 +14,19 @@
                     const host =  '<?php echo $env; ?>';
                 </script>
             </head>
-
-            <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-            <script src="https://unpkg.com/feather-icons"></script>
-
             <body>
             <?php include "components/Sidebar.php" ?>
-            <main class="wide">
+            <main>
             <header>
-                <i class="menu-toggle" data-feather="menu"></i>
+                <i class="menu-toggle disabled" data-feather="menu"></i>
                 <div class="header-conteudo">
                     <h1>PRODUTOS</h1>
                     <div class="botoesDireito">
-                        <a href="/add/product" class="btnAdd">Adicionar produto<i data-feather="plus"></i></a>
+                        <?php if($_SESSION['dados_usuario']['nivelAcesso'] == 2){ ?>
+                            <a href="/add/product" class="btnAdd">Adicionar produto<i data-feather="plus"></i></a>
+                        <?php } ?>
                         <div class="pesquisar">
-                            <input type="text" id="input" name="pesquisar" placeholder="Pesquisar na tabela" onkeyup="filtrarProduto()">
+                            <input type="text" id="input" name="pesquisar" placeholder="Pesquise pelo nome" onkeyup="filtrarProduto()">
                             <i data-feather="search" class="iconePesquisa"></i>
                         </div>
                     </div>
@@ -54,8 +52,8 @@
                                 <td><?php echo $product['nome']; ?></td>
                                 <td><?php echo $product['unidade']; ?></td>
                                 <td><?php echo $product['quantidade']; ?></td>
-                                <td><?php echo $product['valorCompra']; ?></td>
-                                <td><?php echo $product['valorVenda']; ?></td>
+                                <td><?php echo 'R$ ' . number_format($product['valorCompra'], 2, ',', '.'); ?></td>
+                                <td><?php echo 'R$ ' . number_format($product['valorVenda'], 2, ',', '.'); ?></td>
                                 <td><button type="button" class="abrir-modal" onclick="consultarProduto(<?php echo $product['id']; ?>)">
                                     <i data-feather="search"></i></button>
                                 </td>
@@ -66,28 +64,38 @@
                                         <i data-feather="x"></i>
                                     </button>
                                     <div class="conteudoProduto"></div>
-                                    <div class="botoesModal">
-                                        <a href="/edit/product&id=<?php echo $product['id']; ?>" class="btnEditar">Editar <i data-feather="edit"></i></a>
-                                        <a href="/delete/product&id=<?php echo $product['id']; ?>" class="btnDeletar">Deletar <i data-feather="trash"></i></a>
-                                    </div>
+                                    <?php if($_SESSION['dados_usuario']['nivelAcesso'] == 2){ ?>
+                                        <div class="botoesModal">
+                                            <a class="btnEditar">Editar <i data-feather="edit"></i></a>
+                                            <a class="btnDeletar">Deletar <i data-feather="trash"></i></a>
+                                        </div>
+                                    <?php } ?>
                                 </div>
                             </div>
                         <?php } ?>
                     </tbody>
                 </table>
                 </div>
-                <h1>
-                    <?php
-                        echo $_SESSION['message'];
-                        unset($_SESSION['message']);
-                    ?>
-                </h1>
+                <div class="modal mensagem disabled">
+                    <div>
+                        <button type="button" onclick="location.href=`${host}/product`">
+                            <i data-feather="x"></i>
+                        </button>
+                        <?php
+                        if ($_SESSION['message'] != '') {
+                            echo "<h3>" . $_SESSION['message'] . "</h3>";
+                            unset($_SESSION['message']);
+                            echo "<script type='text/javascript'>document.querySelector('.modal.mensagem').classList.toggle('disabled');</script>";
+                        }
+                        ?>
+                    </div>
+                </div>
             </main>
-            </body>
 
             <script src="/public/js/ProductFunctions.js"></script>
             <script src="/public/js/global.js"></script>
 
+            </body>
             </html>
         <?php }
     }

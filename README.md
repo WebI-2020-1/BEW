@@ -43,7 +43,7 @@ Este projeto está sob licença do MIT que permite a qualquer pessoa que obtém 
 
 - Dashboard
 
-![Dashboard](./layouts/Dashboard%20Menu%20open-%20Bew%20-%20Desktop.png)
+![Dashboard](./layouts/Dashboard%20Menu%20open-%20Bew%20-%20Desktop.jpeg)
 
 Acesse o layout completo no [Figma](https://www.figma.com/file/VLJiXLRJlLLLioYwbZtI95/BEW?node-id=0%3A1) (ainda em construção).
 
@@ -53,12 +53,13 @@ Acesse o layout completo no [Figma](https://www.figma.com/file/VLJiXLRJlLLLioYwb
 - [X] Dashboard
 - [X] Adição e consulta de vendas
 - [ ] Edição de vendas
-- [ ] Adição, consulta e edição de compras
+- [x] Adição e consulta de compras
+- [ ] Edição de compras
 - [X] Adição, consulta, edição e remoção de produtos
 - [X] Adição, consulta, edição e remoção de fornecedores
 - [X] Adição, consulta, edição e remoção de funcionários
 - [X] Adição, consulta, edição e remoção de clientes
-- [ ] Adição, consulta, edição e remoção de promoções
+- [x] Adição, consulta, edição e remoção de promoções
 - [X] Adição, consulta, edição e remoção de categorias
 - [ ] Gerenciamento de relatórios
 
