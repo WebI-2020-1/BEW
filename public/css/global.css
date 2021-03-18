@@ -70,6 +70,7 @@ main header h1 {
 
 main .content {
   width: 95%;
+  overflow-y: auto;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -158,7 +159,6 @@ button {
   border-collapse: collapse;
   border-spacing: 1;
   text-align: center;
-  overflow-y: scroll;
 }
 
 .tabela-consulta thead tr{
