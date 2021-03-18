@@ -22,9 +22,9 @@ class AddEmployeeView
 
     <body>
         <?php include "components/Sidebar.php" ?>
-        <main class="wide">
+        <main>
         <header>
-            <i class="menu-toggle" data-feather="menu"></i>
+            <i class="menu-toggle disabled" data-feather="menu"></i>
             <h1>CADASTRAR FUNCIONÁRIO</h1>
         </header>
         <div class="content">
@@ -34,8 +34,8 @@ class AddEmployeeView
                     <input type="text" name="nome" id="nome">
                     <label for="nivelAcesso" class="label2">Nível de Acesso</label>
                     <select name="nivelAcesso" id="nivelAcesso">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
+                        <option value="1">Limitado</option>
+                        <option value="2">Total</option>
                     </select>
                     <label for="cpf" class="label3">CPF</label>
                     <input type="text" name="cpf" id="cpf">

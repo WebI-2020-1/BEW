@@ -18,9 +18,9 @@
 
             <body>
                 <?php include "components/Sidebar.php" ?>
-                <main class="wide">
+                <main>
                 <header>
-                    <i class="menu-toggle" data-feather="menu"></i>
+                    <i class="menu-toggle disabled" data-feather="menu"></i>
                     <h1>EDITAR FUNCIONÁRIO</h1>
                 </header>
                 <div class="content">
@@ -31,8 +31,8 @@
                             <input type="text" name="nome" id="nome" value="<?php echo $params['employee']['nome']; ?>">
                             <label name="nivelAcesso" class="label2">Nível de Acesso</label>
                             <select name="nivelAcesso" id="nivelAcesso">
-                                <option value="1" <?php echo $params['employee']['nivelAcesso'] == 1 ? 'selected' : ''; ?> >1</option>
-                                <option value="2" <?php echo $params['employee']['nivelAcesso'] == 2 ? 'selected' : ''; ?> >2</option>
+                                <option value="1" <?php echo $params['employee']['nivelAcesso'] == 1 ? 'selected' : ''; ?> >Limitado</option>
+                                <option value="2" <?php echo $params['employee']['nivelAcesso'] == 2 ? 'selected' : ''; ?> >Total</option>
                             </select>
                             <label for="cpf" class="label3">CPF</label>
                             <input type="text" name="cpf" id="cpf" value="<?php echo $params['employee']['cpf']; ?>">
