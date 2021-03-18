@@ -24,7 +24,7 @@
                     <div class="botoesDireito">
                         <a href="/add/promotion-product" class="btnAdd">Adicionar promoção ao produto<i data-feather="plus"></i></a>
                         <div class="pesquisar">
-                            <input type="text" id="input" name="pesquisar" placeholder="Pesquisar na tabela" onkeyup="filtrarPromocaoProduto()">
+                            <input type="text" id="input" name="pesquisar" placeholder="Pesquise pelo promoção" onkeyup="filtrarPromocaoProduto()">
                             <i data-feather="search" class="iconePesquisa"></i>
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                                 <td><?php echo $promotion['id'] ?></td>
                                 <td><?php echo $promotion['nomeProduto'] ?></td>
                                 <td><?php echo $promotion['nomePromocao'] ?></td>
-                                <td><?php echo $promotion['valorDesconto'] ?></td>
+                                <td><?php echo 'R$ ' . number_format($promotion['valorDesconto'], 2, ',', '.') ?></td>
                                 <td class="btnAcao">
                                     <a href="/edit/promotion-product&id=<?php echo $promotion['id'] ?>">
                                         <button class="btnEditar"><i data-feather="edit"></i></button>
