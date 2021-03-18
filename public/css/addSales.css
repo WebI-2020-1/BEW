@@ -131,8 +131,12 @@ grid-template-areas:
   margin-left: unset;
 }
 
-.modal tbody button svg {
+.modal tbody button.check svg {
     color: var(--verde);
+}
+
+.modal tbody button.unset svg {
+  color: var(--laranja);
 }
 
 .tabela-produtos {
@@ -284,14 +288,16 @@ input[type="number"] {
   flex-direction: column;
   text-align: center;
 }
-.botoes {
+.btn-sale {
+  width: 100%;
+  margin: unset;
   grid-area: botoes;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.botoes button {
+.btn-sale button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -299,18 +305,19 @@ input[type="number"] {
   border: none;
   border-radius: 6px;
   height: 45%;
+  width: 100%;
 }
 
-.botoes button:nth-child(1) {
+.btn-sale button:nth-child(1) {
   color: var(--branco);
   background-color: var(--cinza-escuro);
 }
 
-.botoes button:nth-child(2) {
+.btn-sale button:nth-child(2) {
   color: var(--preto);
   background-color: var(--verde);
 }
 
-.botoes svg {
+.btn-sale svg {
   margin-left: 10px;
 }

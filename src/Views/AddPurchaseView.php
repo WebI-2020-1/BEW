@@ -4,7 +4,7 @@ class AddPurchaseView
     public function __construct()
     {
         $env = parse_ini_file('env.ini')['HOST'];
-        if(empty($env) || !isset($env)){
+        if (empty($env) || !isset($env)) {
             $env = getenv('HOST');
         }
 ?>
@@ -24,13 +24,12 @@ class AddPurchaseView
 
         <body>
             <?php include "components/Sidebar.php" ?>
-            <main class="wide">
+            <main>
                 <header>
-                    <i class="menu-toggle" data-feather="menu"></i>
+                    <i class="menu-toggle disabled" data-feather="menu"></i>
                     <h1>EFETUAR COMPRA</h1>
                 </header>
 
-                <!-- novo conteúdo -->
                 <div class="content">
                     <form action="/adding/purchase" method="POST" id="formPurchase">
 
@@ -124,7 +123,7 @@ class AddPurchaseView
                                 <span>R$ 0.00</span>
                             </div>
 
-                            <div class="botoes">
+                            <div class="btn-sale">
                                 <button type="reset" onclick="location.href=`${host}/purchase`">CANCELAR <i data-feather="x"></i></button>
                                 <button type="submit" class="submit">FINALIZAR <i data-feather="check"></i></button>
                             </div>

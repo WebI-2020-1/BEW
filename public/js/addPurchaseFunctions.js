@@ -10,12 +10,12 @@ const toggleModalFornecedores = () =>
   document.querySelector(".modal.fornecedores").classList.toggle("disabled");
 
 // adicionando evento de abrir modal + listar
-abrirModalElements[0].addEventListener("click", () => { toggleModalProdutos(); listarProdutos(); });
-abrirModalElements[1].addEventListener("click", () => { toggleModalFornecedores(); listarFornecedores(); });
+abrirModalElements[0].addEventListener("click", toggleModalProdutos);
+abrirModalElements[1].addEventListener("click", toggleModalFornecedores);
 
 // adicionando evento de fechar modal + limpar
-fecharModalElements[0].addEventListener("click", () => { toggleModalProdutos(); limparProdutos(); });
-fecharModalElements[1].addEventListener("click", () => { toggleModalFornecedores(); limparFornecedores(); });
+fecharModalElements[0].addEventListener("click", toggleModalProdutos);
+fecharModalElements[1].addEventListener("click", toggleModalFornecedores);
 
 /* --------------- FORNECEDORES -------------- */
 const modalFornecedoresLista = document.querySelector(".lista.fornecedor tbody");
@@ -33,7 +33,7 @@ const listarFornecedores = () => {
             <tr>
               <td>${fornecedor.id}</td>
               <td>${fornecedor.nome}</td>
-              <td><button type="button" onclick="selecionarFornecedor(${fornecedor.id}, '${fornecedor.nome}')">${feather.icons.check.toSvg()}</button></td>
+              <td><button type="button" onclick="selecionarFornecedor(${fornecedor.id}, '${fornecedor.nome}')">${feather.icons['arrow-right'].toSvg()}</button></td>
             </tr>
             `
         );
@@ -50,7 +50,6 @@ const limparFornecedores = () => {
 const selecionarFornecedor = (id, nome) => {
   const fornecedorSpan = document.querySelector(".info .fornecedor span");
   fornecedorSpan.innerHTML = `${nome} <input type="hidden" name="fornecedor" value="${id}">`;
-  limparFornecedores();
   toggleModalFornecedores();
 };
 
@@ -103,12 +102,12 @@ const listarProdutos = () => {
         const { id, nome, quantidade, valorVenda } = produto;
         modalProdutosLista.insertAdjacentHTML(
           "beforeend",
-          `<tr>
+          `<tr id="produto_lista${id}">
           <td>${id}</td>
           <td>${nome}</td>
           <td>${quantidade}</td>
           <td>${valorVenda}</td>
-          <td><button type="button" onclick="selecionarProduto(${id}, '${nome}', ${quantidade}, ${valorVenda})">${feather.icons.check.toSvg()}</button></td>
+          <td><button class="check" type="button" onclick="selecionarProduto(${id}, '${nome}', ${quantidade}, ${valorVenda})">${feather.icons['plus-circle'].toSvg()}</button></td>
         </tr>`
         );
       });
@@ -122,7 +121,7 @@ const limparProdutos = () => {
 
 const produtosTabela = document.querySelector(".tabela-produtos tbody");
 
-const selecionarProduto = (id, nome, quantidade, valorVenda) => {
+const selecionarProduto = (id, nome, quantidade) => {
 
   if (!document.querySelector(`#product_${id}`)) {
     produtosTabela.insertAdjacentHTML(
@@ -131,13 +130,17 @@ const selecionarProduto = (id, nome, quantidade, valorVenda) => {
         <td>${id} <input type="hidden" name="produtos[]" value="${id}"></td>
         <td>${nome}</td>
         <td><input type="number" name="quantidadeCompra[]" min="1" max="${quantidade}" placeholder="0" onkeyup="calcularTotalProduto(this.value, ${id})" required></td>
-        <td><input id="valorUnitario_${id}" type="number" name="valorUnitario[]" min="1" max="${quantidade}" placeholder="0" onkeyup="calcularTotalProduto(this.value, ${id})" required></td>
+        <td><input id="valorUnitario_${id}" type="number" name="valorUnitario[]" min="0.00" placeholder="0.00" onkeyup="calcularTotalProduto(this.value, ${id})" required></td>
         <td class="total-produto">0</td>
         <td><button type="button" onclick="removerProduto(${id})">${feather.icons.trash.toSvg()}</button></td>
       </tr>`
     );
+    const botao = document.querySelector(`tr#produto_lista${id} td button`);
+    botao.classList.remove("check");
+    botao.innerHTML = feather.icons['minus-circle'].toSvg();
+    botao.classList.add("unset");
   } else {
-    alert("Item já adicionado.");
+    removerProduto(id);
   }
 };
 
@@ -161,6 +164,10 @@ const calcularTotalProduto = (quantidade, id) => {
 const removerProduto = (id) => {
   const produto = document.getElementById('product_' + id);
   produtosTabela.removeChild(produto);
+  const botao = document.querySelector(`tr#produto_lista${id} td button`);
+  botao.classList.remove("unset");
+  botao.innerHTML = feather.icons['plus-circle'].toSvg();
+  botao.classList.add("check");
   calcularTotalVenda();
 }
 
@@ -180,14 +187,15 @@ const filtrarProduto = (value) => {
       const produtos = response.data;
       produtos.forEach((produto) => {
         const { id, nome, quantidade, valorVenda } = produto;
+        const check = !document.querySelector(`#product_${id}`);
         modalProdutosLista.insertAdjacentHTML(
           "beforeend",
-          `<tr>
+          `<tr id="produto_lista${id}">
           <td>${id}</td>
           <td>${nome}</td>
           <td>${quantidade}</td>
           <td>${valorVenda}</td>
-          <td><button type="button" onclick="selecionarProduto(${id}, '${nome}', ${quantidade}, ${valorVenda})">${feather.icons.check.toSvg()}</button></td>
+          <td><button class="${check ? 'check' : 'unset'}" type="button" onclick="selecionarProduto(${id}, '${nome}', ${quantidade}, ${valorVenda})">${check ? feather.icons['plus-circle'].toSvg() : feather.icons['minus-circle'].toSvg()}</button></td>
         </tr>`
         );
       });
@@ -195,3 +203,5 @@ const filtrarProduto = (value) => {
     .catch((err) => console.log(err));
 }
 
+listarProdutos();
+listarFornecedores();

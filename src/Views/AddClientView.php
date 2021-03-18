@@ -22,9 +22,9 @@ class AddClientView
 
         <body>
             <?php include "components/Sidebar.php" ?>
-            <main class="wide">
+            <main>
                 <header>
-                    <i class="menu-toggle" data-feather="menu"></i>
+                    <i class="menu-toggle disabled" data-feather="menu"></i>
                     <h1>ADICIONAR CLIENTE</h1>
                 </header>
 

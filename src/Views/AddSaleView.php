@@ -4,7 +4,7 @@ class AddSaleView
     public function __construct($params)
     {
         $env = parse_ini_file('env.ini')['HOST'];
-        if(empty($env) || !isset($env)){
+        if (empty($env) || !isset($env)) {
             $env = getenv('HOST');
         }
 ?>
@@ -16,7 +16,7 @@ class AddSaleView
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="/public/css/addSales.css">
-            <title>Vendas</title>
+            <title>Nova Venda</title>
             <script>
                 const host = '<?php echo $env; ?>';
             </script>
@@ -24,18 +24,17 @@ class AddSaleView
 
         <body>
             <?php include "components/Sidebar.php" ?>
-            <main class="wide">
+            <main>
                 <header>
-                    <i class="menu-toggle" data-feather="menu"></i>
+                    <i class="menu-toggle disabled" data-feather="menu"></i>
                     <h1>EFETUAR VENDA</h1>
                 </header>
 
-                <!-- novo conteúdo -->
                 <div class="content">
                     <form action="/adding/sale" method="POST" id="formSale">
 
                         <div class="buttons-modal">
-                            <button type="button" class="abrir-modal">Adicionar Produto<i data-feather="plus"></i></button>
+                            <button type="button" class="abrir-modal">Adicionar Produto<i data-feather="package"></i></button>
                             <button type="button" class="abrir-modal">Forma de Pagamento<i data-feather="dollar-sign"></i></button>
                             <button type="button" class="abrir-modal">Selecionar Cliente<i data-feather="user"></i></button>
                         </div>
@@ -92,7 +91,7 @@ class AddSaleView
                                             <tr>
                                                 <td>{$paymentMethod['id']}</td>
                                                 <td>{$paymentMethod['descricao']}</td>
-                                                <td><button type='button' onclick='selecionarPagamento({$paymentMethod['id']}, \"{$paymentMethod['descricao']}\")'><i data-feather='check'></i></button></td>
+                                                <td><button type='button' class='check' onclick='selecionarPagamento({$paymentMethod['id']}, \"{$paymentMethod['descricao']}\")'><i data-feather='arrow-right'></i></button></td>
                                             </tr>
                                             ";
                                             }
@@ -165,7 +164,7 @@ class AddSaleView
                                 <span>R$ 0.00</span>
                             </div>
 
-                            <div class="botoes">
+                            <div class="btn-sale">
                                 <button type="reset" onclick="location.href=`${host}/sale`">CANCELAR <i data-feather="x"></i></button>
                                 <button type="submit" class="submit">FINALIZAR <i data-feather="check"></i></button>
                             </div>

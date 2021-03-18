@@ -20,9 +20,9 @@ class EditProductView
 
         <body>
             <?php include "components/Sidebar.php" ?>
-            <main class="wide">
+            <main>
                 <header>
-                    <i class="menu-toggle" data-feather="menu"></i>
+                    <i class="menu-toggle disabled" data-feather="menu"></i>
                     <h1>EDITAR PRODUTO</h1>
                 </header>
 
@@ -30,15 +30,15 @@ class EditProductView
                     <form action="/update/product" method="POST">
                         <div class="conteudo-cadastro">
                             <input type="hidden" name="productId" value="<?php echo $params['id']; ?>">
-                            <label for="nome">Nome do produto</label>
+                            <label for="nome" class="label1">Nome do produto</label>
                             <input type="text" name="nome" id="nome" value="<?php echo $params['product']['nome']; ?>">
-                            <label for="unidade">Unidade</label>
+                            <label for="unidade" class="label2">Unidade</label>
                             <input type="text" name="unidade" id="unidade" value="<?php echo $params['product']['unidade']; ?>">
-                            <label for="valorVenda">Valor de venda do produto</label>
+                            <label for="valorVenda" class="label3">Valor de venda do produto</label>
                             <input type="text" name="valorVenda" id="valor_venda" value="<?php echo $params['product']['valorVenda']; ?>">
-                            <label for="codigoBarras">Codigo de barras do produto</label>
+                            <label for="codigoBarras" class="label4">Codigo de barras do produto</label>
                             <input type="text" name="codigoBarras" id="codigo_barras" value="<?php echo $params['product']['codigoBarras']; ?>">
-                            <label for="categoria">Categoria</label>
+                            <label for="categoria" class="label5">Categoria</label>
                             <select name="categoria" id="categoria">
                                 <option disabled>Selecione uma opção</option>
                                 <?php

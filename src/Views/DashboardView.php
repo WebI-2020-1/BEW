@@ -27,8 +27,10 @@ class DashboardView
                     <h1>Business Enterprise Webshop</h1>
                     <br>
                     <div class="shortcuts">
-                        <a href="/add/sale">Efetuar venda</a>
-                        <a href="/add/purchase">Efetuar compra</a>
+                        <button type="button" onclick="location.href=`${host}/add/client`">Adicionar cliente</button>
+                        <button type="button" onclick="location.href=`${host}/add/product`">Adicionar produto</button>
+                        <button type="button" onclick="location.href=`${host}/add/sale`">Efetuar venda</button>
+                        <button type="button" onclick="location.href=`${host}/add/purchase`">Efetuar compra</button>
                     </div>
                 </div>
             </main>
