@@ -4,11 +4,13 @@
 
 <p align="justify">Business Enterprise Webshop (BEW) é um sistema de gerenciamento de vendas desenvolvido para a matéria de Laboratório de Programação Web I.</p>
 
-![LICENSE](https://img.shields.io/badge/MIT-19BF72?style=flat-square&label=License&Color=white&labelColor=0D1117)
-![REPO SIZE](https://img.shields.io/github/repo-size/projetoscms/bew?color=19BF72&label=Repo%20Size&style=flat-square&labelColor=0D1117)
-![LAST COMMIT](https://img.shields.io/github/last-commit/projetoscms/bew?color=19BF72&label=Last%20Commit&style=flat-square&labelColor=0D1117)
-![STATUS](https://img.shields.io/badge/Development-19BF72?style=flat-square&label=Status&Color=white&labelColor=0D1117)
-
+<p align="center">
+  <img src="https://img.shields.io/badge/MIT-19BF72?style=flat-square&label=License&Color=white&labelColor=0D1117" />
+  <img src="https://img.shields.io/github/repo-size/projetoscms/bew?color=19BF72&label=Repo%20Size&style=flat-square&labelColor=0D1117" />
+  <img src="https://img.shields.io/github/last-commit/projetoscms/bew?color=19BF72&label=Last%20Commit&style=flat-square&labelColor=0D1117" />
+  <img src="https://img.shields.io/badge/Development-19BF72?style=flat-square&label=Status&Color=white&labelColor=0D1117" />
+</p>
+  
 <p align="center">
   <a href="#sobre">Sobre</a> •
   <a href="#tecnologias">Tecnologias</a> •
@@ -22,12 +24,14 @@
 
 As seguintes ferramentas estão sendo utilizadas na construção do projeto:
 
-![HTML5](https://img.shields.io/badge/html%205-0D1117?style=for-the-badge&logo=html5&logoColor=white&labelColor=E34F26)
-![CSS3](https://img.shields.io/badge/css%203-0D1117?style=for-the-badge&logo=css3&logoColor=white&labelColor=1572B6)
-![JavaScript](https://img.shields.io/badge/-JavaScript-0D1117?style=for-the-badge&logo=javascript&logoColor=white&labelColor=F7DF1E)
+<p align="center">
+  <img src="https://img.shields.io/badge/html%205-0D1117?style=for-the-badge&logo=html5&logoColor=white&labelColor=E34F26" />
+  <img src="https://img.shields.io/badge/css%203-0D1117?style=for-the-badge&logo=css3&logoColor=white&labelColor=1572B6" />
+  <img src="https://img.shields.io/badge/-JavaScript-0D1117?style=for-the-badge&logo=javascript&logoColor=white&labelColor=F7DF1E" />
 
-![PHP](https://img.shields.io/badge/-php-0D1117?style=for-the-badge&logo=php&logoColor=white&labelColor=777BB4)
-![MariaDB](https://img.shields.io/badge/-mariadb-0D1117?style=for-the-badge&logo=mariadb&logoColor=white&labelColor=003545)
+  <img src="https://img.shields.io/badge/-php-0D1117?style=for-the-badge&logo=php&logoColor=white&labelColor=777BB4" />
+  <img src="https://img.shields.io/badge/-mariadb-0D1117?style=for-the-badge&logo=mariadb&logoColor=white&labelColor=003545" />
+</p>
 
 <h2 id="licenca">Licença</h2>
 
